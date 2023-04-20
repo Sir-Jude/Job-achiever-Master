@@ -62,13 +62,16 @@ class Game:
         print(f"C   {self.field['C'][0]}   {self.field['C'][1]}   {self.field['C'][2]}")
     
     def make_move(self, who):
-        print("A, B or C?")
-        move_letter = input("Choose your row: ").capitalize()
-        print("1, 2 or 3?")
-        move_column = int(input("Choose your column: "))
-        if move_letter in ["A","B","C"] and move_column in [1,2,3]:
-            if self.field[move_letter][move_column-1] == " ":
-                self.field[move_letter][move_column-1] = who
+        print(
+            """Choose a square
+            1, 2, 3
+            4, 5, 6
+            7, 8, 9""")
+        square = int(input(""))
+        
+        if square in range(1, 10):
+            if self.field[num] == " ":
+                self.field[num] = square
             else:
                 print("nah")
         else:
