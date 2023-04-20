@@ -1,7 +1,7 @@
 import openai
 from stringcolor import * # for color, importing stringcolor library
 
-openai.api_key = "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" # api key
+openai.api_key = "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" # api key
 model 	       = "gpt-3.5-turbo" # choosing gpt model
 
 role ="""
