@@ -4,7 +4,7 @@ from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 from io import BytesIO # needed to save letter as pdf
 
-openai.api_key = "input API key"
+openai.api_key = ""
 
 def get_user_input():   # give info to AI to put in cover letter
     name = input("Enter your name: ")
