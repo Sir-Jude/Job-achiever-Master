@@ -32,9 +32,13 @@ class Recrutier:
         self.company = company # just a string
         self.position = position # just a string
         self.atitude = "" # just a string
+        self.goals = "" # just a string
 
     def set_atitude(self, atitude): # feed it with a string
         self.atitude = atitude
+
+    def set_goals(self, goals): # feed it with a string
+        self.goals = goals
 
 class Adviser_Bot:
     def __init__(self):
