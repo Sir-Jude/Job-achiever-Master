@@ -3,7 +3,7 @@ from stringcolor import *
 import time
 
 """openai.api_key = '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'"""
-openai.api_key = "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"
+openai.api_key = "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"
 
 
 sys_message_1 = """You are a counselor at the Jobcenter in Magdeburg.
