@@ -1,9 +1,12 @@
 class Candidate:
-    def __init__(self, name, family_name, birthday, sex):
+    def __init__(self, name, family_name, birthday, sex, phone, email, adress):
         self.name = name # just a string
         self.family_name = family_name # just a string
         self.birthday = birthday # date formated string
         self.sex = sex # just a string
+        self.phone = phone # just a string
+        self.email = email # just a string
+        self.adress = adress # just a string
         self.experience = [] # list of objects
         self.studies = [] # list of objects
         self.hobbies = [] # list of objects
