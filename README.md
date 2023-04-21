@@ -38,5 +38,8 @@ create something unique
 ### 3. Create an app password
  - go to the link fro creating an [app password](https://myaccount.google.com/u/4/apppasswords)
  - click on the first dropdown menu7
- -  Select "Other (Custom name)"
- - 
+ - Select "Other (Custom name)"
+ - choose a name (for example "Python")
+ - copy the 16 character app password in the yellow box
+
+ ## 4. Follow the instruction in the video 
