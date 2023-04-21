@@ -6,11 +6,11 @@ import requests
 from io import BytesIO
 from PIL import Image
 
-openai.api_key = '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'
+openai.api_key = 'Insert your API key'
 
 #Generate an image
 response = openai.Image.create(
-  prompt="the best python programmer ever",
+  prompt="the best python programmer in the world",
   n=1,
   size="1024x1024"
 )
@@ -32,7 +32,7 @@ pdf = FPDF()
 pdf.add_page()
 
 #Logo
-pdf.image('output.png', 0, 0, 35)
+pdf.image('output.png', 0, 0, 45)
 
 # Set the font and font size
 pdf.set_font("Arial", 'B', size=20)
