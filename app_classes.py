@@ -1,3 +1,5 @@
+# PERSONS and BOTS
+
 class Candidate:
     def __init__(self, name, family_name, birthday, sex, phone, email, adress):
         self.name = name # just a string
@@ -25,7 +27,6 @@ class Candidate:
     def set_short_description(self, short_description): # feed it with a string
         self.short_description = short_description
 
-
 class Recrutier:
     # All those atributes will be used to describe the role of recrutier bot
     def __init__(self, name, family_name, sex, company, position):
@@ -46,3 +47,29 @@ class Recrutier:
 class Adviser_Bot:
     def __init__(self):
         self.role_description = "" # The role description for our advisor
+
+# CV ELEMENTS
+
+class Experience:
+    def __init__(self, title, description, company, date_start, date_end):
+        self.title = title # just a string
+        self.description = description # just a string
+        self.company = company # just a string
+        self.date_start = date_start # date formated string
+        self.date_end = date_end # date formated string
+
+class Study:
+    def __init__(self, title, description, school, date_start, date_end):
+        self.title = title # just a string
+        self.description = description # just a string
+        self.school = school # just a string
+        self.date_start = date_start # date formated string
+        self.date_end = date_end # date formated string
+
+class Hobby:
+    def __init__(self, description):
+        self.description = description # just a string
+
+class Skill:
+    def __init__(self, description):
+        self.description = description # just a string
