@@ -2,8 +2,8 @@ import openai, sys, os
 from stringcolor import *
 import time
 
-"""openai.api_key = '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'"""
-openai.api_key = "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"
+openai.api_key = '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'# Markus
+# openai.api_key = "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" # Adrians
 
 
 sys_message_1 = """You are a counselor at the Jobcenter in Magdeburg.
