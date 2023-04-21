@@ -49,7 +49,6 @@ class Adviser_Bot:
         self.role_description = "" # The role description for our advisor
 
 # CV ELEMENTS
-
 class Experience:
     def __init__(self, title, description, company, date_start, date_end):
         self.title = title # just a string
@@ -72,4 +71,11 @@ class Hobby:
 
 class Skill:
     def __init__(self, description):
+        self.description = description # just a string
+
+# JOB ELEMENTS
+class Job:
+    def __init__(self, position, company, description):
+        self.position = position # just a string
+        self.company = company # just a string
         self.description = description # just a string
