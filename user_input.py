@@ -1,10 +1,7 @@
-
-
 class User:
     """
     A class to get User details.
 
-    
     """
     def __init__(self) -> None:
         self.first_name = None
@@ -68,6 +65,7 @@ class User:
                 }
     
     def get_info(self):
+        """Returns a """
         self.first_name = self.get_first_name()
         self.last_name = self.get_last_name()
         self.DOB = self.get_DOB()
@@ -79,11 +77,11 @@ class User:
             if add_experience == 'n':
                 break
             elif add_experience == 'y':
-                self.experience.append(self.get_education())
+                self.experience.append(self.get_experience())
 
         while True:
-            add_education = input('Would you like to add your work experience (Y,N):').lower()
+            add_education = input('Would you like to add your education (Y,N):').lower()
             if add_education == 'n':
                 break
             elif add_education == 'y':
-                self.experience.append(self.get_education())
+                self.education.append(self.get_education())
