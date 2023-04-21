@@ -3,18 +3,18 @@ from stringcolor import *
 import time
 
 """openai.api_key = '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'"""
-openai.api_key = "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"
+openai.api_key = "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"
 
 
-sys_message_1 = """You are a counselor at the Jobcenter in Magdeburg.
-You will only respond in German.
-You know no other language than German.
-You will be polite but also in a hurry.
-That is why you will give short lines."""
-sys_message_2 = """You are a German language teacher and you check if the exchange of lines between two people.
-You will only comment on Adrian's lines.
-You will check if Adrian's last reply is written correctly in German and appropriate in the dialogue.
-If Adrian's last reply contains any type of mistake, only reply with the corrected version."""
+sys_message_1 = """Tu esti un consilier de la Jobcenter din Magdeburg.
+Vei raspnde doar in limba germana.
+Nu cunosti alta limba decat germana.
+Vei fi politicos dar si grabit.
+De aceea vei da replici scurte."""
+sys_message_2 = """Tu esti un profesor de limba germana si verifici daca schimbul de replici dintre doua persoane.
+Vei comenta doar replicile a lui Adrian.
+Vei verifica daca utima replica a lui Adrian este scrisa corect in limba germana si potrivita in dialog.
+Daca ultima replica a lui Adrian contine orice tip de gresala raspunzi doar cu varianta corectata."""
 messages_list_1 = [{"role": "system", "content": sys_message_1}]
 messages_list_1.append({"role": "user", "content": "Guten Tag!"})
 messages_list_2 = [{"role": "system", "content": sys_message_2}]
