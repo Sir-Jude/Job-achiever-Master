@@ -1,4 +1,30 @@
+import openai
+import os
 from fpdf import FPDF
+from user_input import User
+import requests
+from io import BytesIO
+from PIL import Image
+
+openai.api_key = 'Insert your API key'
+
+#Generate an image
+response = openai.Image.create(
+  prompt="the best python programmer in the world",
+  n=1,
+  size="1024x1024"
+)
+image_url = response['data'][0]['url']
+
+print(image_url)
+
+# Download the image data from the URL
+response = requests.get(image_url)
+image_data = BytesIO(response.content)
+
+# Open the image data with Pillow and save it as a PNG file
+image = Image.open(image_data)
+image.save("output.png", format="PNG")
 
 pdf = FPDF()
 
@@ -6,7 +32,7 @@ pdf = FPDF()
 pdf.add_page()
 
 #Logo
-pdf.image('logo_pb.png', 0, 0, 35)
+pdf.image('output.png', 0, 0, 45)
 
 # Set the font and font size
 pdf.set_font("Arial", 'B', size=20)
