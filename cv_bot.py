@@ -6,52 +6,133 @@ import requests
 from io import BytesIO
 from PIL import Image
 
-openai.api_key = 'Insert your API key'
+openai.api_key = "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"
 
-#Generate an image
-response = openai.Image.create(
-  prompt="the best python programmer in the world",
-  n=1,
-  size="1024x1024"
-)
-image_url = response['data'][0]['url']
+start = True
 
-print(image_url)
+while start is True:
+    print("Hey man, I`m your personal CV maker. Choose the option below:")
+    print()
+    print("1.Generate photo")
+    print("2.Upload photo")
+    print()
+    choice = input("Make your choice: ")
+    print()
+    print("Ok, u chose: ", choice)
+    print()
 
-# Download the image data from the URL
-response = requests.get(image_url)
-image_data = BytesIO(response.content)
+    if choice == "1":
+        description = input("Give me any description you want to generate as image: ")
 
-# Open the image data with Pillow and save it as a PNG file
-image = Image.open(image_data)
-image.save("output.png", format="PNG")
+        # Generate an image
+        response = openai.Image.create(prompt=description, n=1, size="1024x1024")
+        image_url = response["data"][0]["url"]
+        print(image_url)
 
-pdf = FPDF()
+        # Download the image data from the URL
+        response = requests.get(image_url)
+        image_data = BytesIO(response.content)
 
-# Add a page
-pdf.add_page()
+        # Open the image data with Pillow and save it as a PNG file
+        image = Image.open(image_data)
+        image.save("output.png", format="PNG")
 
-#Logo
-pdf.image('output.png', 0, 0, 45)
+        pdf = FPDF()
 
-# Set the font and font size
-pdf.set_font("Arial", 'B', size=20)
+        # Add a page
+        pdf.add_page()
 
-#create a cell
-pdf.cell(200, 10, txt = 'GROUP CHARLIE ', ln = 1, align = 'C')
+        # Logo
+        pdf.image("output.png", 0, 0, 45)
 
-#add another cell
-pdf.cell(200, 10, txt = 'A very simple PDF file', ln = 2, align = 'C')
+        # Set the font and font size
+        pdf.set_font("Arial", "B", size=20)
 
-#add another cell
-pdf.set_font("Arial", 'B', size=18)
-pdf.cell(200, 20, txt = 'Group members:', ln = 2, align = 'L')
-members = ['Giulio', 'Spencer', 'Connor', 'Kyrylo', 'Adrian', 'Mathias', 'Semen']
-for member in members:
-    pdf.set_font('Arial', size=16)
-    pdf.cell(200, 10, txt = member, border = 1, ln = 2, align = 'L',)
+        # create a cell
+        pdf.cell(200, 10, txt="GROUP CHARLIE ", ln=1, align="C")
 
-# Save the PDF file
-pdf.output('CV.pdf', 'F')
+        # add another cell
+        pdf.cell(200, 10, txt="A very simple PDF file", ln=2, align="C")
 
+        # add another cell
+        pdf.set_font("Arial", "B", size=18)
+        pdf.cell(200, 20, txt="Group members:", ln=2, align="L")
+        members = [
+            "Giulio",
+            "Spencer",
+            "Connor",
+            "Kyrylo",
+            "Adrian",
+            "Mathias",
+            "Semen",
+        ]
+        for member in members:
+            pdf.set_font("Arial", size=16)
+            pdf.cell(
+                200,
+                10,
+                txt=member,
+                border=1,
+                ln=2,
+                align="L",
+            )
 
+        # Save the PDF file
+        pdf.output("CV.pdf", "F")
+
+        start = False
+
+    elif choice == "2":
+        # prompt the user to provide the path of the image they want to upload
+        image_path = input("Please enter the path of the image you want to upload: ")
+
+        # open the image using PIL
+        image = Image.open(image_path)
+
+        # save the image as a PNG file
+        image.save("output.png", format="PNG")
+
+        pdf = FPDF()
+
+        # Add a page
+        pdf.add_page()
+
+        # Logo
+        pdf.image("output.png", 0, 0, 45)
+
+        # Set the font and font size
+        pdf.set_font("Arial", "B", size=20)
+
+        # create a cell
+        pdf.cell(200, 10, txt="GROUP CHARLIE ", ln=1, align="C")
+
+        # add another cell
+        pdf.cell(200, 10, txt="A very simple PDF file", ln=2, align="C")
+
+        # add another cell
+        pdf.set_font("Arial", "B", size=18)
+        pdf.cell(200, 20, txt="Group members:", ln=2, align="L")
+        members = [
+            "Giulio",
+            "Spencer",
+            "Connor",
+            "Kyrylo",
+            "Adrian",
+            "Mathias",
+            "Semen",
+        ]
+        for member in members:
+            pdf.set_font("Arial", size=16)
+            pdf.cell(
+                200,
+                10,
+                txt=member,
+                border=1,
+                ln=2,
+                align="L",
+            )
+
+        # Save the PDF file
+        pdf.output("CV.pdf", "F")
+
+        start = False
