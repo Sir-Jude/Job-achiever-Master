@@ -6,7 +6,7 @@ import requests
 from io import BytesIO
 from PIL import Image
 
-openai.api_key = "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"
+openai.api_key = "Enter your API key"
 
 start = True
 
