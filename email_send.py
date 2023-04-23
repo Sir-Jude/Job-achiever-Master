@@ -1,20 +1,20 @@
 # Import:
-# - the class EmailMessage
+# - the class "EmailMessage", to create an email object 
 from email.message import EmailMessage
 
-# - ssl to implement ad additional level of security
+# - the module "ssl", to encript the connection
 import ssl
 
-# - smtplib to send the email
+# - the smtplib module, to send the email
 import smtplib
 
-# email of the sender (that allowing 2-Step Verification)
+# email address of the sender
 email_sender = "jude.smiley.python@gmail.com"
 
 # app password
 email_password = "yixc lqff lkzg lsvp"
 
-# email f the receiver
+# email address of the receiver
 email_receiver = "jude.smiley.python@gmail.com"
 
 # object of the email
@@ -30,7 +30,7 @@ em = EmailMessage()
 em["from"] = email_sender
 em["to"] = email_receiver
 em["object"] = object
-# use the EmailMessage method "set_content" for include the text of the email
+# use the EmailMessage method "set_content" for including the email's text
 em.set_content(body)
 
 # use the ssl method "create_default_context()"

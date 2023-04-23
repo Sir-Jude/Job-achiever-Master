@@ -42,4 +42,9 @@ create something unique
  - choose a name (for example "Python")
  - copy the 16 character app password in the yellow box
 
- ## 4. Follow the instruction in the video 
+ ## 4. Import the necessary modules
+ - **EmailMessage** class, from the *email.message* module (submodule of *email* package).
+    This creates an email object, which sets its object, body and sender/receiver's address.
+ - **smtplib**
+ - **ssl** module, which will encrypt the connection.
+    This makes sure both the login credentials and message are not easily accessed by others.
