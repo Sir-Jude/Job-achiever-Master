@@ -6,28 +6,22 @@ create something unique
 - each day I will give you an additional task to include into your program (based on that days lecture)
 - YOUR OPENAI KEY: 
 
-
-
 ## little reminder
 - collaborate on the work using github & board
 - create a presentation for next week!
 
-
-
 ## AI PROJECT - ADDITIONAL TASK
 - include some sort of stubbing in one of your unittests
-- OPTIONAL: include some sort of mocking
-
+- OPTIONAL: include some sort of mocking  
+---
 
 
 ## Email sender
-### Detailed instructions: [How to Send Emails with Python](https://www.youtube.com/watch?v=g_j6ILT-X0k&ab_channel=ThePyCoach)
 
 ### 1. Create and log into a gmail account
  - create a throwaway gmail account (to be used for testing)
  - log in the new account
  - go to the setting page of your [google account](https://www.myaccount.google.com)
-
 
  ### 2. Allow the 2-Steps Veriication
  - click on "Security" (on the left)
@@ -50,4 +44,9 @@ create something unique
  - **ssl** module.  
     This encrypts the connection and makes sure both the login credentials and message are not easily accessed by others.
 
-## 5. 
+## 5. Create an object email and provide its attribute
+ - 
+
+ ### References:
+ - [python **email** documentation](https://docs.python.org/3/library/email.html)
+ - ["How to Send Emails with Python"](https://www.youtube.com/watch?v=g_j6ILT-X0k&ab_channel=ThePyCoach)
