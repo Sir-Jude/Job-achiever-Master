@@ -37,16 +37,17 @@ create something unique
  - copy the 16 character app password in the yellow box
 
  ## 4. Import the necessary modules
- - **EmailMessage** class.  
-    This is a class of the *email.message* module (submodule of *email* package) and creates an email object, which sets its object, body and sender/receiver's address.
- - **smtplib** module.  
-    The Simple Mail Transfer Protocol LIBrary takes care of sending the email
+ - **EmailMessage**  
+   This is a class of the *email.message* module (submodule of *email* package) and creates an email object, which sets its object, body and sender/receiver's address.
+ - **SMTP_SSL**  
+   This is a class of the standard library smtplib (Simple Mail Transfer Protocol LIBrary) and  takes care of sending the email
  - **ssl** module.  
-    This encrypts the connection and makes sure both the login credentials and message are not easily accessed by others.
+   This encrypts the connection and makes sure both the login credentials and message are not easily accessed by others.
 
 ## 5. Create an object email and provide its attribute
- - 
+ 
 
  ### References:
- - [python **email** documentation](https://docs.python.org/3/library/email.html)
- - ["How to Send Emails with Python"](https://www.youtube.com/watch?v=g_j6ILT-X0k&ab_channel=ThePyCoach)
+ - Python docs: [**email** package](https://docs.python.org/3/library/email.html)
+ - YouTube :["How to Send Emails with Python"](https://www.youtube.com/watch?v=g_j6ILT-X0k&ab_channel=ThePyCoach)
+ ---
