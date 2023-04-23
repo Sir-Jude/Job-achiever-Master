@@ -17,7 +17,9 @@ create something unique
 
 
 ## Email sender
+
 In this code we are going to use a **gmail** account, but the concepts apply to any other email server provider.
+![Email internet path](email.png)
 
 ### 1. Create and log into a gmail account
  - create a throwaway gmail account (to be used for testing)
@@ -73,5 +75,5 @@ In this code we are going to use a **gmail** account, but the concepts apply to 
 
  ### References:
  - Python docs: [**email** package](https://docs.python.org/3/library/email.html)
- - YouTube :["How to Send Emails with Python"](https://www.youtube.com/watch?v=g_j6ILT-X0k&ab_channel=ThePyCoach)
+ - YouTube :["Sending Emails With Python Including Attachments"](https://www.youtube.com/watch?v=Sddnn6dpqk0&t=733s&ab_channel=TheIntriguedEngineer)
  ---
