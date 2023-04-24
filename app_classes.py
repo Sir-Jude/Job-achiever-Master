@@ -80,7 +80,7 @@ class Adviser_Bot:
         self.recrutier_dates = f'{self.recrutier.name} {self.recrutier.family_name} ({self.recrutier.sex}), having "{self.recrutier.position}" position by "{self.recrutier.company}".'
 
         # Preformating job description
-        self.job_description = f'The job was found on {self.job.source} having "{self.job.position}" as position.\nJob description:{self.job.description}.'
+        self.job_description = f'The job was found on {self.job.source} having "{self.job.position}" as position.\nJob description:{self.job.description}'
 
         # Roles for bot init
         self.role_description =''
