@@ -15,7 +15,7 @@ def bot_request(messages):
     return response.choices[0].message.content
 
 def bot_message(role, content):
-    """Takes the role and content for bot and put them in the switable format:
+    """Takes the role and content for bot and put them in the suitable format:
     {"role": "system", "content": "setting the context"}"""
     message = {"role": role, "content": content}
     return message
