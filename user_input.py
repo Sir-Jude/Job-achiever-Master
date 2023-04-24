@@ -1,3 +1,4 @@
+from datetime import datetime
 class User:
     """
     A class to get User details.
@@ -16,15 +17,21 @@ class User:
     def get_first_name(self) -> str:
         """Takes a users first name"""
         return input('First Name: ')
-
+    
     def get_last_name(self) -> str:
         """Takes a users Last name"""
         return input('Last Name : ')
 
     def get_DOB(self) -> str:
         """Takes a users Date of Birth"""
-        return input('Date of Birth (DD.MM.YYYY): ')
-    
+        while True:
+            dob_str = input('Date of Birth (DD.MM.YYYY): ')
+            try: 
+                dob = datetime.strptime(dob_str, '%d.%m.%Y')
+                return dob
+            except ValueError:
+                print("Invalid input you must enter DD.MM.YYYY")
+
     def get_email(self) -> str:
         """Takes a users Email address"""
         return input('Email: ')
@@ -85,3 +92,38 @@ class User:
                 break
             elif add_education == 'y':
                 self.education.append(self.get_education())
+
+
+
+    def print_info(self) -> None:
+        """Prints out the user's information"""
+        print(f"First Name: \t{self.first_name}")
+        print(f"Last Name: \t{self.last_name}")
+        print(f"Date of Birth: \t{self.DOB.strftime('%d.%m.%Y')}")
+        print(f"Email: \t\t{self.email}")
+        print(f"Phone Number: \t{self.phone}")
+
+        if len(self.experience) > 0:
+            print("Work Experience:")
+            for exp in self.experience:
+                print(f"\tCompany: {exp['Company']}")
+                print(f"\tStart Date: {exp['Start date']}")
+                print(f"\tEnd Date: {exp['End date']}")
+                print(f"\tJob Title: {exp['Job Title']}")
+                print(f"\tJob Description: {exp['Job Description']}")
+                print()
+
+        if len(self.education) > 0:
+            print("Education:")
+            for edu in self.education:
+                print(f"\tSchool Name: {edu['School name']}")
+                print(f"\tType of Education: {edu['Type of Education']}")
+                print(f"\tCourse Name: {edu['Name of the Course']}")
+                print(f"\tStart Date: {edu['Start date']}")
+                print(f"\tEnd Date: {edu['End date']}")
+                print(f"\tCourse Description: {edu['Course Description']}")
+                print()
+
+user1 = User()
+user1.get_info()
+user1.print_info()
