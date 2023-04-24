@@ -1,5 +1,5 @@
 import openai
-openai.api_key = "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" # API Key here
+openai.api_key = "" # API Key here
 
 def bot_request(messages):
     """Takes all the messages needed for response in this format:
