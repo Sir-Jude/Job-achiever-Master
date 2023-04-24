@@ -96,6 +96,9 @@ Recrutier personal infos:
 Job informations:
 {self.job_description}"""
 
+    def show_user_input(self):
+        return self.user_input
+
     def generate_letter(self):
         self.role_description = f"""You are a cover letter creator for jobs.
 Based on the input you receive, you will compose the content of a cover letter for the desired job based only on the data provided.
@@ -104,9 +107,6 @@ Don't mention unnecesary informations from my experience or education.
 Write the text of the letter in {self.language} in a style suitable for the job to which the candidate is applying.
 You don't ask questions or say anything other than the content of the cover letter."""
 
-        # Just to test the given user input
-        print(self.user_input)
-        print()
         messages=[
             bot_message("system", self.role_description),
             bot_message("user", self.user_input)
@@ -118,9 +118,6 @@ You don't ask questions or say anything other than the content of the cover lett
 You must create a strong CV opening statement in {self.language} that sums up your strengths, experience and motivation to impress employers with.
 The statemen created by you will be a maximum of one or two sentences and can be included manually in the CV."""
 
-        # Just to test the given user input
-        print(self.user_input)
-        print()
         messages=[
             bot_message("system", self.role_description),
             bot_message("user", self.user_input)
@@ -134,9 +131,6 @@ You will sugest better answers for candidate when his are not good enough.
 You don't ask questions or say anything other than the comments on the dialogs from job interview."""
         self.user_input += f"\n\nThe interview content:\n{interview}"
 
-        # Just to test the given user input
-        print(self.user_input)
-        print()
         messages=[
             bot_message("system", self.role_description),
             bot_message("user", self.user_input)

@@ -1,6 +1,7 @@
 import os
 import app_classes
 import app_functions
+import time
 
 candidate = app_classes.Candidate("Adrian", "Radu", "11.03.1977", "male", "0123456789", "adrian@email.de", "Ritterstr. 11b, 39124 Magdeburg")
 experience_1 = app_classes.Experience("Webdesigner", "Responsable for mentenance of the company websites.", "IATOM", "10.10.2010", "23.09.2022")
@@ -34,5 +35,12 @@ DAS BRINGEN SIE MIT
 """
 job = app_classes.Job("DevOps Engineer - Open Source", job_description, "www.stepstone.de")
 
-adviser = app_classes.Adviser_Bot(candidate, recrutier, job, "english")
+adviser = app_classes.Adviser_Bot(candidate, recrutier, job, "german")
+print(adviser.show_user_input())
+print()
+print("SHORT DESCRIPTION FOR CV:")
 print(adviser.generate_cv_short_description())
+time.sleep(2)
+print()
+print("COVER LETTER:")
+print(adviser.generate_letter())
