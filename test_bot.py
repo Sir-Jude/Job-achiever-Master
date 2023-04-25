@@ -37,9 +37,11 @@ job = app_classes.Job("DevOps Engineer - Open Source", job_description, "www.ste
 
 adviser = app_classes.Adviser_Bot(candidate, recrutier, job, "english")
 print(adviser.show_user_input())
+print("==============================================================================")
 print()
 print("SHORT DESCRIPTION FOR CV:")
 print(adviser.generate_cv_short_description())
+print("==============================================================================")
 time.sleep(2)
 print()
 print("COVER LETTER:")
