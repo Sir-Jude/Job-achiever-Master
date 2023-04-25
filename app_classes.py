@@ -6,7 +6,7 @@ bot_message = app_functions.bot_message
 # PERSONS and BOTS
 
 class Candidate:
-    def __init__(self, name, family_name, birthday, sex, phone, email, adress):
+    def __init__(self, name="", family_name="", birthday="", sex="", phone="", email="", adress=""):
         self.name = name # just a string
         self.family_name = family_name # just a string
         self.birthday = birthday # date formated string
@@ -37,7 +37,7 @@ class Candidate:
 
 class Recrutier:
     # All those atributes will be used to describe the role of recrutier bot
-    def __init__(self, name, family_name, sex, company, position, company_address):
+    def __init__(self, name="", family_name="", sex="", company="", position="", company_address=""):
         self.name = name # just a string
         self.family_name = family_name # just a string
         self.sex = sex # just a string
