@@ -67,7 +67,7 @@ interview += "Candidate: What is the next step in the hiring process?\n"
 interview += "Recrutier: Well, if you'll be chosen, than you'll receive a trial period contract.\n"
 interview += "Candidate: Thank you for the interview oportunity.\n"
 interview += "Recrutier: Wellcome. Have a good day.\n"
-
+print("==============================================================================")
 time.sleep(2)
 print()
 print("INTERVIEW ANALYSE:")
