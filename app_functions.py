@@ -1,5 +1,8 @@
+import re
 import openai
 openai.api_key = "" # API Key here
+
+# AI BOT functions
 
 def bot_request(messages):
     """Takes all the messages needed for response in this format:
@@ -19,3 +22,44 @@ def bot_message(role, content):
     {"role": "system", "content": "setting the context"}"""
     message = {"role": role, "content": content}
     return message
+
+# INPUT functions
+
+def input_strict(string, list):
+    """A function to restrict the answers to the given options in the list:
+    Example: input_strict("The message for user: ", ["1","2","x"])"""
+    while True:
+        answer = input(string)
+        if answer in list:
+            return answer
+        else:
+            print("Please insert just one of the given options.")
+
+def input_int(string):
+    """A function to prevent string inputs"""
+    while True:
+        answer = input(string)
+        if answer.isdecimal() and answer != "": # escape alphas
+            return int(answer)
+        else:
+            print("Please insert only numbers.")
+
+def input_alfa(string):
+    """A function to restrict inputs to letters and spaces only"""
+    pattern = r'^[a-zA-Z ]*$'
+    while True:
+        answer = input(string)
+        if re.match(pattern, answer) and len(answer) >= 1:
+            return answer
+        else:
+            print("Please insert only letters and 'space'.")
+
+def input_date(string):
+    """A function to restrict inputs to date format only"""
+    pattern = r'^\d{2}\.\d{2}\.\d{4}$'
+    while True:
+        answer = input(string)
+        if re.match(pattern, answer):
+            return answer
+        else:
+            print("Please insert only dates in this format dd.mm.yyyy")
