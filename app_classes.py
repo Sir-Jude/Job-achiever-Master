@@ -1,5 +1,4 @@
 import app_functions
-openai = app_functions.openai
 bot_request = app_functions.bot_request
 bot_message = app_functions.bot_message
 
