@@ -24,13 +24,8 @@ receivers = [
 # subject of the email
 subject = "Test email"
 
-body = f"""
-Hi,
-
-this is the email test number 13.
-
-Regards"""
-
+with open("test_email.txt", 'r') as file:
+    body = file.read()
 
 def send_emails(receivers, body):
     # Initiate a "SMTP" class object, which requires 2 attributes:
