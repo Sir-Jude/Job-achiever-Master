@@ -2,9 +2,12 @@ import os
 import openai
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
+from reportlab.lib import pagesizes
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
+from reportlab.lib.styles import getSampleStyleSheet
 from io import BytesIO # needed to save letter as pdf
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 def get_user_input():   # give info to AI to put in cover letter
     name = input("Enter your name: ")
@@ -13,7 +16,7 @@ def get_user_input():   # give info to AI to put in cover letter
     age = input("Enter your age: ")
     position = input("Enter the position you are applying for: ")
     experience = input("Enter your past job experience: ")
-    language = input("Enter the language for you cover letter: ")
+    language = input("Enter the language for your cover letter: ")
     return name, company, hiring_manager, age, position, experience, language
 
 def generate_cover_letter(name, company, hiring_manager, age, position, experience, language):
@@ -36,16 +39,22 @@ def save_cover_letter_as_txt(cover_letter, filename): # if user chooses to save 
     with open(filename, 'w') as f:
         f.write(cover_letter)
 
-def save_cover_letter_as_pdf(cover_letter, filename): # if user chooses to save as pdf
+def save_cover_letter_as_pdf(cover_letter, filename):
     buffer = BytesIO()
-    c = canvas.Canvas(buffer, pagesize=letter)
-    c.setFont("Helvetica", 12)
-    textobject = c.beginText(50, 750)
-    for line in cover_letter.split("\n"):
-        textobject.textLine(line)
-    c.drawText(textobject)
-    c.showPage()
-    c.save()
+    width, height = pagesizes.letter
+    doc = SimpleDocTemplate(buffer, pagesize=letter)
+    styles = getSampleStyleSheet()
+    style = styles["Normal"]
+
+    cover_letter_lines = cover_letter.split("\n")
+    cover_letter_paragraphs = []
+    for index, line in enumerate(cover_letter_lines):
+        cover_letter_paragraphs.append(Paragraph(line, style))
+        if index < len(cover_letter_lines) - 1:  
+            cover_letter_paragraphs.append(Spacer(1, 12))  
+
+    doc.build(cover_letter_paragraphs)
+
     buffer.seek(0)
     with open(filename, "wb") as f:
         f.write(buffer.read())
