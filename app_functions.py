@@ -26,8 +26,9 @@ def bot_message(role, content):
 # INPUT functions
 
 def input_strict(string, list):
-    """A function to restrict the answers to the given options in the list:
-    Example: input_strict("The message for user: ", ["1","2","x"])"""
+    """A function to restrict the answers to the given options in the list.
+    The function take a message to prompt and a list of valid options.
+    Example: input_strict('The message for user: ', ['1','2','x'])"""
     while True:
         answer = input(string)
         if answer in list:
@@ -36,7 +37,9 @@ def input_strict(string, list):
             print("Please insert just one of the given options.")
 
 def input_int(string):
-    """A function to prevent string inputs"""
+    """A function to prevent string inputs.
+    The function take a message to prompt.
+    Example: input_int('The message for user: ')"""
     while True:
         answer = input(string)
         if answer.isdecimal() and answer != "": # escape alphas
@@ -45,7 +48,9 @@ def input_int(string):
             print("Please insert only numbers.")
 
 def input_alfa(string):
-    """A function to restrict inputs to letters and spaces only"""
+    """A function to restrict inputs to letters and spaces only.
+    The function take a message to prompt.
+    Example: input_alfa('The message for user: ')"""
     pattern = r'^[a-zA-Z ]*$'
     while True:
         answer = input(string)
@@ -55,11 +60,25 @@ def input_alfa(string):
             print("Please insert only letters and 'space'.")
 
 def input_date(string):
-    """A function to restrict inputs to date format only"""
+    """A function to restrict inputs to date format only.
+    The function take a message to prompt.
+    Example: input_date('The message for user: ')"""
     pattern = r'^\d{2}\.\d{2}\.\d{4}$'
     while True:
         answer = input(string)
         if re.match(pattern, answer):
             return answer
         else:
-            print("Please insert only dates in this format dd.mm.yyyy")
+            print("Please insert only a valid date in this format dd.mm.yyyy")
+
+def input_email(string):
+    """A function to restrict inputs to e-mails only.
+    The function take a message to prompt.
+    Example: input_email('The message for user: ')"""
+    pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+    while True:
+        answer = input(string)
+        if re.match(pattern, answer):
+            return answer
+        else:
+            print("Please insert a valid e-mail address.")
