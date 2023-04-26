@@ -1,8 +1,11 @@
 # imports
 # (here we imports all the modules)
+import app_classes
+import app_functions
 
 # Module Introduction
-# (which collects all the inputs for the personal info and the job)
+# (which collects all the inputs for the personal info and the job.
+# Please use the "input_..." functions in app_functions file to restrict and verify user inputs.)
 
 # Module CV
 # (which creates the CV)
