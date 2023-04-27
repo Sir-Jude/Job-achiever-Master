@@ -36,6 +36,8 @@ DAS BRINGEN SIE MIT
 job = app_classes.Job("DevOps Engineer - Open Source", job_description, "www.stepstone.de")
 
 adviser = app_classes.Adviser_Bot(candidate, recrutier, job, "english")
+
+print("==============================================================================")
 print(adviser.show_user_input())
 print("==============================================================================")
 print()
