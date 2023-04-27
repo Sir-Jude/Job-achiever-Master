@@ -136,7 +136,7 @@ You don't ask questions or say anything other than the comments on the dialogs f
         ]
         return bot_request(messages)
 
-    def assist_intervew(self):
+    def assist_intervew(self): # To be used in tandem.
         self.role_description = f"""You are a job interview adviser."""
         # Not finished yet
 
