@@ -1,12 +1,12 @@
 import openai
 import os
 from fpdf import FPDF
-from user_input import User
+# from user_input import User
 import requests
 from io import BytesIO
 from PIL import Image
 
-openai.api_key = "Enter your API key"
+openai.api_key = "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"
 
 start = True
 

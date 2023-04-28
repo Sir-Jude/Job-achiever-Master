@@ -1,4 +1,5 @@
 from datetime import datetime
+
 class User:
     """
     A class to get User details.

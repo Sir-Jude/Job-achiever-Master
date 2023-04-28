@@ -77,3 +77,10 @@ In this code we are going to use a **gmail** account, but the concepts apply to 
  - Python docs: [**email** package](https://docs.python.org/3/library/email.html)
  - YouTube :["Sending Emails With Python Including Attachments"](https://www.youtube.com/watch?v=Sddnn6dpqk0&t=733s&ab_channel=TheIntriguedEngineer)
  ---
+
+
+ ## User Input
+ The **user_input.py** file contains a 'User' class. The class gathers user information including: Name, Age, Email, Phone Number, Work Experience and Education.
+
+ To use this class you need to instantiate an object of the class and then call its **get_info()** method to get all the user info, then to display the user info call the **print_info()** method.
+ 
