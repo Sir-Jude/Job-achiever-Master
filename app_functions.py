@@ -75,7 +75,7 @@ def input_email(string):
     """A function to restrict inputs to e-mails only.
     The function take a message to prompt.
     Example: input_email('The message for user: ')"""
-    pattern = r'\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b'
+    pattern = r"^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$"
     while True:
         answer = input(string)
         if re.match(pattern, answer):
