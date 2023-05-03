@@ -72,18 +72,22 @@ job = app_classes.Job(
 
 adviser = app_classes.Adviser_Bot(candidate, recruiter, job, "english")
 
-"""print("==============================================================================")
+os.system('clear')
+print("==============================================================================")
 print(adviser.show_user_input())
 print("==============================================================================")
 print()
+input("Ready for Resume and Coer Letter? ")
+os.system('clear')
 print("SHORT DESCRIPTION FOR CV:")
 print(adviser.generate_cv_short_description())
 print("==============================================================================")
 time.sleep(2)
 print()
 print("COVER LETTER:")
-print(adviser.generate_letter())"""
-
+print(adviser.generate_letter())
+input("Ready for interview? ")
+os.system('clear')
 # A real interview simulation:
 os.system('clear')
 print(f"{recruiter.name}: Welcome {candidate.name}.")
@@ -93,7 +97,9 @@ while interview_on:
     bot_message = adviser.simulate_recruiter(recruiter, job, user_message)
     adviser.interview_history.append(app_functions.bot_message("assistant", bot_message))
     os.system('clear')
-    # print(interview_history)
+    # print initial informations
+    print(f'System: {adviser.interview_history[0]["content"]}')
+    # print interview_history
     for m in adviser.interview_history[1:]:
         if adviser.interview_history.index(m)%2 == 0:
             person = candidate.name
