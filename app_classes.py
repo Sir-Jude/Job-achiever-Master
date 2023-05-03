@@ -79,6 +79,7 @@ class Adviser_Bot:
         self.recrutier = recrutier
         self.job = job
         self.language = language
+        self.interview_history =[]
 
         # Preformating candidate informations
         self.candidate_dates = f"{self.candidate.name} {self.candidate.family_name} ({self.candidate.sex}), born on {self.candidate.birthday}."
@@ -161,7 +162,7 @@ You don't ask questions or say anything other than the comments on the dialogs f
         ]
         return bot_request(messages)
 
-    def simulate_recruiter(self, recruiter, job, old_messages):
+    def simulate_recruiter(self, recruiter, job, answer):
         self.role_description = f"""Your name is {recruiter.name} {recruiter.family_name}, are {recruiter.sex} and work in {recruiter.company_address} on {recruiter.position}.
 You posted a job for {job.position} on {job.source} with this description:
 {job.description}
@@ -174,8 +175,10 @@ You will be focused to cover all the necesary job questions with a {recruiter.at
 
         messages = [
             bot_message("system", self.role_description),
-            bot_message("assistent", f"Welcome {self.candidate.name}.")
-        ] + old_messages[2:]
+            bot_message("assistant", f"Welcome {self.candidate.name}.")
+        ] + self.interview_history[2:]
+        messages.append(bot_message("user",answer))
+        self.interview_history = messages
         return bot_request(messages)
 
 

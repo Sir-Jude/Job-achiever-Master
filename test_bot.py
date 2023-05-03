@@ -49,9 +49,10 @@ candidate.add_hobbies("reading")
 candidate.add_skills("English (B1 - lower intermediate)")
 candidate.add_skills("Python, PHP, mySQL")
 
-recrutier = app_classes.Recrutier(
+recruiter = app_classes.Recruiter(
     "Nicolas", "Tesla", "male", "Dataport AöR", "CEO", "Berlinerstr. 11b, 39124 Berlin"
 )
+recruiter.set_atitude("arogant")
 
 job_description = """
 IHR AUFGABENFELD
@@ -69,9 +70,9 @@ job = app_classes.Job(
     "DevOps Engineer - Open Source", job_description, "www.stepstone.de"
 )
 
-adviser = app_classes.Adviser_Bot(candidate, recrutier, job, "english")
+adviser = app_classes.Adviser_Bot(candidate, recruiter, job, "english")
 
-print("==============================================================================")
+"""print("==============================================================================")
 print(adviser.show_user_input())
 print("==============================================================================")
 print()
@@ -81,30 +82,36 @@ print("=========================================================================
 time.sleep(2)
 print()
 print("COVER LETTER:")
-print(adviser.generate_letter())
+print(adviser.generate_letter())"""
 
-# A fake interview
-interview = "Recrutier: Tell me something about yourself\n"
-interview += (
-    "Candidate: I am Adrian and I'm working for more than 15 years in webdesign area.\n"
-)
-interview += "Recrutier: How did you hear about this position?\n"
-interview += "Candidate: After I search for a while for a good job on internet, I found your job proposal on stepstone.de\n"
-interview += "Recrutier: Why did you decide to apply for this position?\n"
-interview += "Candidate: I'm very passionate about Python and programing. In fact, I have some experience achieved doin some projects in my Python cours.\n"
-interview += "Recrutier: What are your biggest strengths?\n"
-interview += "Candidate: I am a logical and detail-oriented person. Even when I'm at intermediate level at english, I'm a good comunicator and team player.\n"
-interview += "Recrutier: What is your biggest weakness?\n"
-interview += "Candidate: Well, as a recent graduate of DCI, I'd say my biggest weakness is the lack of real-life work experience. I am, however, willing to do my best and catch up as fast as I can.\n"
-interview += "Recrutier: Why should we hire you?\n"
-interview += "Candidate: I just think I meet your requirements for this job.\n"
-interview += "Recrutier: What are your salary requirements?\n"
-interview += "Candidate: My salary expectation is around $70,000 annually.\n"
-interview += "Recrutier: Do you have any questions for us?\n"
-interview += "Candidate: What is the next step in the hiring process?\n"
-interview += "Recrutier: Well, if you'll be chosen, than you'll receive a trial period contract.\n"
-interview += "Candidate: Thank you for the interview oportunity.\n"
-interview += "Recrutier: Wellcome. Have a good day.\n"
+# A real interview simulation:
+os.system('clear')
+print(f"{recruiter.name}: Welcome {candidate.name}.")
+interview_on = True
+while interview_on:
+    user_message = input(f'{candidate.name}: ')
+    bot_message = adviser.simulate_recruiter(recruiter, job, user_message)
+    adviser.interview_history.append(app_functions.bot_message("assistant", bot_message))
+    os.system('clear')
+    # print(interview_history)
+    for m in adviser.interview_history[1:]:
+        if adviser.interview_history.index(m)%2 == 0:
+            person = candidate.name
+        else:
+            person = recruiter.name
+        print(f'{person}: {m["content"]}')
+        if m["content"] == "EXIT":
+            interview_on = False
+
+
+# An interview analyse
+interview = ""
+for m in adviser.interview_history[1:]:
+    if adviser.interview_history.index(m)%2 == 0:
+        person = "Candidate"
+    else:
+        person = "Recruiter"
+    interview += f"{person}: {m['content']}\n"
 print("==============================================================================")
 time.sleep(2)
 print()
