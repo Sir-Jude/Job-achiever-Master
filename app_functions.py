@@ -1,6 +1,6 @@
 import re
 import openai
-openai.api_key = "" # API Key here
+openai.api_key = input("Insert your API Key: ")
 
 # AI BOT functions
 
