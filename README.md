@@ -22,62 +22,60 @@ In this code we are going to use a **gmail** account, but the concepts apply to 
 ![Email internet path](email.png)
 
 ### 1. Create and log into a gmail account
- - create a throwaway gmail account (to be used for testing)
- - log in the new account
- - go to the setting page of your [google account](https://www.myaccount.google.com)
+- create a throwaway gmail account (to be used for testing)
+- log in the new account
+- go to the setting page of your [google account](https://www.myaccount.google.com)
 
  ### 2. Allow the 2-Steps Veriication
- - click on "Security" (on the left)
- - Scroll to the section "Signing in to Google"
- - click on "2-Steps Verification"
- - follow the instructions on the screen
+- click on "Security" (on the left)
+- Scroll to the section "Signing in to Google"
+- click on "2-Steps Verification"
+- follow the instructions on the screen
 
 ### 3. Create an app password
- - go to the link fro creating an [app password](https://myaccount.google.com/u/4/apppasswords)
- - click on the first dropdown menu ("select app")
- - Select "Other (Custom name)"
- - choose a name (for example "Python")
- - click on "Generate"
- - copy the 16 character app password in the yellow box  
- **IMPORTANT**: This is the **one and only time** you will be able to see this, so copy and paste it in a separate and safe location.
+- go to the link fro creating an [app password](https://myaccount.google.com/u/4/apppasswords)
+- click on the first dropdown menu ("select app")
+- Select "Other (Custom name)"
+- choose a name (for example "Python")
+- click on "Generate"
+- copy the 16 character app password in the yellow box  
+**IMPORTANT**: This is the **one and only time** you will be able to see this, so copy and paste it in a separate and safe location.
 
  ## 4. Import the necessary libraries
- - **SMTP**  
-   This is a class of the module smtplib (Simple Mail Transfer Protocol LIBrary) and takes care of sending the email
- - **MIMEText**
- - **MIMEMultipart**
- - **MIMEBase**
- - **encoders**
+- **SMTP**  
+  This is a class of the module smtplib (Simple Mail Transfer Protocol LIBrary) and takes care of sending the email
+- **MIMEText**
+- **MIMEMultipart**
+- **MIMEBase**
+- **encoders**
 
 ## 5. Set up a port and a server
- - Write an assignment statement for the:
-   - SMTP server  
-     (we are using tho one for gmail, but it is possible to use anyone else)
-   - port  
-      (**587** is the the standard secure mail submission port.)
+- Write an assignment statement for the:
+  - SMTP server  
+    (we are using tho one for gmail, but it is possible to use anyone else)
+  - port  
+    (**587** is the the standard secure mail submission port.)
 
 ## 6. Log into the email account and fill the receiver and subject field
- - Input the credentials:
-   - Write an assignment statement for the sender's email
-   - use a "with" statement and the "open" function in "r" (read) mode to access the file where the app password is stored.
-   - use the open ".read()" method assign it to a variable which will contain the password.
-  - write an assignment statement for:
-    - the receiver's email  
-  (it is possible to send the email to multiple people at the same time including all the address in a [list])
-    - subject
-  
-  ## 7. Write the email
-   - Create a new file txt containing the body of the email
-   - use a "with" statement and the "open" function in "r" (read) mode to access the file
-    - use the open ".read()" method assign it to a variable which will contain the body of the letter.
+- Input the credentials:  
+  - Write an assignment statement for the sender's email
+  - use a "with" statement and the "open" function in "r" (read) mode to access the file where the app password is stored.
+  - use the open ".read()" method assign it to a variable which will contain the password.
+- write an assignment statement for:
+  - the receiver's email  
+(it is possible to send the email to multiple people at the same time including all the address in a [list])
+  - subject
+
+## 7. Write the email
+- Create a new file txt containing the body of the email
+- use a "with" statement and the "open" function in "r" (read) mode to access the file
+- use the open ".read()" method assign it to a variable which will contain the body of the letter.
+
+## 8. 
 
 
 
 
-
-
- - Initiate the EmailMessage's object.
- - Assign te above created variables to the EmailMessage **dictionary**'s correct key: the conceptual model provided by an EmailMessage object is that of an ordered dictionary (indexed by the header names, such as "from", for the email sender, "to" for the email receiver, etc...) coupled with the body of the email assigned to the method **set_content**.
 
  ## 6. Encrypet the email
  Write an assignment statement and use the ssl method **create_default_context** to protect the details of the email (sender/receiver address and message)
