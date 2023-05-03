@@ -18,3 +18,4 @@ import app_functions
 
 # Module Job interview
 # (which simulates the job interview)
+interview_history = [] # it must be in a list of dictionaries in {"role": "user", "content": "last user input..."} format

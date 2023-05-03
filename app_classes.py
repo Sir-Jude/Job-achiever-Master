@@ -46,16 +46,16 @@ class Candidate:
         self.short_description = short_description
 
 
-class Recrutier:
+class Recruiter:
     # All those atributes will be used to describe the role of recrutier bot
     def __init__(
         self,
-        name="",
-        family_name="",
-        sex="",
-        company="",
-        position="",
-        company_address="",
+        name,
+        family_name,
+        sex,
+        company,
+        position,
+        company_address
     ):
         self.name = name  # just a string
         self.family_name = family_name  # just a string
@@ -161,9 +161,22 @@ You don't ask questions or say anything other than the comments on the dialogs f
         ]
         return bot_request(messages)
 
-    def assist_intervew(self):  # To be used in tandem.
-        self.role_description = f"""You are a job interview adviser."""
-        # Not finished yet
+    def simulate_recruiter(self, recruiter, job, old_messages):
+        self.role_description = f"""Your name is {recruiter.name} {recruiter.family_name}, are {recruiter.sex} and work in {recruiter.company_address} on {recruiter.position}.
+You posted a job for {job.position} on {job.source} with this description:
+{job.description}
+
+Now you'll interview in {self.language} a candidate for this job.
+The candidate informations are here:
+{self.user_input}
+As a recruiter for this job you have to put important questions to the candidate acording to the job description and react to his answers.
+You will be focused to cover all the necesary job questions with a {recruiter.atitude}."""
+
+        messages = [
+            bot_message("system", self.role_description),
+            bot_message("assistent", f"Welcome {self.candidate.name}.")
+        ] + old_messages[2:]
+        return bot_request(messages)
 
 
 # CV ELEMENTS
