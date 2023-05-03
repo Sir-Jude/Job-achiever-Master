@@ -3,23 +3,55 @@ import app_classes
 import app_functions
 import time
 
-candidate = app_classes.Candidate("Adrian", "Radu", "11.03.1977", "male", "0123456789", "adrian@email.de", "Ritterstr. 11b, 39124 Magdeburg")
-experience_1 = app_classes.Experience("Webdesigner", "Responsable for mentenance of the company websites.", "IATOM", "10.10.2010", "23.09.2022")
+candidate = app_classes.Candidate(
+    "Adrian",
+    "Radu",
+    "11.03.1977",
+    "male",
+    "0123456789",
+    "adrian@email.de",
+    "Ritterstr. 11b, 39124 Magdeburg",
+)
+experience_1 = app_classes.Experience(
+    "Webdesigner",
+    "Responsable for mentenance of the company websites.",
+    "IATOM",
+    "10.10.2010",
+    "23.09.2022",
+)
 candidate.add_experience(experience_1)
-experience_2 = app_classes.Experience("Art Director", "Cration and implementing of web ads.", "Stream Line", "01.01.2000", "10.10.2010")
+experience_2 = app_classes.Experience(
+    "Art Director",
+    "Cration and implementing of web ads.",
+    "Stream Line",
+    "01.01.2000",
+    "10.10.2010",
+)
 candidate.add_experience(experience_2)
-experience_3 = app_classes.Experience("Janitor", "Cleaning of office rooms.", "Amazon", "01.01.1998", "01.01.2000")
+experience_3 = app_classes.Experience(
+    "Janitor", "Cleaning of office rooms.", "Amazon", "01.01.1998", "01.01.2000"
+)
 candidate.add_experience(experience_3)
-study_1 = app_classes.Study("Python Backend Programming", "Cours", "DCI", "15.12.2022", "10.01.2024")
+study_1 = app_classes.Study(
+    "Python Backend Programming", "Cours", "DCI", "15.12.2022", "10.01.2024"
+)
 candidate.add_studies(study_1)
-study_2 = app_classes.Study("Graphic designer", "Barcelors degree", "University of Arts - Nicolae Grigorescu - Bucharest", "01.09.1995", "01.01.2000")
+study_2 = app_classes.Study(
+    "Graphic designer",
+    "Barcelors degree",
+    "University of Arts - Nicolae Grigorescu - Bucharest",
+    "01.09.1995",
+    "01.01.2000",
+)
 candidate.add_studies(study_2)
 candidate.add_hobbies("music")
 candidate.add_hobbies("reading")
 candidate.add_skills("English (B1 - lower intermediate)")
 candidate.add_skills("Python, PHP, mySQL")
 
-recrutier = app_classes.Recrutier("Nicolas", "Tesla", "male", "Dataport AöR", "CEO", "Berlinerstr. 11b, 39124 Berlin")
+recrutier = app_classes.Recrutier(
+    "Nicolas", "Tesla", "male", "Dataport AöR", "CEO", "Berlinerstr. 11b, 39124 Berlin"
+)
 
 job_description = """
 IHR AUFGABENFELD
@@ -33,7 +65,9 @@ DAS BRINGEN SIE MIT
 - Erfahrung mit den vorhandenen Applikationen sind hilfreich:
 - Datenbanken, Containertechnologien, Microservices, Terraform, Ansible, Python
 """
-job = app_classes.Job("DevOps Engineer - Open Source", job_description, "www.stepstone.de")
+job = app_classes.Job(
+    "DevOps Engineer - Open Source", job_description, "www.stepstone.de"
+)
 
 adviser = app_classes.Adviser_Bot(candidate, recrutier, job, "english")
 
@@ -51,7 +85,9 @@ print(adviser.generate_letter())
 
 # A fake interview
 interview = "Recrutier: Tell me something about yourself\n"
-interview += "Candidate: I am Adrian and I'm working for more than 15 years in webdesign area.\n"
+interview += (
+    "Candidate: I am Adrian and I'm working for more than 15 years in webdesign area.\n"
+)
 interview += "Recrutier: How did you hear about this position?\n"
 interview += "Candidate: After I search for a while for a good job on internet, I found your job proposal on stepstone.de\n"
 interview += "Recrutier: Why did you decide to apply for this position?\n"

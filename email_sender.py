@@ -15,7 +15,8 @@ smtp_port = 587
 # sender email address
 sender = "jude.smiley.python@gmail.com"      
 # app's password 
-email_password = "pjti yzrc zgcx uiwt"
+with open ("email_pass.txt", "r") as file:
+    psw = file.read()
 # receiver(s) email address
 receivers = [
     "jude.smiley.python@gmail.com",
@@ -38,7 +39,7 @@ def send_emails(receivers, body):
     # Login into email account with SMTP method "login", which require 2 arguments:
         # 1. email of the sender
         # 2. app password
-    email.login(sender, email_password)
+    email.login(sender, psw)
     # Send the message with the SMTP method "sendemail", which requires 3 arguments:
         # 1. the email of the sender
         # 2. the email of the receiver

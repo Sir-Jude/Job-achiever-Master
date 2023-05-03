@@ -34,25 +34,48 @@ In this code we are going to use a **gmail** account, but the concepts apply to 
 
 ### 3. Create an app password
  - go to the link fro creating an [app password](https://myaccount.google.com/u/4/apppasswords)
- - click on the first dropdown menu7
+ - click on the first dropdown menu ("select app")
  - Select "Other (Custom name)"
  - choose a name (for example "Python")
- - copy the 16 character app password in the yellow box
+ - click on "Generate"
+ - copy the 16 character app password in the yellow box  
+ **IMPORTANT**: This is the **one and only time** you will be able to see this, so copy and paste it in a separate and safe location.
 
- ## 4. Import the necessary modules
- - **EmailMessage**  
-   This is a class of the *email.message* module (submodule of *email* package) and creates an email object, which sets its object, body and sender/receiver's address.
- - **SMTP_SSL**  
+ ## 4. Import the necessary libraries
+ - **SMTP**  
    This is a class of the module smtplib (Simple Mail Transfer Protocol LIBrary) and takes care of sending the email
- - **ssl** module.  
-   This encrypts the connection and makes sure both the login credentials and message are not easily accessed by others.
+ - **MIMEText**
+ - **MIMEMultipart**
+ - **MIMEBase**
+ - **encoders**
 
-## 5. Create an object email and fill the necessary fields
+## 5. Set up a port and a server
  - Write an assignment statement for the:
-    - credentials (email and password) to login into the gmail account
-    - receiver's email
+   - SMTP server  
+     (we are using tho one for gmail, but it is possible to use anyone else)
+   - port  
+      (**587** is the the standard secure mail submission port.)
+
+## 6. Log into the email account and fill the receiver and subject field
+ - Input the credentials:
+   - Write an assignment statement for the sender's email
+   - use a "with" statement and the "open" function in "r" (read) mode to access the file where the app password is stored.
+   - use the open ".read()" method assign it to a variable which will contain the password.
+  - write an assignment statement for:
+    - the receiver's email  
+  (it is possible to send the email to multiple people at the same time including all the address in a [list])
     - subject
-    - body
+  
+  ## 7. Write the email
+   - Create a new file txt containing the body of the email
+   - use a "with" statement and the "open" function in "r" (read) mode to access the file
+    - use the open ".read()" method assign it to a variable which will contain the body of the letter.
+
+
+
+
+
+
  - Initiate the EmailMessage's object.
  - Assign te above created variables to the EmailMessage **dictionary**'s correct key: the conceptual model provided by an EmailMessage object is that of an ordered dictionary (indexed by the header names, such as "from", for the email sender, "to" for the email receiver, etc...) coupled with the body of the email assigned to the method **set_content**.
 
@@ -74,8 +97,9 @@ In this code we are going to use a **gmail** account, but the concepts apply to 
    3. the em object, formatted with the EmailMessage method "as_string()"
 
  ### References:
- - Python docs: [**email** package](https://docs.python.org/3/library/email.html)
- - YouTube :["Sending Emails With Python Including Attachments"](https://www.youtube.com/watch?v=Sddnn6dpqk0&t=733s&ab_channel=TheIntriguedEngineer)
+ - Python docs package: [**email**](https://docs.python.org/3/library/email.html)
+ - YouTube tutorial: [**"Sending Emails With Python Including Attachments"**](https://www.youtube.com/watch?v=Sddnn6dpqk0&t=733s&ab_channel=TheIntriguedEngineer)
+  - Port number details [**"Which SMTP port should I use?"**](https://www.mailgun.com/blog/email/which-smtp-port-understanding-ports-25-465-587/)
  ---
 
 
@@ -84,3 +108,9 @@ In this code we are going to use a **gmail** account, but the concepts apply to 
 
  To use this class you need to instantiate an object of the class and then call its **get_info()** method to get all the user info, then to display the user info call the **print_info()** method.
  
+
+
+
+
+- [**E-mail regex** link](https://uibakery.io/regex-library/email-regex-python)
+
