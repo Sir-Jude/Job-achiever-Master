@@ -50,24 +50,38 @@ candidate.add_skills("English (B1 - lower intermediate)")
 candidate.add_skills("Python, PHP, mySQL")
 
 recruiter = app_classes.Recruiter(
-    "Nicolas", "Tesla", "male", "Dataport AöR", "CEO", "Berlinerstr. 11b, 39124 Berlin"
+    "Nicolas", "Tesla", "male", "Elli - a brand of the Volkswagen Group", "CEO", "Berlinerstr. 11b, 39124 Berlin"
 )
 recruiter.set_atitude("arogant")
 
 job_description = """
-IHR AUFGABENFELD
-- In unserem bevorzugten Techstack entwickeln und implementieren Sie OpenSource-Bausteine für die Phoenix-Produktfamilie.
-- In agilen Entwicklungsmethoden fühlen Sie sich zu Hause und treiben im Team die Softwareentwicklung nebst Deployment und Betrieb voran.
-- Ihre Arbeitsweise orientiert sich am Clean Code und Sie sichern die Qualität Ihrer Ergebnisse durch Softwaretests.
-DAS BRINGEN SIE MIT
-- Erfahrung in der Systemadministration komplexer Lösungen
-- Breite Kenntnisse in IT-Systemen, Applikationen/Software/Netzwerk
-- Know-how in Open-Source-Lösungen
-- Erfahrung mit den vorhandenen Applikationen sind hilfreich:
-- Datenbanken, Containertechnologien, Microservices, Terraform, Ansible, Python
+What the candidate will do
+- Actively learn and be always up-to-date with the industry trends and developments 
+- You will be part of an agile and independent team with end to end responsibility for a product
+- Design, build and operate scalable production systems
+- Advocate for maintaining a high quality bar, making sure quality and testing are part of the development work from day one
+- Contribute to the team's effectiveness and efficiency through setting an example of best SW development practices
+- Contribute in one of our Communities of Practice 
+
+What the candidate has
+- Experience in developing high quality software in one of the modern programming languages (TypeScript, Python, Go, Ruby, etc.) 
+- Experience in modern software development tools and systems including Git, Bash, Docker, Linux
+- Experience with automated software testing, Continuous Integration and Continuous Delivery practices
+- Readiness to work in cross-functional agile teams
+- Knowledge in design patterns, data structures and algorithms
+- Passion for continuous improvement, technical and operational excellence
+- Passion and eagerness to learn different tools, technologies and practices that are needed to get the job done
+
+Ideally the candidate has
+- Experience in Typescript
+- Experience with one of the leading public clouds (GCP, AWS, Azure) preferably GCP
+- Experience in infrastructure provisioning tools like Terraform
+- Experience in modern software development and delivery practices including Cloud Native and Microservices architecture, Everything as Code and Test Driven Development
+- Experience in working in true DevOps teams where “you build it, you run it”
+- Experience in EV charging field
 """
 job = app_classes.Job(
-    "DevOps Engineer - Open Source", job_description, "www.stepstone.de"
+    "Software Engineer Backend", job_description, "www.stepstone.de"
 )
 
 adviser = app_classes.Adviser_Bot(candidate, recruiter, job, "english")
@@ -95,7 +109,8 @@ interview_on = True
 while interview_on:
     user_message = input(f'{candidate.name}: ')
     bot_message = adviser.simulate_recruiter(recruiter, job, user_message)
-    adviser.interview_history.append(app_functions.bot_message("assistant", bot_message))
+    # next line is just to see the initial message for "system" bot
+    # adviser.interview_history.append(app_functions.bot_message("assistant", bot_message))
     os.system('clear')
     # print initial informations
     print(f'System: {adviser.interview_history[0]["content"]}')
