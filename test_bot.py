@@ -108,18 +108,14 @@ print(f"{recruiter.name}: Welcome {candidate.name}.")
 interview_on = True
 while interview_on:
     user_message = input(f'{candidate.name}: ')
-    bot_message = adviser.simulate_recruiter(recruiter, job, user_message)
-    # next line is just to see the initial message for "system" bot
-    # adviser.interview_history.append(app_functions.bot_message("assistant", bot_message))
+    bot_message = adviser.simulate_recruiter(recruiter, user_message)
     os.system('clear')
-    # print initial informations
-    print(f'System: {adviser.interview_history[0]["content"]}')
     # print interview_history
     for m in adviser.interview_history[1:]:
-        if adviser.interview_history.index(m)%2 == 0:
-            person = candidate.name
-        else:
+        if m["role"] == "assistant":
             person = recruiter.name
+        else:
+            person = candidate.name
         print(f'{person}: {m["content"]}')
         if m["content"] == "EXIT":
             interview_on = False

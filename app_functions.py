@@ -1,3 +1,4 @@
+import os
 import re
 import openai
 
@@ -28,15 +29,17 @@ def bot_message(role, content):
 # INPUT functions
 
 
-def input_strict(string, list):
+def input_strict(string, list, clear):
     """A function to restrict the answers to the given options in the list.
     The function take a message to prompt and a list of valid options.
-    Example: input_strict('The message for user: ', ['1','2','x'])"""
+    Example: input_strict('The message for user: ', ['1','2','x'], 'clear')"""
     while True:
         answer = input(string)
         if answer in list:
             return answer
         else:
+            if clear == "clear":
+                os.system('clear')
             print("Please insert just one of the given options.")
 
 
