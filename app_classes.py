@@ -162,9 +162,9 @@ You don't ask questions or say anything other than the comments on the dialogs f
         ]
         return bot_request(messages)
 
-    def simulate_recruiter(self, recruiter, job, answer):
+    def simulate_recruiter(self, recruiter, answer):
         self.role_description = f"""You'll interview in {self.language} a candidate for a job.
-
+{self.job_description}
 {self.user_input}
 As a recruiter for this job you have to put important questions to the candidate acording to the job description and react to his answers.
 You will be focused to cover all the necesary job questions with a {recruiter.atitude} atitude."""
@@ -175,7 +175,8 @@ You will be focused to cover all the necesary job questions with a {recruiter.at
         ] + self.interview_history[2:]
         messages.append(bot_message("user",answer))
         self.interview_history = messages
-        return bot_request(messages)
+        response = bot_request(messages)
+        messages.append(bot_message("assistant",response))
 
 
 # CV ELEMENTS
