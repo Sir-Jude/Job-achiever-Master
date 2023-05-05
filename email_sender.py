@@ -1,80 +1,69 @@
 # Import:
 # - the SMTP class, to send the email
 from smtplib import SMTP
-from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from email.mime.base import MIMEBase
-from email import encoders
+from email.mime.application import MIMEApplication
+from email.mime.text import MIMEText
 
 
-# Google SMTP server
+# Input the server's name (Google SMTP server)
 email_server = "smtp.gmail.com"
-# Stanard secure SMTP port
-smtp_port = 587                     
+# Standard secure SMTP port (at the day of today)
+smtp_port = 587
 
-# sender email address
-sender = "jude.smiley.python@gmail.com"      
-# app's password 
-with open ("email_pass.txt", "r") as file:
+# Input the sender's email address
+sender = "jude.smiley.python@gmail.com"
+# Fetch the app's password
+# ("with" makes sure we close the file once we have recovered the password)
+with open("email_pass.txt", "r") as file:
     psw = file.read()
-# receiver(s) email address
-receivers = [
-    "jude.smiley.python@gmail.com",
-    "jude.smiley.python@gmail.com"
-]
-# subject of the email
-subject = "Test email"
 
-with open("test_email.txt", 'r') as file:
+
+# Input the list of receivers' email addresses
+receivers = ["jude.smiley.python@gmail.com", "jude.smiley.python@gmail.com"]
+
+# Write the subject of the email
+subject = "Test Email with Attachment"
+
+# Fetch the file containing the body of the email
+with open("email_test.txt", "r") as file:
     body = file.read()
 
-def send_emails(receivers, body):
-    # Initiate a "SMTP" class object, which requires 2 attributes:
-        # 1. the email server
-        # 2. the SMTP port
-    print("Connecting to server...")
-    email = SMTP(email_server, smtp_port)
+# Attach the document(s) to the email
+filename = "email.png"
+with open(filename, "rb") as file:
+    attachment = MIMEApplication(file.read(), _subtype="txt")
+    attachment.add_header("Content-Disposition", "attachment", filename=filename)
+
+# Connect to the SMTP server
+# ("with" makes sure we disconnect from the server after sending the email)
+print("Connecting to server...")
+with SMTP(email_server, smtp_port) as smtp:
     # Encript the connection with SMTP "starttls" method
-    email.starttls()
+    smtp.starttls()
     # Login into email account with SMTP method "login", which require 2 arguments:
-        # 1. email of the sender
-        # 2. app password
-    email.login(sender, psw)
-    # Send the message with the SMTP method "sendemail", which requires 3 arguments:
-        # 1. the email of the sender
-        # 2. the email of the receiver
-        # 3. the body of the email
+    # 1. email of the sender
+    # 2. app password
+    smtp.login(sender, psw)
     print("Successfully connected to server.")
     print()
+
+    # Loop through the list of receivers
     for address in receivers:
-        body
-        # make a MIME object to define parts of the email
+        print(f"Sending email to: {address}...")
+        # Create the message container (outer email message)
         msg = MIMEMultipart()
-        msg["from"] = sender
-        msg["to"] = address
-        msg["subject"] = subject
+        msg["From"] = sender
+        msg["To"] = address
+        msg["Subject"] = subject
+
+        # Add the message body to the container
         msg.attach(MIMEText(body, "plain"))
 
-        # 
-        filename = "email.png"
-        # Open the file in python as a binary, r for read, b for binary
-        attachment = open(filename, "rb")
-        
-        attachment_package= MIMEBase("application", "octet-stream")
-        attachment_package.set_payload((attachment).read())
-        encoders.encode_base64(attachment_package)
-        attachment_package.add_header("Content-Disposition", "attachment; filename= " + filename)
-        msg.attach(attachment_package)
+        # Add the attachment to the container
+        msg.attach(attachment)
 
-        text = msg.as_string()
-        
-        print(f"Sending email to: {address}...")
-        email.sendmail(sender, address, text)
+        # Send the email
+        smtp.send_message(msg)
         print(f"Email sent to: {address}.")
         print()
-    
-    # Close off the server
-    email.quit()
-    
-send_emails(receivers, body)
-
