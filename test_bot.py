@@ -91,7 +91,7 @@ print("=========================================================================
 print(adviser.show_user_input())
 print("==============================================================================")
 print()
-"""input("Ready for Resume and Coer Letter? ")
+input("Ready for Resume and Coer Letter? ")
 os.system('clear')
 print("SHORT DESCRIPTION FOR CV:")
 print(adviser.generate_cv_short_description())
@@ -99,7 +99,7 @@ print("=========================================================================
 time.sleep(2)
 print()
 print("COVER LETTER:")
-print(adviser.generate_letter())"""
+print(adviser.generate_letter())
 input("Ready for interview? ")
 os.system('clear')
 # A real interview simulation:
