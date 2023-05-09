@@ -57,7 +57,7 @@ class User:
 
         
     def get_education(self) -> dict:
-        """Takes in info about a users Education"""
+        """Takes in information about a users Education"""
         school_name = input('Name of the School: ')
         education_type = input('What type of Education (e.g. Degree, Apprenticeship): ')
         course_name = input('Name of the course: ')
@@ -125,6 +125,8 @@ class User:
                 print(f"\tCourse Description: {edu['Course Description']}")
                 print()
 
-user1 = User()
-user1.get_info()
-user1.print_info()
+
+if __name__ == '__main__':
+    user1 = User()
+    user1.get_info()
+    user1.print_info()
