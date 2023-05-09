@@ -66,11 +66,13 @@ In this code we are going to use a **gmail** account, but the concepts apply to 
 ## 7. Set up all the other email details
 - list of receivers
 - subject
-- open and read the file containing the boby of the email
 
 ## 8. Attach the document(s)
-- Open and read the file in binary form
-- 
+- Open and read the file in binary mode to attach an image
+
+
+
+
 
 
 
