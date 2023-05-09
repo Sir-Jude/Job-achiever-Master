@@ -50,7 +50,6 @@ In this code we are going to use a **gmail** account, but the concepts apply to 
   A subclass of MIMENonMultipart, this class is used to represent MIME message objects of major type application. The _data  argument contains the bytes for the raw application data while the optional _subtype specifies the MIME subtype.
 - **MIMEText**  
   A subclass of MIMENonMultipart, the MIMEText class is used to create **MIME** (**M**ultipurpose **I**nternet **M**ail **E**xtension) objects of major type text.
-- **encoders**
 
 
 ## 5. Set to up the server and the port
