@@ -3,6 +3,7 @@
 import os
 import app_classes
 import app_functions
+import email_sender
 
 # MENU
 class Menu:
@@ -21,33 +22,42 @@ class Menu:
 ===========================""")
         home_menu = f"""
 [1] Candidate info ({self.candidate})
-[2] CV ({self.cv})
-[3] Job ({self.job})
+[2] Job ({self.job})
+[3] CV ({self.cv})
 [4] Cover letter ({self.cover_letter})
-[5] Interviews ({self.interview})
-[6] Interview analyse ({self.interview_analyse})
+[5] Email sender
+[6] Interviews ({self.interview})
+[7] Interview analyse ({self.interview_analyse})
 [x] Exit
 > """
         app_functions.input_strict(home_menu, ["1","2","3","4","5","x"], "clear")
 
-# Module Introduction
+# 1) "Candidate info"
 # (which collects all the inputs for the personal info and the job.
 # Please use the "input_..." functions in app_functions file to restrict and verify user inputs.)
 
-# Module CV
-# (which creates the CV)
+# 2) "Job"
+# Look for jobs on popular website like LInkedin, Stepstones, etc... (usng their API?)
 
-# Module Cover letter
-# (which writes the cover letter)
+# 3) "CV"
+# Create the CV
 
-# Module email
-# (which send the email with the cover letter and the CV)
+# 4) "Cover letter"
+# Writes the cover letter
 
-# Module Job interview
-# (which simulates the job interview)
+# 5) "Email"
+# Send the email, attaching cover letter and CV
 
+# 6) "Interview"
+# Prepare for the job interview
+
+# 7) "Interview analyse"
+# Give a feedback about the interview
 
 # Testing if this file is running properly
+def main():
+    pass
+
 if __name__ == '__main__':
     menu = Menu().home()
     
