@@ -29,7 +29,7 @@ def bot_message(role, content):
 # INPUT functions
 
 
-def input_strict(string, list, clear):
+def input_strict(string, list, clear=''):
     """A function to restrict the answers to the given options in the list.
     The function take a message to prompt and a list of valid options.
     Example: input_strict('The message for user: ', ['1','2','x'], 'clear')"""
