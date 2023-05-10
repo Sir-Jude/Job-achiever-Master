@@ -18,7 +18,6 @@ sender = "jude.smiley.python@gmail.com"
 with open("email_pass.txt", "r") as file:
     psw = file.read()
 
-
 # List of receivers' email addresses
 receivers = ["jude.smiley.python@gmail.com"]
 
@@ -37,7 +36,7 @@ for document in files.copy():
         attachment.add_header("Content-Disposition", "attachment", filename=document)
         files.remove(document)
         files.append(attachment)
-        
+
 # Connect to the SMTP server
 print("Connecting to server...")
 with SMTP(email_server, smtp_port) as smtp:
