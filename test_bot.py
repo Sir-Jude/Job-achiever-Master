@@ -1,6 +1,6 @@
 import os
 import app_classes
-import app_functions
+# import app_functions
 import time
 
 candidate = app_classes.Candidate(
