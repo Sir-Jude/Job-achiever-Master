@@ -51,17 +51,17 @@ def main():
     # 5) "Email"
     # Send the email, attaching cover letter and CV
     email = Email(
-        "jude.smiley.python@gmail.com",
-        ["jude.smiley.python@gmail.com"],
-        "Test with class and methods")
+        "jude.smiley.python@gmail.com", # sender
+        ["jude.smiley.python@gmail.com"], # list of receivers
+        "Test with class and methods") # object
     
-    password = email.password("email_pass.txt")
+    password = email.password("email_pass.txt") # app password
 
-    body = email.body("email_test.txt")
+    body = email.body("email_test.txt") # text of the email 
 
-    attachments = email.attachments(["candidate.pdf", "email.png"])
+    attachments = email.attachments(["candidate.pdf"]) # cv and cover letter
 
-    email.send(password, body, attachments)
+    email.send(password, body, attachments) # Send the email
 
     # 6) "Interview"
     # Prepare for the job interview
