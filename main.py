@@ -3,6 +3,7 @@
 # import app_classes
 # import app_functions
 import os
+from cv_bot import Resume
 from email_package import Email
 
 # MENU
@@ -42,7 +43,8 @@ def main():
 
     # 3) "CV"
     # Create the CV
-
+    cv = Resume("candidate.json")
+    cv.generate()
     # 4) "Cover letter"
     # Writes the cover letter
 
@@ -57,7 +59,7 @@ def main():
 
     body = email.body("email_test.txt")
 
-    attachments = email.attachments(["Curriculum.txt", "email.png"])
+    attachments = email.attachments(["candidate.pdf", "email.png"])
 
     email.send(password, body, attachments)
 

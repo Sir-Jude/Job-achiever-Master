@@ -1,19 +1,13 @@
 import json
-import os
-import openai
-from io import BytesIO
-from fpdf import FPDF
 from reportlab.lib.pagesizes import letter
 from reportlab.pdfgen import canvas
 from reportlab.lib.colors import HexColor
 from reportlab.lib.units import inch
-from PIL import Image, ImageDraw, ImageFont
-import requests
-import textwrap
+
 
 
 class Resume:
-    def init(self, file):
+    def __init__(self, file):
         with open(file, 'r') as f:
             self.data = json.load(f)
         self.pdf = canvas.Canvas('candidate.pdf')
@@ -76,5 +70,5 @@ class Resume:
 
         self.pdf.save()
 
-resume = Resume('candidate.json')
-resume.generate()
+# resume = Resume('candidate.json')
+# resume.generate()
