@@ -43,69 +43,76 @@ In this code we are going to use a **gmail** account, but the concepts apply to 
 
 ## 4. Import the necessary libraries  
 - **SMTP**  
-  A class of the module smtplib (Simple Mail Transfer Protocol LIBrary) and takes care of sending the email.
+  A class of the module smtplib (Simple Mail Transfer Protocol LIBrary), it takes care of conecting to the server and sending the email.
 - **MIMEMultipart**  
-  A subclass of MIMEBase, this is an intermediate base class for MIME messages that are not multipart. The primary purpose of this class is to prevent the use of the attach() method, which only makes sense for multipart messages.
+  A subclass of MIMEBase, this class represents the outer container of an email message and allows to combine different components ("multipart"), such as sender and receiver address, subject, body and attachments into a single email message.
 - **MIMEApplication**  
   A subclass of MIMENonMultipart, this class is used to represent MIME message objects of major type application. The _data  argument contains the bytes for the raw application data while the optional _subtype specifies the MIME subtype.
 - **MIMEText**  
   A subclass of MIMENonMultipart, the MIMEText class is used to create **MIME** (**M**ultipurpose **I**nternet **M**ail **E**xtension) objects of major type text.
-
 
 ## 5. Set to up the server and the port
 - Write an assignment statement for the:
   - SMTP server  
     (we are using tho one for gmail, but it is possible to use anyone else)
   - port  
-    (**587** is the the standard secure mail submission port.)
+    (**587** is the the standard secure mail submission port)
 
 ## 6. Set up the credentials to log into the email account  
 - write an assignment statement for the sender's email
-- use a "with" statement and the "open" function in "r" (read) mode to access the file where the app password is stored.
+- use a "with" statement and the "open" function in "r" (read) mode to access the file where the app password is stored
 
 ## 7. Set up all the other email details
 - list of receivers
 - subject
-- open and read the file containing the boby of the email
 
-## 8. Attach the document(s)
-- Open and read the file in binary form
-- 
+## 8. Collect the file(s) to be attacht
+- create a list containing the filename(s) to be attached
+- loop through a copy of the list 
+- open the file containing the document.  
+  **NB**: using the "**binary**" ("rb") mode instead of the simple "read" ("r") allows us to open files others than text, such as pdf or images
+- read the file and use its data to create an instance of the general-purpose class "**MIME application**", which rappresent an attachment in an email message.
+- use the **.add_header()** method to add the "Content-Disposition" header, which indicates the file should be treated as an attachment, to the attachment object
+- remove the string name of the document from the original list and substitute it with the attachment object.
+
+## 9. Connect to the server
+- Use a "with" statement to be sure the server will be close once we finish to send all the emails
+- Create an object of the class **SMTP**, which allows the connection to the serveer using the proper server's name and standard secure SMTP port number
+- Use the **.strarttls()** method to encrypt the connection
+- Use the **.login()** method to log into the email account with the sender address and its password.
+
+## 10. "Build" and send the email
+- loop through the list of the receivers
+- create an instance of the class **MIMEMultipart()**, which is like a box contaiing all the different components of the email
+- Set each needed element inside the container:
+  - sender's address 
+  - receiver's address
+  - email subject
+  - body of the email, creating an instance of the class **MIMEText** and attaching it throught the .attach() method
+  - attachment(s), looping through the list of files to be attached and using the .attach() method
+- Finally, use the smtp **.send_message()** method to send the MIMEMultipart() object, which rapresent the email with all its different components.
+
+### References:
+- Python docs:  
+- [**smtplib** module](https://docs.python.org/3/library/smtplib.html#module-smtplib)
+- [**email.mime** module](https://docs.python.org/3/library/email.mime.html?highlight=email#email.mime.multipart.MIMEMultipart)
+- Port number details [**"Which SMTP port should I use?"**](https://www.mailgun.com/blog/email/which-smtp-port-understanding-ports-25-465-587/)
+---
 
 
+## User Input
+The **user_input.py** file contains a 'User' class. The class gathers user information including: Name, Age, Email, Phone Number, Work Experience and Education.
 
- ## 6. Encrypet the email
- Write an assignment statement and use the ssl method **create_default_context** to protect the details of the email (sender/receiver address and message)
+#### **get_info()**
+This class collects all the user info.
 
- ## 7. Send the email
- - Initiate a "SMTP_SSL" class object, which requires three attributes:
-   1. the email server (for gmail)
-   2. the port (for gmail)
-   3. the SSL protocol
- - Call a "with" statment to parse the above details
- - Call SMTP_SSL method "login", which require 2 arguments:
-   1. the email of the sender
-   2. password
- - Send the message with the SMTP_SSL method "sendmail", which requires 3 arguments:
-   1. the email of the sender
-   2. the email of the receiver
-   3. the em object, formatted with the EmailMessage method "as_string()"
+#### **json_info()**
+This class returns a json object containing all the info collected.
 
- ### References:
- - Python docs:  
-    - [**smtplib** module](https://docs.python.org/3/library/smtplib.html#module-smtplib)
-    - [**email.mime** module](https://docs.python.org/3/library/email.mime.html?highlight=email#email.mime.multipart.MIMEMultipart)
-  - Port number details [**"Which SMTP port should I use?"**](https://www.mailgun.com/blog/email/which-smtp-port-understanding-ports-25-465-587/)
- ---
-
-
- ## User Input
- The **user_input.py** file contains a 'User' class. The class gathers user information including: Name, Age, Email, Phone Number, Work Experience and Education.
-
- To use this class you need to instantiate an object of the class and then call its **get_info()** method to get all the user info, then to display the user info call the **print_info()** method.
+---
  
 
-
+## References
 
 
 - [**E-mail regex** link](https://uibakery.io/regex-library/email-regex-python)

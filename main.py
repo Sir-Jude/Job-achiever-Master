@@ -3,7 +3,7 @@
 import os
 import app_classes
 import app_functions
-import email_sender
+import Email
 
 # MENU
 class Menu:

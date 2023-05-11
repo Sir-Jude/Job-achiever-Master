@@ -6,37 +6,38 @@ from email.mime.application import MIMEApplication
 from email.mime.text import MIMEText
 
 
-# Input the server's name (Google SMTP server)
+# Server's name (Google SMTP server)
 email_server = "smtp.gmail.com"
 # Standard secure SMTP port (at the day of today)
 smtp_port = 587
 
-# Input the sender's email address
+# Sender's email address
 sender = "jude.smiley.python@gmail.com"
-# Fetch the app's password
-# ("with" makes sure we close the file once we have recovered the password)
+# App's password
+# ("with" makes sure we close the file once we recovered the password)
 with open("email_pass.txt", "r") as file:
     psw = file.read()
 
+# List of receivers' email addresses
+receivers = ["jude.smiley.python@gmail.com"]
 
-# Input the list of receivers' email addresses
-receivers = ["jude.smiley.python@gmail.com", "jude.smiley.python@gmail.com"]
-
-# Write the subject of the email
+# Subject of the email
 subject = "Test Email with Attachment"
 
-# Fetch the file containing the body of the email
+# Read the file containing the body of the email
 with open("email_test.txt", "r") as file:
     body = file.read()
 
-# Attach the document(s) to the email
-filename = "email.png"
-with open(filename, "rb") as file:
-    attachment = MIMEApplication(file.read(), _subtype="txt")
-    attachment.add_header("Content-Disposition", "attachment", filename=filename)
+# Build the object rapresenting the attachment(s)
+files = ["Curriculum.txt", "email.png"]
+for document in files.copy():
+    with open(document, "rb") as file:
+        attachment = MIMEApplication(file.read())
+        attachment.add_header("Content-Disposition", "attachment", filename=document)
+        files.remove(document)
+        files.append(attachment)
 
 # Connect to the SMTP server
-# ("with" makes sure we disconnect from the server after sending the email)
 print("Connecting to server...")
 with SMTP(email_server, smtp_port) as smtp:
     # Encript the connection with SMTP "starttls" method
@@ -60,8 +61,9 @@ with SMTP(email_server, smtp_port) as smtp:
         # Add the message body to the container
         msg.attach(MIMEText(body, "plain"))
 
-        # Add the attachment to the container
-        msg.attach(attachment)
+        # Add the attachment(s) to the container
+        for attachment in files:
+            msg.attach(attachment)
 
         # Send the email
         smtp.send_message(msg)
