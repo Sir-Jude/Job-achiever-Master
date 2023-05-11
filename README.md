@@ -41,7 +41,7 @@ In this code we are going to use a **gmail** account, but the concepts apply to 
 - copy the 16 character app password in the yellow box  
 **IMPORTANT**: This is the **one and only time** you will be able to see this, so copy and paste it in a separate and safe location.
 
-## 4. Import the necessary libraries  
+### 4. Import the necessary libraries  
 - **SMTP**  
   A class of the module smtplib (Simple Mail Transfer Protocol LIBrary), it takes care of conecting to the server and sending the email.
 - **MIMEMultipart**  
@@ -51,12 +51,34 @@ In this code we are going to use a **gmail** account, but the concepts apply to 
 - **MIMEText**  
   A subclass of MIMENonMultipart, the MIMEText class is used to create **MIME** (**M**ultipurpose **I**nternet **M**ail **E**xtension) objects of major type text.
 
-## 5. Set to up the server and the port
+### 5. Create the class **Email**
+
+### 5.1 Class attributes
+
+Write an assignment statement for the port.  
+(**587** is the the standard secure mail submission port)
+
+### 5.2 Instatiate the class instance
+
+The class Email has the following attributes:  
+- sender
+- list of receivers
+- email subject
+- name of the server  
+  (defaulted for the gmail)
+
+
+
+
+
+
+
+### 5.3 Set to up the server and the port
 - Write an assignment statement for the:
   - SMTP server  
     (we are using tho one for gmail, but it is possible to use anyone else)
   - port  
-    (**587** is the the standard secure mail submission port)
+    
 
 ## 6. Set up the credentials to log into the email account  
 - write an assignment statement for the sender's email
