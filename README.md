@@ -103,10 +103,16 @@ In this code we are going to use a **gmail** account, but the concepts apply to 
 ## User Input
 The **user_input.py** file contains a 'User' class. The class gathers user information including: Name, Age, Email, Phone Number, Work Experience and Education.
 
-To use this class you need to instantiate an object of the class and then call its **get_info()** method to get all the user info, then to display the user info call the **print_info()** method.
+#### **get_info()**
+This class collects all the user info.
+
+#### **json_info()**
+This class returns a json object containing all the info collected.
+
+---
  
 
-
+## References
 
 
 - [**E-mail regex** link](https://uibakery.io/regex-library/email-regex-python)
