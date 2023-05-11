@@ -1,9 +1,9 @@
 # imports
 # (here we imports all the modules)
+# import app_classes
+# import app_functions
 import os
-import app_classes
-import app_functions
-import Email
+from email_package import Email
 
 # MENU
 class Menu:
@@ -30,34 +30,46 @@ class Menu:
 [7] Interview analyse ({self.interview_analyse})
 [x] Exit
 > """
-        app_functions.input_strict(home_menu, ["1","2","3","4","5","x"], "clear")
+        # app_functions.input_strict(home_menu, ["1","2","3","4","5","x"], "clear")
 
-# 1) "Candidate info"
-# (which collects all the inputs for the personal info and the job.
-# Please use the "input_..." functions in app_functions file to restrict and verify user inputs.)
-
-# 2) "Job"
-# Look for jobs on popular website like LInkedin, Stepstones, etc... (usng their API?)
-
-# 3) "CV"
-# Create the CV
-
-# 4) "Cover letter"
-# Writes the cover letter
-
-# 5) "Email"
-# Send the email, attaching cover letter and CV
-
-# 6) "Interview"
-# Prepare for the job interview
-
-# 7) "Interview analyse"
-# Give a feedback about the interview
-
-# Testing if this file is running properly
 def main():
-    pass
+    # 1) "Candidate info"
+    # (which collects all the inputs for the personal info and the job.
+    # Please use the "input_..." functions in app_functions file to restrict and verify user inputs.)
+
+    # 2) "Job"
+    # Look for jobs on popular website like LInkedin, Stepstones, etc... (usng their API?)
+
+    # 3) "CV"
+    # Create the CV
+
+    # 4) "Cover letter"
+    # Writes the cover letter
+
+    # 5) "Email"
+    # Send the email, attaching cover letter and CV
+    email = Email(
+        "jude.smiley.python@gmail.com",
+        ["jude.smiley.python@gmail.com"],
+        "Test with class and methods")
+    
+    password = email.password("email_pass.txt")
+
+    body = email.body("email_test.txt")
+
+    attachments = email.attachments(["Curriculum.txt", "email.png"])
+
+    email.send(password, body, attachments)
+
+    # 6) "Interview"
+    # Prepare for the job interview
+
+    # 7) "Interview analyse"
+    # Give a feedback about the interview
+
+    # Testing if this file is running properly
 
 if __name__ == '__main__':
     menu = Menu().home()
+    main()
     

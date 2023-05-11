@@ -6,7 +6,7 @@ from email.mime.application import MIMEApplication
 from email.mime.text import MIMEText
 
 
-class Container:
+class Email:
     # Standard secure SMTP port (at the day of today)
     SMTP_PORT = 587
 
@@ -15,14 +15,12 @@ class Container:
         sender: str,
         receivers: list,
         subject: str,
-        psw: str,
         email_server: str = "smtp.gmail.com",
     ):
         self.sender = sender
-        self.psw = psw
-        self.email_server = email_server
         self.receivers = receivers
         self.subject = subject
+        self.email_server = email_server
     
     def password(self, filename):
         # App's password
@@ -43,9 +41,9 @@ class Container:
                 attachment.add_header("Content-Disposition", "attachment", filename=document)
                 files.remove(document)
                 files.append(attachment)
-            return files
+        return files
 
-    def email_sender(self):
+    def send(self, password, body, attachments):
         # Connect to the SMTP server
         print("Connecting to server...")
         with SMTP(self.email_server, self.SMTP_PORT) as smtp:
@@ -54,7 +52,7 @@ class Container:
             # Login into email account with SMTP method "login", which require 2 arguments:
             # 1. email of the sender
             # 2. app password
-            smtp.login(self.sender, self.password())
+            smtp.login(self.sender, password)
             print("Successfully connected to server.")
             print()
 
@@ -66,15 +64,16 @@ class Container:
                 msg["From"] = self.sender
                 msg["To"] = address
                 msg["Subject"] = self.subject
+            
+            # Add the message body to the container
+            msg.attach(MIMEText(body, "plain"))
+            
+            # Add the attachment(s) to the container
+            for attachment in attachments:
+                msg.attach(attachment)
 
-                # Add the message body to the container
-                msg.attach(MIMEText(self.body(), "plain"))
-
-                # Add the attachment(s) to the container
-                for attachment in self.attachments():
-                    msg.attach(attachment)
-
-                # Send the email
-                smtp.send_message(msg)
-                print(f"Email sent to: {address}.")
-                print()
+            # Send the email
+            smtp.send_message(msg)
+            print(f"Email sent to: {address}.")
+            print()
+            
