@@ -1,138 +1,80 @@
-import openai
+import json
 import os
-from fpdf import FPDF
-# from user_input import User
-import requests
+import openai
 from io import BytesIO
-from PIL import Image
+from fpdf import FPDF
+from reportlab.lib.pagesizes import letter
+from reportlab.pdfgen import canvas
+from reportlab.lib.colors import HexColor
+from reportlab.lib.units import inch
+from PIL import Image, ImageDraw, ImageFont
+import requests
+import textwrap
 
-openai.api_key = input("Insert your API Key: ")
 
-start = True
+class Resume:
+    def init(self, file):
+        with open(file, 'r') as f:
+            self.data = json.load(f)
+        self.pdf = canvas.Canvas('candidate.pdf')
 
-while start is True:
-    print("Hey man, I`m your personal CV maker. Choose the option below:")
-    print()
-    print("1.Generate photo")
-    print("2.Upload photo")
-    print()
-    choice = input("Make your choice: ")
-    print()
-    print("Ok, u chose: ", choice)
-    print()
+    def generate(self):
+        self.pdf.setFont('Helvetica', 12)
+        self.pdf.drawString(240, 800, 'RESUME')
 
-    if choice == "1":
-        description = input("Give me any description you want to generate as image: ")
+        self.pdf.setFont('Helvetica', 10)
+        self.pdf.drawString(50, 750, 'Name: ' + self.data['name'])
+        self.pdf.drawString(50, 735, 'Family Name: ' + self.data['family_name'])
+        self.pdf.drawString(50, 720, 'Birthday: ' + self.data['birthday'])
+        self.pdf.drawString(50, 705, 'Sex: ' + self.data['sex'])
+        self.pdf.drawString(50, 690, 'Phone: ' + self.data['phone'])
+        self.pdf.drawString(50, 675, 'Email: ' + self.data['email'])
+        self.pdf.drawString(50, 660, 'Address: ' + self.data['adress'])
 
-        # Generate an image
-        response = openai.Image.create(prompt=description, n=1, size="1024x1024")
-        image_url = response["data"][0]["url"]
-        print(image_url)
+        y_offset = 600
+        self.pdf.drawString(50, y_offset, 'Experience:')
+        y_offset -= 15
+        for exp in self.data['experience']:
+            self.pdf.drawString(70, y_offset, 'Title: ' + exp['title'])
+            self.pdf.drawString(70, y_offset - 15, 'Description: ' + exp['description'])
+            self.pdf.drawString(70, y_offset - 30, 'Company: ' + exp['company'])
+            self.pdf.drawString(70, y_offset - 45, 'Start Date: ' + exp['date_start'])
+            self.pdf.drawString(70, y_offset - 60, 'End Date: ' + exp['date_end'])
+            y_offset -= 75
 
-        # Download the image data from the URL
-        response = requests.get(image_url)
-        image_data = BytesIO(response.content)
+        y_offset -= 15
+        self.pdf.drawString(50, y_offset, 'Studies:')
+        y_offset -= 15
+        for study in self.data['studies']:
+            self.pdf.drawString(70, y_offset, 'Title: ' + study['title'])
+            self.pdf.drawString(70, y_offset - 15, 'Description: ' + study['description'])
+            self.pdf.drawString(70, y_offset - 30, 'School: ' + study['school'])
+            self.pdf.drawString(70, y_offset - 45, 'Start Date: ' + study['date_start'])
+            self.pdf.drawString(70, y_offset - 60, 'End Date: ' + study['date_end'])
+            y_offset -= 75
 
-        # Open the image data with Pillow and save it as a PNG file
-        image = Image.open(image_data)
-        image.save("output.png", format="PNG")
+        y_offset -= 15
+        self.pdf.drawString(50, y_offset, 'Hobbies:')
+        y_offset -= 15
+        for hobby in self.data['hobbies']:
+            self.pdf.drawString(70, y_offset, hobby['hobby'])
+            y_offset -= 15
 
-        pdf = FPDF()
+        y_offset -= 15
+        self.pdf.drawString(50, y_offset, 'Skills:')
+        y_offset -= 15
+        for skill in self.data['skills']:
+            self.pdf.drawString(70, y_offset, skill['skill'])
+            y_offset -= 15
 
-        # Add a page
-        pdf.add_page()
+        y_offset -= 15
+        self.pdf.drawString(50, y_offset, 'Languages:')
+        y_offset -= 15
+        for language in self.data['languages']:
+            self.pdf.drawString(70, y_offset, language['language'])
+            y_offset -= 15
 
-        # Logo
-        pdf.image("output.png", 0, 0, 45)
+        self.pdf.save()
 
-        # Set the font and font size
-        pdf.set_font("Arial", "B", size=20)
-
-        # create a cell
-        pdf.cell(200, 10, txt="GROUP CHARLIE ", ln=1, align="C")
-
-        # add another cell
-        pdf.cell(200, 10, txt="A very simple PDF file", ln=2, align="C")
-
-        # add another cell
-        pdf.set_font("Arial", "B", size=18)
-        pdf.cell(200, 20, txt="Group members:", ln=2, align="L")
-        members = [
-            "Giulio",
-            "Spencer",
-            "Connor",
-            "Kyrylo",
-            "Adrian",
-            "Mathias",
-            "Semen",
-        ]
-        for member in members:
-            pdf.set_font("Arial", size=16)
-            pdf.cell(
-                200,
-                10,
-                txt=member,
-                border=1,
-                ln=2,
-                align="L",
-            )
-
-        # Save the PDF file
-        pdf.output("CV.pdf", "F")
-
-        start = False
-
-    elif choice == "2":
-        # prompt the user to provide the path of the image they want to upload
-        image_path = input("Please enter the path of the image you want to upload: ")
-
-        # open the image using PIL
-        image = Image.open(image_path)
-
-        # save the image as a PNG file
-        image.save("output.png", format="PNG")
-
-        pdf = FPDF()
-
-        # Add a page
-        pdf.add_page()
-
-        # Logo
-        pdf.image("output.png", 0, 0, 45)
-
-        # Set the font and font size
-        pdf.set_font("Arial", "B", size=20)
-
-        # create a cell
-        pdf.cell(200, 10, txt="GROUP CHARLIE ", ln=1, align="C")
-
-        # add another cell
-        pdf.cell(200, 10, txt="A very simple PDF file", ln=2, align="C")
-
-        # add another cell
-        pdf.set_font("Arial", "B", size=18)
-        pdf.cell(200, 20, txt="Group members:", ln=2, align="L")
-        members = [
-            "Giulio",
-            "Spencer",
-            "Connor",
-            "Kyrylo",
-            "Adrian",
-            "Mathias",
-            "Semen",
-        ]
-        for member in members:
-            pdf.set_font("Arial", size=16)
-            pdf.cell(
-                200,
-                10,
-                txt=member,
-                border=1,
-                ln=2,
-                align="L",
-            )
-
-        # Save the PDF file
-        pdf.output("CV.pdf", "F")
-
-        start = False
+resume = Resume('candidate.json')
+resume.generate()
