@@ -15,6 +15,12 @@ create something unique
 - OPTIONAL: include some sort of mocking  
 ---
 
+## Cover letter bot
+
+The bot takes the User info from the candidate.json file and the job info from the job.json file. It then creates
+a cover letter using all the information. Once the cover letter is generated, the user has the option to edit the generated text
+via the tkinter module. When you close the tkinter window, the program then automatically saves the Cover letter as pdf, a new tkinter
+window appears where the user can choose the path to save the pdf file.
 
 ## Email sender
 
