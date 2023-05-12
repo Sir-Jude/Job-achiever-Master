@@ -241,8 +241,8 @@ You don't ask questions or say anything other than the content of the cover lett
         with open("json/letter.json", "w") as file:
             letter = {
                 "candidate_name": cls.candidate["name"],
-                "candidate_family_name": cls.candidate["family_name"],
-                "recruiter_family_name": cls.recruiter["family_name"],
+                "candidate_surname": cls.candidate["surname"],
+                "recruiter_surname": cls.recruiter["surname"],
                 "candidate_email": cls.candidate["email"],
                 "candidate_phone": cls.candidate["phone"],
                 "candidate_adress": cls.candidate["adress"],
