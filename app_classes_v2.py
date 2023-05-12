@@ -150,10 +150,10 @@ class Adviser_Bot:
             file.write(json.dumps(letter, indent=4))
 
     try:  # if the file exists colect all the interview mesages
-        with open("json/letter.json", "r") as file:
+        with open("json/interview.json", "r") as file:
             interview_history = json.load(file) # the list of interview messages
     except FileNotFoundError:  # if the file is missing than create one
-        with open("json/letter.json", "w") as file:
+        with open("json/interview.json", "w") as file:
             interview_history = []
             file.write(json.dumps(interview_history, indent=4))
 
