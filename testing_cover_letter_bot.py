@@ -23,3 +23,5 @@ def test_save_cover_letter_as_pdf(tmpdir):
     save_cover_letter_as_pdf(cover_letter, filename)
 
     assert tmpdir.join("cover_letter.pdf").exists()
+
+#testing the individual functions generate_cover_letter and save_cover_letter_as_pdf. It uses mock.patch to simulate the behavior of external dependencies and ensures the expected outputs and file operations are correct.

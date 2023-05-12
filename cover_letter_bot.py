@@ -1,3 +1,9 @@
+# the program takes the created user input from user.json file, created in user_input.py
+# it uses the input to generate a cover letter
+# the generated cover letter can be modified by the user and will be saved as pdf
+# the reportlab module is necessary to save the file as pdf and create formatting for the pdf file
+# the tkinter module is for the GUI to edit the generated cover letter and the GUI to choose a path to save.
+
 import os
 import openai
 from reportlab.lib.pagesizes import letter

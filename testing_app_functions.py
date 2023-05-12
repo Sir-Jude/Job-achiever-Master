@@ -36,3 +36,6 @@ def test_input_email():
     with mock.patch("builtins.input", user_input):
         result = input_email("Enter your email: ")
     assert result == "test@example.com"
+
+#In these examples, the mock module is use to simulate user input for the input() function. I provided different inputs using the side_effect attribute of the mock.Mock object.
+
