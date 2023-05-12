@@ -5,6 +5,7 @@
 import os
 from cv_bot import Resume
 from email_package import Email
+import cover_letter_bot
 
 # MENU
 class Menu:
@@ -46,6 +47,7 @@ def main():
     cv = Resume("candidate.json")
     cv.generate()
     # 4) "Cover letter"
+    cover_letter_bot.generate()
     # Writes the cover letter
 
     # 5) "Email"

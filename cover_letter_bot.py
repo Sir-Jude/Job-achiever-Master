@@ -107,7 +107,7 @@ def choose_directory():
     directory = filedialog.askdirectory(title="Choose the directory where you want to save the cover letter")
     return directory
 
-def main():
+def generate():
     # Main function
     # Get user and job info
     name, family_name, birthday, sex, phone, email, adress, experience, studies, hobbies, skills, languages, user_language, short_description = get_user_info()
@@ -152,5 +152,4 @@ def main():
 
     print(f"\nCover letter saved as '{os.path.join(directory, filename)}'")
 
-if __name__ == "__main__":
-    main()
+
