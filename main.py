@@ -8,37 +8,6 @@ from email_package import Email
 from app_classes_v2 import Candidate, Adviser_Bot
 # import cover_letter_bot
 
-
-# MENU
-class Menu:
-    def __init__(self) -> None:
-        self.candidate = "empty"
-        self.recriutier = "empty"
-        self.job = "empty"
-        self.cv = "empty"
-        self.cover_letter = "empty"
-        self.interview = "empty"
-        self.interview_analyse = "empty"
-
-    def home(self):
-        os.system("clear")
-        print(
-            """Job Achiever Master
-==========================="""
-        )
-        home_menu = f"""
-[1] Candidate info ({self.candidate})
-[2] Job ({self.job})
-[3] CV ({self.cv})
-[4] Cover letter ({self.cover_letter})
-[5] Email sender
-[6] Interviews ({self.interview})
-[7] Interview analyse ({self.interview_analyse})
-[x] Exit
-> """
-        # app_functions.input_strict(home_menu, ["1","2","3","4","5","x"], "clear")
-
-
 def main():
     # 0) "App window"
     # (which launches the program)
@@ -54,9 +23,10 @@ def main():
     # Create the CV
     cv = Resume("json/candidate.json")
     cv.generate()
+    
     # 4) "Cover letter"
-    # cover_letter_bot.generate()
     # Writes the cover letter
+    # cover_letter_bot.generate()
 
     # 5) "Email"
     # Send the email, attaching cover letter and CV
@@ -88,5 +58,4 @@ def main():
 
 
 if __name__ == "__main__":
-    menu = Menu().home()
     main()
