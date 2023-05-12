@@ -16,9 +16,6 @@ import tkinter as tk  # for creating graphical user interfaces
 from tkinter import filedialog  # for file dialog in tkinter
 
 
-openai.api_key = ""
-
-
 def get_user_info():
     # Function to get user information
     with open("json/candidate.json", "r") as file:
@@ -105,13 +102,18 @@ def generate_cover_letter(
         messages=[
             {
                 "role": "system",
-                "content": "You are a helpful assistant that generates cover letters.",
+                "content": """You are a cover letter creator for jobs.
+                Based on the input you receive, you will compose the content of a cover letter for the desired job based only on the data provided.
+                Don't provide any results other than the cover letter.
+                Don't mention unnecessary information from my experience or education.
+                Write the text of the letter in {user_language} in a style suitable for the job to which the candidate is applying.
+                You don't ask questions or say anything other than the content of the cover letter."""
             },
             {
                 "role": "user",
-                "content": "Given the following details, please generate a cover letter.",
+                "content": prompt,
             },
-            {"role": "assistant", "content": prompt},
+            
         ],
     )
     return response["choices"][0]["message"]["content"].strip()
@@ -308,3 +310,5 @@ def generate():
     )
 
     print(f"\nCover letter saved as '{os.path.join(directory, filename)}'")
+
+
