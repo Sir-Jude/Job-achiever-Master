@@ -11,8 +11,8 @@ def test_generate_cover_letter():
 
     with mock.patch('openai.ChatCompletion.create') as mock_create:
         mock_create.return_value = mock_response
-
-        cover_letter = generate_cover_letter("John Doe", "ABC Company", "Jane Smith", "25", "Software Engineer", "5 years of experience", "English")
+        cover_letter = generate_cover_letter("Mathias", "Green Scoop", "R. Escobar", "31", "Ice cream man", "3 years of experience", "English")
+            #name, company, hiring manager, age, position, experiencie, language.
 
     assert cover_letter == "Sample cover letter"
 

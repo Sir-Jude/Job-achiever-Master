@@ -9,14 +9,14 @@ import time
 
 Candidate.data = {
     "name": "Adrian",
-    "family_name": "Radu",
+    "surname": "Radu",
     "birthday": "11.03.1977",
     "sex": "male",
     "phone": "1234567890",
-    "email": "justamail@gmail.com",
+    "email": "jude.smiley.python@gmail.com",
     "adress": "Justastr. 11b, 39124 Magdeburg",
     "experience": [],
-    "studies": [],
+    "education": [],
     "hobbies": [],
     "skills": [],
     "languages": [],
@@ -50,7 +50,7 @@ Candidate.add_experience(
         "date_end": "01.01.2000",
     }
 )
-Candidate.add_studies(
+Candidate.add_education(
     {
         "title": "Python Backend Programming",
         "description": "Cours",
@@ -59,7 +59,7 @@ Candidate.add_studies(
         "date_end": "10.01.2024",
     }
 )
-Candidate.add_studies(
+Candidate.add_education(
     {
         "title": "Graphic designer",
         "description": "Barcelors degree",
@@ -77,9 +77,9 @@ Candidate.save_infos()
 
 Recruiter.data = {
     "name": "Nicolas",
-    "family_name": "Tesla",
+    "surname": "Tesla",
     "sex": "male",
-    "email": "otheremail@glail.com",
+    "email": "jude.smiley.python@gmai.com",
     "position": "CEO",
     "company": "Elli - a brand of the Volkswagen Group",
     "company_adress": "Berlinerstr. 11b, 39124 Berlin",
