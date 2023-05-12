@@ -129,7 +129,7 @@ class Adviser_Bot:
     role_description = ""
     user_input = "empty"
     user_language = "english"
-    try:  # if the file exists colect all the interview mesages
+    try:  # if the file exists colect all the letter infos
         with open("json/letter.json", "r") as file:
             letter = json.load(file) # the list of interview messages
     except FileNotFoundError:  # if the file is missing than create one
