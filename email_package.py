@@ -28,11 +28,6 @@ class Email:
         with open(filename, "r") as file:
             return file.read()
         
-    def body(self, filename):
-        # Read the file containing the body of the email
-        with open(filename, "r") as file:
-            return file.read()
-        
     def attachments(self, files: list):
         # Build the object rapresenting the attachment(s)
         for document in files.copy():
