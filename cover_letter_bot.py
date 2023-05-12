@@ -7,7 +7,7 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet
 from io import BytesIO # needed to save letter as pdf
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 def get_user_input():   # give info to AI to put in cover letter
     name = input("Enter your name: ")
