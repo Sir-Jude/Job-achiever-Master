@@ -1,13 +1,13 @@
 {
-    "candidate_name": null,
-    "candidate_surname": null,
-    "recruiter_surname": null,
-    "candidate_email": null,
-    "candidate_phone": null,
-    "candidate_adress": null,
-    "recruiter_email": null,
-    "recruiter_adress": null,
-    "position": null,
-    "company": null,
-    "mail_body": null
+    "candidate_name": "Adrian",
+    "candidate_surname": "Radu",
+    "recruiter_surname": "Tesla",
+    "candidate_email": "jude.smiley.python@gmail.com",
+    "candidate_phone": "1234567890",
+    "candidate_adress": "Justastr. 11b, 39124 Magdeburg",
+    "recruiter_email": "jude.smiley.python@gmai.com",
+    "recruiter_adress": "Berlinerstr. 11b, 39124 Berlin",
+    "position": "Software Engineer Backend",
+    "company": "Elli - a brand of the Volkswagen Group",
+    "mail_body": "Dear Mr. Tesla,\n\nI was extremely excited to find the software engineer backend position on StepStone and I would like to apply for the role. After reading the job description and the responsibilities of the role, I am confident that my background, along with my skills and experiences, would be a good fit for the position.\n\nI am Adrian Radu, a Python Backend programmer with a Bachelor's degree in Graphic Design. As a Backend programmer, I cherish the opportunity to be constantly learning and keeping up with industry developments. I have a proven track record of building and operating scalable systems. I have also been an advocate for maintaining the highest quality bar and making sure that quality and testing is included in the development work from a project's beginning.\n\nMy experience includes knowledge in design patterns, data structures, and algorithms. I have extensive experience in developing high-quality software in modern programming languages like Python and TypeScript, and I am highly skilled in modern software development tools and systems such as Docker, Git, and Linux. I have experience working in cross-functional agile teams and have a passion and eagerness to learn new tools, technologies, and practices.\n\nI have experience in working in true DevOps teams and with automated software testing, Continuous Integration, and Continuous Delivery practices. Additionally, I also have experience in infrastructure provisioning tools like Terraform.\n\nI would love to be part of one of your Communities of Practice as a Software Engineer Backend and contribute to the team's overall efficiency and effectiveness through setting an example of best software development practices. \n\nThank you for considering my application. I am excited about this opportunity and looking forward to meeting you in person. Please find my resume attached to this letter.\n\nSincerely,\n\nAdrian Radu"
 }
