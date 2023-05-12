@@ -115,5 +115,9 @@ class Resume:
 
         self.pdf.save()
 
+<<<<<<< HEAD
 resume = Resume('json/candidate.json', HexColor("#D4AF37"), HexColor("#404040"), HexColor("#FFFFFF"))
+=======
+resume = Resume('json/candidate.json')
+>>>>>>> origin
 resume.generate()
