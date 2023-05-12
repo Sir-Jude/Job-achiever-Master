@@ -1,5 +1,13 @@
 import os
 import openai
+from reportlab.lib.pagesizes import letter
+from reportlab.pdfgen import canvas
+from reportlab.lib import pagesizes
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
+from reportlab.lib.styles import getSampleStyleSheet
+from io import BytesIO # needed to save letter as pdf
+
+
 import json
 from datetime import date
 from reportlab.lib.pagesizes import letter  # for specifying PDF page size
@@ -97,6 +105,7 @@ def generate_cover_letter(
     Languages: {languages}
     Short description: {short_description}
     """
+
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
