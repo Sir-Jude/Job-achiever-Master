@@ -34,6 +34,10 @@ class Menu:
         # app_functions.input_strict(home_menu, ["1","2","3","4","5","x"], "clear")
 
 def main():
+    # 0) "App window"
+    # (which launches the program)
+    
+    
     # 1) "Candidate info"
     # (which collects all the inputs for the personal info and the job.
     # Please use the "input_..." functions in app_functions file to restrict and verify user inputs.)
