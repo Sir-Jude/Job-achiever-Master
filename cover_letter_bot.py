@@ -2,7 +2,6 @@ import os
 import openai
 from reportlab.lib.pagesizes import letter
 from reportlab.lib.styles import getSampleStyleSheet
-
 import json
 from datetime import date
 from reportlab.lib.pagesizes import letter  # for specifying PDF page size
@@ -23,7 +22,7 @@ openai.api_key = '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'
 def get_user_info():
     jsonname = input("Enter your first name: ")
     # Function to get user information
-    with open(f"json/{jsonname}.json", "r") as file:
+    with open(f"json/{jsonname.lower()}.json", "r") as file:
         data = json.load(file)
         return (
             data["Last Name"],
