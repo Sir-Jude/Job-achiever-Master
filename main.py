@@ -4,7 +4,7 @@
 import app_functions
 from cv_bot import Resume
 from email_package import Email
-from app_classes_v2 import Candidate, Adviser_Bot
+from app_classes_v2 import Candidate, Adviser_Bot, Recruiter, Job
 import cover_letter_bot
 
 def main():
@@ -30,9 +30,9 @@ def main():
     # 5) "Email"
     # Send the email, attaching cover letter and CV
     email = Email(
-        "jude.smiley.python@gmail.com",  # sender
-        ["jude.smiley.python@gmail.com"],  # list of receivers
-        "Test with class and methods",
+        f"{Candidate.data['email']}",  # sender
+        [f"{Recruiter.data['email']}"],  # list of receivers
+        f"Applying for the position of {Job.data['position']}",
     )  # object
 
     password = email.password("email_pass.txt")  # app password
