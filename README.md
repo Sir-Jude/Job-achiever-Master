@@ -58,20 +58,19 @@ In this code we are going to use a **gmail** account, but the concepts apply to 
   A subclass of MIMENonMultipart, the MIMEText class is used to create **MIME** (**M**ultipurpose **I**nternet **M**ail **E**xtension) objects of major type text.
 
 ### 5. Create the class **Email**
-
 ### 5.1 Class attributes
-
 Write an assignment statement for the port.  
 (**587** is the the standard secure mail submission port)
 
 ### 5.2 Instatiate the class instance
-
 The class Email has the following attributes:  
 - sender
 - list of receivers
 - email subject
 - name of the server  
   (defaulted for the gmail)
+
+### 5.3 Define **password** method
 
 
 
