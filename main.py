@@ -1,12 +1,11 @@
 # imports
 # (here we imports all the modules)
 # import app_classes
-# import app_functions
-import os
+import app_functions
 from cv_bot import Resume
 from email_package import Email
 from app_classes_v2 import Candidate, Adviser_Bot
-# import cover_letter_bot
+import cover_letter_bot
 
 def main():
     # 0) "App window"
@@ -26,7 +25,7 @@ def main():
     
     # 4) "Cover letter"
     # Writes the cover letter
-    # cover_letter_bot.generate()
+    cover_letter_bot.generate()
 
     # 5) "Email"
     # Send the email, attaching cover letter and CV

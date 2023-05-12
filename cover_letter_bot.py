@@ -16,9 +16,6 @@ import tkinter as tk  # for creating graphical user interfaces
 from tkinter import filedialog  # for file dialog in tkinter
 
 
-openai.api_key = "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"
-
-
 def get_user_info():
     # Function to get user information
     with open("json/candidate.json", "r") as file:
