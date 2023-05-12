@@ -281,15 +281,28 @@ class User:
         }
         return info_dict
 
-    def json_info(self) -> json:
+    def json_info(self) -> str:
         """Returns json formatted user info"""
-        return json.dumps(self.dict_info())
+        return json.dumps(self.dict_info(), indent=4)
     
+    def save_json(self) -> None:
+        """Creates a json file continuing the the info that has been collected in a file called user.json in the json folder."""
+        json_data = self.json_info()
+        with open("json/user.json", "w") as file:
+            file.write(json_data)
+
+
 # for testing purposes
 if __name__ == "__main__":
-    user1 = User()
-    user1.get_info()
-    json_data = user1.json_info()
-    parsed_data = json.loads(json_data)
-    formatted_json = json.dumps(parsed_data, indent=4)
-    print(formatted_json)
+    test = User()
+    test.get_info()
+
+    test.save_json()
+
+    # reading the user.json file that was created and printing it out
+    with open("json/user.json", "r") as file:
+        formatted_json = json.load(file)
+    
+    print(json.dumps(formatted_json, indent=4))
+
+
