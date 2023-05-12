@@ -9,7 +9,7 @@ import tkinter as tk  # for creating graphical user interfaces
 from tkinter import filedialog  # for file dialog in tkinter
 
 
-openai.api_key = "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"
+openai.api_key = ""
 
 def get_user_info():
     # Function to get user information
