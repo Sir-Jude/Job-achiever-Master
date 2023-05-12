@@ -1,43 +1,11 @@
 # imports
 # (here we imports all the modules)
 # import app_classes
-# import app_functions
-import os
+import app_functions
 from cv_bot import Resume
 from email_package import Email
-from app_classes_v2 import Candidate, Adviser_Bot
-# import cover_letter_bot
-
-
-# MENU
-class Menu:
-    def __init__(self) -> None:
-        self.candidate = "empty"
-        self.recriutier = "empty"
-        self.job = "empty"
-        self.cv = "empty"
-        self.cover_letter = "empty"
-        self.interview = "empty"
-        self.interview_analyse = "empty"
-
-    def home(self):
-        os.system("clear")
-        print(
-            """Job Achiever Master
-==========================="""
-        )
-        home_menu = f"""
-[1] Candidate info ({self.candidate})
-[2] Job ({self.job})
-[3] CV ({self.cv})
-[4] Cover letter ({self.cover_letter})
-[5] Email sender
-[6] Interviews ({self.interview})
-[7] Interview analyse ({self.interview_analyse})
-[x] Exit
-> """
-        # app_functions.input_strict(home_menu, ["1","2","3","4","5","x"], "clear")
-
+from app_classes_v2 import Candidate, Adviser_Bot, Recruiter, Job
+import cover_letter_bot
 
 def main():
     # 0) "App window"
@@ -54,16 +22,17 @@ def main():
     # Create the CV
     cv = Resume("json/candidate.json")
     cv.generate()
+    
     # 4) "Cover letter"
-    # cover_letter_bot.generate()
     # Writes the cover letter
+    cover_letter_bot.generate()
 
     # 5) "Email"
     # Send the email, attaching cover letter and CV
     email = Email(
-        "jude.smiley.python@gmail.com",  # sender
-        ["jude.smiley.python@gmail.com"],  # list of receivers
-        "Test with class and methods",
+        f"{Candidate.data['email']}",  # sender
+        [f"{Recruiter.data['email']}"],  # list of receivers
+        f"Applying for the position of {Job.data['position']}",
     )  # object
 
     password = email.password("email_pass.txt")  # app password
@@ -88,5 +57,4 @@ def main():
 
 
 if __name__ == "__main__":
-    menu = Menu().home()
     main()
