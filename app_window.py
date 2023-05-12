@@ -69,11 +69,4 @@ button = tkinter.Button(content_frame, text="Save", command = 0)
 button.grid(row=1, column=2, sticky="news", padx=10, pady=10)
 
 
-
-
-
-
-
-
-
 window.mainloop()
