@@ -123,7 +123,13 @@ class Recruiter:
 
 class Adviser_Bot:
     # All the atributes inside this class will be used to feed the bot with contextual infos
-    try:  # if the file exists colect all the interview mesages
+    candidate = "empty"
+    recruiter = "empty"
+    job = "empty"
+    role_description = ""
+    user_input = "empty"
+    user_language = "english"
+    try:  # if the file exists colect all the letter infos
         with open("json/letter.json", "r") as file:
             letter = json.load(file) # the list of interview messages
     except FileNotFoundError:  # if the file is missing than create one
@@ -144,24 +150,17 @@ class Adviser_Bot:
             file.write(json.dumps(letter, indent=4))
 
     try:  # if the file exists colect all the interview mesages
-        with open("json/letter.json", "r") as file:
+        with open("json/interview.json", "r") as file:
             interview_history = json.load(file) # the list of interview messages
     except FileNotFoundError:  # if the file is missing than create one
-        with open("json/letter.json", "w") as file:
+        with open("json/interview.json", "w") as file:
             interview_history = []
             file.write(json.dumps(interview_history, indent=4))
-
-    candidate = "empty"
-    recruiter = "empty"
-    job = "empty"
-    role_description = ""
-    user_input = "empty"
-    user_language = "english"
 
     @classmethod
     def update_user_input(cls):
         try:  # if the 'candidate.json' exists colect all the candidate infos
-            with open("candidate.json", "r") as file:
+            with open("json/candidate.json", "r") as file:
                 cls.candidate = json.load(file)
                 # Preformating candidate informations
                 cls.candidate_dates = f"{cls.candidate['name']} {cls.candidate['surname']} ({cls.candidate['sex']}), born on {cls.candidate['birthday']}."
@@ -190,14 +189,14 @@ class Adviser_Bot:
             cls.candidate = "empty"
             cls.user_language = "english"
         try:  # if the 'recruiter.json' exists colect all the recruiter infos
-            with open("recruiter.json", "r") as file:
+            with open("json/recruiter.json", "r") as file:
                 cls.recruiter = json.load(file)
                 # Preformating recrutier informations
                 cls.recruiter_dates = f'{cls.recruiter["name"]} {cls.recruiter["surname"]} ({cls.recruiter["sex"]}), having "{cls.recruiter["position"]}" position by "{cls.recruiter["company"]}".'
         except FileNotFoundError:  # if the file is missing set the recruiter attribute 'empty'
             cls.recruiter = "empty"
         try:  # if the 'job.json' exists colect all the job infos
-            with open("job.json", "r") as file:
+            with open("json/job.json", "r") as file:
                 cls.job = json.load(file)
                 # Preformating job description
                 cls.job_description = f'The job was found on {cls.job["source"]} having "{cls.job["position"]}" as position.\nJob description:{cls.job["description"]}'
@@ -238,7 +237,23 @@ You don't ask questions or say anything other than the content of the cover lett
             bot_message("system", cls.role_description),
             bot_message("user", cls.user_input),
         ]
-        return bot_request(messages)
+        letter_text = bot_request(messages)
+        with open("json/letter.json", "w") as file:
+            letter = {
+                "candidate_name": cls.candidate["name"],
+                "candidate_surname": cls.candidate["surname"],
+                "recruiter_surname": cls.recruiter["surname"],
+                "candidate_email": cls.candidate["email"],
+                "candidate_phone": cls.candidate["phone"],
+                "candidate_adress": cls.candidate["adress"],
+                "recruiter_email": cls.recruiter["email"],
+                "recruiter_adress": cls.recruiter["company_adress"],
+                "position": cls.job["position"],
+                "company": cls.recruiter["company"],
+                "mail_body": letter_text
+            }
+            file.write(json.dumps(letter, indent=4))
+        return letter_text
 
     @classmethod
     def generate_cv_short_description(cls):
