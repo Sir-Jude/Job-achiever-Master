@@ -160,7 +160,7 @@ class Adviser_Bot:
     @classmethod
     def update_user_input(cls):
         try:  # if the 'candidate.json' exists colect all the candidate infos
-            with open("candidate.json", "r") as file:
+            with open("json/candidate.json", "r") as file:
                 cls.candidate = json.load(file)
                 # Preformating candidate informations
                 cls.candidate_dates = f"{cls.candidate['name']} {cls.candidate['surname']} ({cls.candidate['sex']}), born on {cls.candidate['birthday']}."
@@ -189,14 +189,14 @@ class Adviser_Bot:
             cls.candidate = "empty"
             cls.user_language = "english"
         try:  # if the 'recruiter.json' exists colect all the recruiter infos
-            with open("recruiter.json", "r") as file:
+            with open("json/recruiter.json", "r") as file:
                 cls.recruiter = json.load(file)
                 # Preformating recrutier informations
                 cls.recruiter_dates = f'{cls.recruiter["name"]} {cls.recruiter["surname"]} ({cls.recruiter["sex"]}), having "{cls.recruiter["position"]}" position by "{cls.recruiter["company"]}".'
         except FileNotFoundError:  # if the file is missing set the recruiter attribute 'empty'
             cls.recruiter = "empty"
         try:  # if the 'job.json' exists colect all the job infos
-            with open("job.json", "r") as file:
+            with open("json/job.json", "r") as file:
                 cls.job = json.load(file)
                 # Preformating job description
                 cls.job_description = f'The job was found on {cls.job["source"]} having "{cls.job["position"]}" as position.\nJob description:{cls.job["description"]}'
