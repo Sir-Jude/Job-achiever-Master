@@ -136,6 +136,10 @@ This class collects all the user info.
 #### **json_info()**
 This class returns a json object containing all the info collected.
 
+#### **dict_info()**
+This class returns a dict containing all the info collected.
+
+
 ---
  
 
