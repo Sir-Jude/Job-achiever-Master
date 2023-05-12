@@ -128,8 +128,8 @@ Job informations:
         self.role_description = f"""You are a cover letter creator for jobs.
 Based on the input you receive, you will compose the content of a cover letter for the desired job based only on the data provided.
 Don't provide any results other than the cover letter.
-Don't mention unnecesary informations from my experience or education.
-Write the text of the letter in {self.language} in a style suitable for the job to which the candidate is applying.
+Don't mention irrelevant informations from my experience or education.
+Write the body of the letter in {self.language} in a style suitable for the job to which the candidate is applying.
 You don't ask questions or say anything other than the content of the cover letter."""
 
         messages = [
