@@ -5,12 +5,8 @@
 import os
 from cv_bot import Resume
 from email_package import Email
-<<<<<<< HEAD
 from app_classes_v2 import Candidate, Adviser_Bot
 
-=======
-import cover_letter_bot
->>>>>>> 38a4a9266270e49668cfe0d9dca2b0fb909b0816
 
 # MENU
 class Menu:
