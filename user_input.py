@@ -262,7 +262,9 @@ class User:
         clear_terminal("clear")
 
 
-    def json_info(self):
+
+    def dict_info(self) -> dict:
+        """Returns dict formatted user info"""
         info_dict = {
             "First Name": self.first_name,
             "Last Name": self.last_name,
@@ -277,9 +279,12 @@ class User:
             "Work Experience": self.experience,
             "Education": self.education,
         }
-        return json.dumps(info_dict)
+        return info_dict
 
-
+    def json_info(self) -> json:
+        """Returns json formatted user info"""
+        return json.dumps(self.dict_info())
+    
 # for testing purposes
 if __name__ == "__main__":
     user1 = User()

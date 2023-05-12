@@ -136,6 +136,7 @@ class Adviser_Bot:
     # Role for initial bot message
     role_description = ""
     user_input = "empty"
+    user_language = "english"
 
     @classmethod
     def update_user_input(cls):

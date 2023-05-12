@@ -5,8 +5,12 @@
 import os
 from cv_bot import Resume
 from email_package import Email
+<<<<<<< HEAD
 from app_classes_v2 import Candidate, Adviser_Bot
 
+=======
+import cover_letter_bot
+>>>>>>> 38a4a9266270e49668cfe0d9dca2b0fb909b0816
 
 # MENU
 class Menu:
@@ -54,6 +58,7 @@ def main():
     cv = Resume("json/candidate.json")
     cv.generate()
     # 4) "Cover letter"
+    cover_letter_bot.generate()
     # Writes the cover letter
 
     # 5) "Email"
@@ -84,7 +89,14 @@ def main():
 
     # Testing if this file is running properly
 
+<<<<<<< HEAD
 
 if __name__ == "__main__":
     menu = Menu().home()
     main()
+=======
+#if __name__ == '__main__':
+   # menu = Menu().home()
+    #main()
+    
+>>>>>>> 38a4a9266270e49668cfe0d9dca2b0fb909b0816
