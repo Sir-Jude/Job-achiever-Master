@@ -20,7 +20,7 @@ class Resume:
             raise ValueError("Missing or invalid 'name' value in JSON file")
         
         #Create a PDF file
-        self.pdf_file_name = f"pdfs/{self.data['name']}_{self.data['surname']}_CV.pdf"
+        self.pdf_file_name = f"pdfs/{self.data['name']}_{self.data['family_name']}_CV.pdf"
         self.pdf = canvas.Canvas(self.pdf_file_name)
 
         self.rich_gold_color = rich_gold_color
@@ -53,7 +53,7 @@ class Resume:
         self.pdf.setFillColor(self.night_gray_color)
         self.pdf.setFont('Helvetica', 12)
         self.pdf.drawString(50, 750, 'Name: ' + self.data['name'])
-        self.pdf.drawString(50, 735, 'Family Name: ' + self.data['surname'])
+        self.pdf.drawString(50, 735, 'Family Name: ' + self.data['family_name'])
         self.pdf.drawString(50, 720, 'Birthday: ' + self.data['birthday'])
         self.pdf.drawString(50, 705, 'Sex: ' + self.data['sex'])
         self.pdf.drawString(50, 690, 'Phone: ' + self.data['phone'])
