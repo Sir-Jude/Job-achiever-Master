@@ -1,12 +1,7 @@
 import os
 import openai
 from reportlab.lib.pagesizes import letter
-from reportlab.pdfgen import canvas
-from reportlab.lib import pagesizes
-from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet
-from io import BytesIO # needed to save letter as pdf
-
 
 import json
 from datetime import date
@@ -23,26 +18,27 @@ from reportlab.lib.styles import (
 import tkinter as tk  # for creating graphical user interfaces
 from tkinter import filedialog  # for file dialog in tkinter
 
+openai.api_key = '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'
 
 def get_user_info():
+    jsonname = input("Enter your first name: ")
     # Function to get user information
-    with open("json/candidate.json", "r") as file:
+    with open(f"json/{jsonname}.json", "r") as file:
         data = json.load(file)
         return (
-            data["name"],
-            data["surname"],
-            data["birthday"],
-            data["sex"],
-            data["phone"],
-            data["email"],
-            data["adress"],
-            data["experience"],
-            data["education"],
-            data["hobbies"],
-            data["skills"],
-            data["languages"],
-            data["user_language"],
-            data["short_description"],
+            data["Last Name"],
+            data["First Name"],
+            data["D.O.B."],
+            #data["sex"],
+            data["Phone"],
+            data["Email"],
+            data["Address"],
+            data["Work Experience"],
+            data["Education"],
+            data["Hobbies"],
+            data["Skills"],
+            data["Languages"],
+            data["About"],
         )
 
 
@@ -66,10 +62,9 @@ def get_recruiter_info():
 
 
 def generate_cover_letter(
-    name,
     surname,
+    name,
     birthday,
-    sex,
     phone,
     email,
     adress,
@@ -78,7 +73,6 @@ def generate_cover_letter(
     hobbies,
     skills,
     languages,
-    user_language,
     short_description,
     recruiter_name,
     recruiter_surname,
@@ -88,9 +82,8 @@ def generate_cover_letter(
 ):
     # Function to generate a cover letter using the OpenAI API
     prompt = f"""
-    Applicant name: {name} {surname}
+    Applicant name: {surname} {name}
     Applicant age: {birthday}
-    Applicant sex: {sex}
     Applicant address: {adress}
     Applicant phone : {phone}
     Applicant email: {email}
@@ -170,7 +163,7 @@ def save_cover_letter_as_pdf(
     # Create multiple paragraphs for sender address
     sender_paragraphs = [
         Paragraph(line, right_aligned_style)
-        for line in [f"{name} {surname}"] + sender_address_lines + [email, phone]
+        for line in [f"{surname} {name}"] + sender_address_lines + [email, phone]
     ]
 
     # Create multiple paragraphs for recipient address
@@ -225,7 +218,6 @@ def generate():
         name,
         surname,
         birthday,
-        sex,
         phone,
         email,
         adress,
@@ -234,7 +226,6 @@ def generate():
         hobbies,
         skills,
         languages,
-        user_language,
         short_description,
     ) = get_user_info()
     (
@@ -250,7 +241,6 @@ def generate():
         name,
         surname,
         birthday,
-        sex,
         phone,
         email,
         adress,
@@ -259,7 +249,6 @@ def generate():
         hobbies,
         skills,
         languages,
-        user_language,
         short_description,
         recruiter_name,
         recruiter_surname,
@@ -319,5 +308,3 @@ def generate():
     )
 
     print(f"\nCover letter saved as '{os.path.join(directory, filename)}'")
-
-
