@@ -3,7 +3,7 @@
 # import app_classes
 import app_functions
 from cv_bot import Resume
-from email_package import Email
+from email_module import Email
 from app_classes_v2 import Candidate, Adviser_Bot, Recruiter, Job
 import cover_letter_bot
 
@@ -41,7 +41,7 @@ def main():
 
     attachments = email.attachments(
         [
-            f"{Candidate.data['name']}_{Candidate.data['family_name']}_CV.pdf"
+            f"{Candidate.data['name']}_{Candidate.data['surname']}_CV.pdf"
         ]
     )  # cv and cover letter
 
