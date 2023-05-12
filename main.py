@@ -3,7 +3,7 @@
 # import app_classes
 import app_functions
 from cv_bot import Resume
-from email_package import Email
+from email_module import Email
 from app_classes_v2 import Candidate, Adviser_Bot, Recruiter, Job
 import cover_letter_bot
 
