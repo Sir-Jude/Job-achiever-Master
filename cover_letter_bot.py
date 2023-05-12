@@ -9,21 +9,27 @@ import tkinter as tk  # for creating graphical user interfaces
 from tkinter import filedialog  # for file dialog in tkinter
 
 
-openai.api_key = ""
+openai.api_key = "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"
 
 def get_user_info():
     # Function to get user information
-    with open('candidate.json', 'r') as file:
+    with open('json/candidate.json', 'r') as file:
         data = json.load(file)
         return data['name'], data['family_name'], data['birthday'], data['sex'], data['phone'], data['email'], data['adress'], data['experience'], data['studies'], data['hobbies'], data['skills'], data['languages'], data['user_language'], data['short_description']
 
 def get_job_info():
     # Function to get job information
-    with open('recruiter.json','r') as file:
+    with open('json/job.json','r') as file:
+        data = json.load(file)
+        return data['position']
+
+def get_recruiter_info():
+    #Function to get recruiter info
+    with open('json/recruiter.json','r') as file:
         data = json.load(file)
         return data['name'], data['family_name'], data['company'], data['company_adress']
 
-def generate_cover_letter(name, family_name, birthday, sex, phone, email, adress, experience, studies, hobbies, skills, languages, user_language, short_description, recruiter_name, recruiter_family_name, company, company_adress, position = "backend developer"):
+def generate_cover_letter(name, family_name, birthday, sex, phone, email, adress, experience, studies, hobbies, skills, languages, user_language, short_description, recruiter_name, recruiter_family_name, company, company_adress, position):
     # Function to generate a cover letter using the OpenAI API
     prompt = f"""
     Applicant name: {name} {family_name}
@@ -111,14 +117,14 @@ def generate():
     # Main function
     # Get user and job info
     name, family_name, birthday, sex, phone, email, adress, experience, studies, hobbies, skills, languages, user_language, short_description = get_user_info()
-    recruiter_name, recruiter_family_name, company, company_adress = get_job_info()
+    recruiter_name, recruiter_family_name, company, company_adress = get_recruiter_info()
+    position = get_job_info()
     
     # Generate cover letter
-    cover_letter = generate_cover_letter(name, family_name, birthday, sex, phone, email, adress, experience, studies, hobbies, skills, languages, user_language, short_description, recruiter_name, recruiter_family_name, company, company_adress)
+    cover_letter = generate_cover_letter(name, family_name, birthday, sex, phone, email, adress, experience, studies, hobbies, skills, languages, user_language, short_description, recruiter_name, recruiter_family_name, company, company_adress,position)
 
     sender_address = adress
     recipient_address = company_adress
-    position = "backend developer"
     current_date = date.today()
     subject_line = f"Application for the position as {position}"
 
@@ -152,4 +158,5 @@ def generate():
 
     print(f"\nCover letter saved as '{os.path.join(directory, filename)}'")
 
+generate()
 
