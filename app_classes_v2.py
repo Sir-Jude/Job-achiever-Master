@@ -18,7 +18,7 @@ class Candidate:
         email = data["email"]  # just a string
         adress = data["adress"]  # just a string
         experience = data["experience"]  # list of objects (update through method)
-        studies = data["studies"]  # list of objects (update through method)
+        education = data["studies"]  # list of objects (update through method)
         hobbies = data["hobbies"]  # list of strings (update through method)
         skills = data["skills"]  # list of strings (update through method)
         languages = data["languages"]  # list of strings (update through method)
@@ -39,7 +39,7 @@ class Candidate:
                 "email": None,
                 "adress": None,
                 "experience": [],
-                "studies": [],
+                "education": [],
                 "hobbies": [],
                 "skills": [],
                 "languages": [],
@@ -55,10 +55,10 @@ class Candidate:
         cls.data["experience"].append(neu_experience)
 
     @classmethod
-    def add_studies(cls, neu_studies):
+    def add_education(cls, neu_education):
         # feed it with a dictionary in this format
         # {'title':'Title here', 'description':'Some description here', 'school':'Name of the school', 'date_start':'dd.mm.yyyy', 'date_end':'dd.mm.yyyy'}
-        cls.data["studies"].append(neu_studies)
+        cls.data["education"].append(neu_education)
 
     @classmethod
     def add_hobbies(cls, neu_hobby):
@@ -123,17 +123,37 @@ class Recruiter:
 
 class Adviser_Bot:
     # All the atributes inside this class will be used to feed the bot with contextual infos
+    try:  # if the file exists colect all the interview mesages
+        with open("json/letter.json", "r") as file:
+            letter = json.load(file) # the list of interview messages
+    except FileNotFoundError:  # if the file is missing than create one
+        with open("json/letter.json", "w") as file:
+            letter = {
+                "candidate_name": None,
+                "candidate_family_name": None,
+                "recruiter_family_name": None,
+                "candidate_email": None,
+                "candidate_phone": None,
+                "candidate_adress": None,
+                "recruiter_email": None,
+                "recruiter_adress": None,
+                "position": None,
+                "company": None,
+                "mail_body": None
+            }
+            file.write(json.dumps(letter, indent=4))
+
+    try:  # if the file exists colect all the interview mesages
+        with open("json/letter.json", "r") as file:
+            interview_history = json.load(file) # the list of interview messages
+    except FileNotFoundError:  # if the file is missing than create one
+        with open("json/letter.json", "w") as file:
+            interview_history = []
+            file.write(json.dumps(interview_history, indent=4))
+
     candidate = "empty"
     recruiter = "empty"
     job = "empty"
-    try:  # if the file exists colect all the interview mesages
-        with open("json/interview.json", "r") as file:
-            interview_history = json.load(file) # the list of interview messages
-    except FileNotFoundError:  # if the file is missing than create one
-        with open("json/interview.json", "w") as file:
-            interview_history = []
-            file.write(json.dumps(interview_history, indent=4))
-    # Role for initial bot message
     role_description = ""
     user_input = "empty"
     user_language = "english"

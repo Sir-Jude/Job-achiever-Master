@@ -50,7 +50,7 @@ Candidate.add_experience(
         "date_end": "01.01.2000",
     }
 )
-Candidate.add_studies(
+Candidate.add_education(
     {
         "title": "Python Backend Programming",
         "description": "Cours",
@@ -59,7 +59,7 @@ Candidate.add_studies(
         "date_end": "10.01.2024",
     }
 )
-Candidate.add_studies(
+Candidate.add_education(
     {
         "title": "Graphic designer",
         "description": "Barcelors degree",
