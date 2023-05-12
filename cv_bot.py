@@ -20,11 +20,7 @@ class Resume:
             raise ValueError("Missing or invalid 'name' value in JSON file")
         
         #Create a PDF file
-<<<<<<< HEAD
-        self.pdf_file_name = f"pdfs/{self.data['name']}_{self.data['family_name']}_CV.pdf"
-=======
-        self.pdf_file_name = f"{self.data['name']}_{self.data['family_name']}_CV.pdf"
->>>>>>> e32a364 (add uploading photo option)
+        self.pdf_file_name = f"pdfs/{self.data['name']}_{self.data['surname']}_CV.pdf"
         self.pdf = canvas.Canvas(self.pdf_file_name)
 
         self.rich_gold_color = rich_gold_color
@@ -57,7 +53,7 @@ class Resume:
         self.pdf.setFillColor(self.night_gray_color)
         self.pdf.setFont('Helvetica', 12)
         self.pdf.drawString(50, 750, 'Name: ' + self.data['name'])
-        self.pdf.drawString(50, 735, 'Family Name: ' + self.data['family_name'])
+        self.pdf.drawString(50, 735, 'Family Name: ' + self.data['surname'])
         self.pdf.drawString(50, 720, 'Birthday: ' + self.data['birthday'])
         self.pdf.drawString(50, 705, 'Sex: ' + self.data['sex'])
         self.pdf.drawString(50, 690, 'Phone: ' + self.data['phone'])
@@ -65,11 +61,7 @@ class Resume:
         self.pdf.drawString(50, 660, 'Address: ' + self.data['adress'])
 
         #Set up parameters for Experience section
-<<<<<<< HEAD
         y_offset = 600
-=======
-        y_offset = 500
->>>>>>> e32a364 (add uploading photo option)
         self.pdf.setFillColor(self.rich_gold_color)
         self.pdf.setFont('Helvetica', 14)
         self.pdf.drawString(50, y_offset, 'Experience:')
