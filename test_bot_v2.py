@@ -9,7 +9,7 @@ import time
 
 Candidate.data = {
     "name": "Adrian",
-    "family_name": "Radu",
+    "surname": "Radu",
     "birthday": "11.03.1977",
     "sex": "male",
     "phone": "1234567890",
@@ -77,7 +77,7 @@ Candidate.save_infos()
 
 Recruiter.data = {
     "name": "Nicolas",
-    "family_name": "Tesla",
+    "surname": "Tesla",
     "sex": "male",
     "email": "jude.smiley.python@gmai.com",
     "position": "CEO",

@@ -1,7 +1,0 @@
-Hi,
-
-This is a test email with an attachment.
-
-Regards
-
-Python

@@ -22,14 +22,14 @@ def get_user_info():
         data = json.load(file)
         return (
             data["name"],
-            data["family_name"],
+            data["surname"],
             data["birthday"],
             data["sex"],
             data["phone"],
             data["email"],
             data["adress"],
             data["experience"],
-            data["studies"],
+            data["education"],
             data["hobbies"],
             data["skills"],
             data["languages"],
@@ -51,7 +51,7 @@ def get_recruiter_info():
         data = json.load(file)
         return (
             data["name"],
-            data["family_name"],
+            data["surname"],
             data["company"],
             data["company_adress"],
         )
@@ -59,37 +59,37 @@ def get_recruiter_info():
 
 def generate_cover_letter(
     name,
-    family_name,
+    surname,
     birthday,
     sex,
     phone,
     email,
     adress,
     experience,
-    studies,
+    education,
     hobbies,
     skills,
     languages,
     user_language,
     short_description,
     recruiter_name,
-    recruiter_family_name,
+    recruiter_surname,
     company,
     company_adress,
     position,
 ):
     # Function to generate a cover letter using the OpenAI API
     prompt = f"""
-    Applicant name: {name} {family_name}
+    Applicant name: {name} {surname}
     Applicant age: {birthday}
     Applicant sex: {sex}
     Applicant address: {adress}
     Applicant phone : {phone}
     Applicant email: {email}
-    Applicant past studies : {studies}
+    Applicant past studies : {education}
     Company name: {company}
     Company adress:{company_adress}
-    Hiring manager name: {recruiter_name} {recruiter_family_name}
+    Hiring manager name: {recruiter_name} {recruiter_surname}
     Position: {position}
     Past job experience: {experience}
     Hobbies: {hobbies}
@@ -128,12 +128,12 @@ def save_cover_letter_as_pdf(
     current_date,
     subject_line,
     name,
-    family_name,
+    surname,
     email,
     phone,
     company,
     recruiter_name,
-    recruiter_family_name,
+    recruiter_surname,
 ):
     # Function to save the cover letter as a PDF file
     file_path = os.path.join(directory, filename)
@@ -161,13 +161,13 @@ def save_cover_letter_as_pdf(
     # Create multiple paragraphs for sender address
     sender_paragraphs = [
         Paragraph(line, right_aligned_style)
-        for line in [f"{name} {family_name}"] + sender_address_lines + [email, phone]
+        for line in [f"{name} {surname}"] + sender_address_lines + [email, phone]
     ]
 
     # Create multiple paragraphs for recipient address
     recipient_paragraphs = [
         Paragraph(line, left_aligned_style)
-        for line in [company, f"{recruiter_name} {recruiter_family_name}"]
+        for line in [company, f"{recruiter_name} {recruiter_surname}"]
         + recipient_address_lines
     ]
 
@@ -214,14 +214,14 @@ def generate():
     # Get user and job info
     (
         name,
-        family_name,
+        surname,
         birthday,
         sex,
         phone,
         email,
         adress,
         experience,
-        studies,
+        education,
         hobbies,
         skills,
         languages,
@@ -230,7 +230,7 @@ def generate():
     ) = get_user_info()
     (
         recruiter_name,
-        recruiter_family_name,
+        recruiter_surname,
         company,
         company_adress,
     ) = get_recruiter_info()
@@ -239,21 +239,21 @@ def generate():
     # Generate cover letter
     cover_letter = generate_cover_letter(
         name,
-        family_name,
+        surname,
         birthday,
         sex,
         phone,
         email,
         adress,
         experience,
-        studies,
+        education,
         hobbies,
         skills,
         languages,
         user_language,
         short_description,
         recruiter_name,
-        recruiter_family_name,
+        recruiter_surname,
         company,
         company_adress,
         position,
@@ -301,12 +301,12 @@ def generate():
         current_date,
         subject_line,
         name,
-        family_name,
+        surname,
         email,
         phone,
         company,
         recruiter_name,
-        recruiter_family_name,
+        recruiter_surname,
     )
 
     print(f"\nCover letter saved as '{os.path.join(directory, filename)}'")

@@ -41,7 +41,7 @@ def main():
 
     attachments = email.attachments(
         [
-            f"{Candidate.data['name']}_{Candidate.data['family_name']}_CV.pdf"
+            f"{Candidate.data['name']}_{Candidate.data['surname']}_CV.pdf"
         ]
     )  # cv and cover letter
 
