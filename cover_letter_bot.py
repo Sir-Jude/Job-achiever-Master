@@ -1,5 +1,31 @@
 import os
 import openai
+<<<<<<< HEAD
+from reportlab.lib.pagesizes import letter
+from reportlab.pdfgen import canvas
+from reportlab.lib import pagesizes
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
+from reportlab.lib.styles import getSampleStyleSheet
+from io import BytesIO # needed to save letter as pdf
+
+openai.api_key = "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"
+
+def get_user_input():   # give info to AI to put in cover letter
+    name = input("Enter your name: ")
+    company = input("Enter the company name: ")
+    hiring_manager = input("Enter the hiring manager's name (leave empty if unknown): ")
+    age = input("Enter your age: ")
+    position = input("Enter the position you are applying for: ")
+    experience = input("Enter your past job experience: ")
+    language = input("Enter the language for your cover letter: ")
+    return name, company, hiring_manager, age, position, experience, language
+
+def generate_cover_letter(name, company, hiring_manager, age, position, experience, language):
+    prompt = f"Write a cover letter for a job application in the given {language} using the following details:\n\nApplicant name: {name}\nCompany name: {company}\nHiring manager name: {hiring_manager}\nApplicant age: {age}\nPosition: {position}\nPast job experience: {experience}\n\nCover Letter:"
+
+
+    
+=======
 import json
 from datetime import date
 from reportlab.lib.pagesizes import letter  # for specifying PDF page size
@@ -97,6 +123,7 @@ def generate_cover_letter(
     Languages: {languages}
     Short description: {short_description}
     """
+>>>>>>> dfd63e8d296d5dfdc6ab4dbc2c61ae9c308179c8
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
