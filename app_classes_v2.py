@@ -25,11 +25,11 @@ class Candidate:
         user_language = data["user_language"]  # just a string
         short_description = data["short_description"]  # just a string
         """
-        with open("candidate.json", "r") as file:
+        with open("json/candidate.json", "r") as file:
             data = json.load(file)
             
     except FileNotFoundError:  # if the file is missing than create one
-        with open("candidate.json", "w") as file:
+        with open("json/candidate.json", "w") as file:
             data = {
                 "name": None,
                 "family_name": None,
@@ -81,7 +81,7 @@ class Candidate:
     @classmethod
     def save_infos(cls):
         # save all the colected infos with this method
-        with open("candidate.json", "w") as file:
+        with open("json/candidate.json", "w") as file:
             file.write(json.dumps(cls.data, indent=4))
 
 
@@ -98,10 +98,10 @@ class Recruiter:
         company_adress = data["company_adress"]  # just a string
         atitude = data["atitude"]  # just a string
         """
-        with open("recruiter.json", "r") as file:
+        with open("json/recruiter.json", "r") as file:
             data = json.load(file)
     except FileNotFoundError:  # if the file is missing than create one
-        with open("recruiter.json", "w") as file:
+        with open("json/recruiter.json", "w") as file:
             data = {
                 "name": None,
                 "family_name": None,
@@ -117,7 +117,7 @@ class Recruiter:
     @classmethod
     def save_infos(cls):
         # save all the colected infos with this method
-        with open("recruiter.json", "w") as file:
+        with open("json/recruiter.json", "w") as file:
             file.write(json.dumps(cls.data, indent=4))
 
 
@@ -127,10 +127,10 @@ class Adviser_Bot:
     recruiter = "empty"
     job = "empty"
     try:  # if the file exists colect all the interview mesages
-        with open("interview.json", "r") as file:
+        with open("json/interview.json", "r") as file:
             interview_history = json.load(file) # the list of interview messages
     except FileNotFoundError:  # if the file is missing than create one
-        with open("interview.json", "w") as file:
+        with open("json/interview.json", "w") as file:
             interview_history = []
             file.write(json.dumps(interview_history, indent=4))
     # Role for initial bot message
@@ -262,7 +262,7 @@ You will be focused to cover all the necesary job questions with a {cls.recruite
         response = bot_request(messages)
         messages.append(bot_message("assistant", response))
         # save all the interview mesages
-        with open("interview.json", "w") as file:
+        with open("json/interview.json", "w") as file:
             file.write(json.dumps(messages, indent=4))
 
 
@@ -275,15 +275,15 @@ class Job:
         description = data["description"]  # just a string
         source = data["source"]  # just a string
         """
-        with open("job.json", "r") as file:
+        with open("json/job.json", "r") as file:
             data = json.load(file)
     except FileNotFoundError:  # if the file is missing than create one
-        with open("job.json", "w") as file:
+        with open("json/job.json", "w") as file:
             data = {"position": None, "description": None, "source": None}
             file.write(json.dumps(data, indent=4))
 
     @classmethod
     def save_infos(cls):
         # save all the colected infos with this method
-        with open("job.json", "w") as file:
+        with open("json/job.json", "w") as file:
             file.write(json.dumps(cls.data, indent=4))
