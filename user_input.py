@@ -49,7 +49,7 @@ class User:
 
     def __init__(self) -> None:
         self.first_name = None
-        self.last_name = None
+        self.surname = None
         self.DOB = None
         self.email = None
         self.phone = None
@@ -63,11 +63,11 @@ class User:
 
     def get_first_name(self) -> str:
         """Takes a users first name"""
-        return input("First Name: ")
+        return input("First Name: ").title()
 
     def get_last_name(self) -> str:
         """Takes a users Last name"""
-        return input("Last Name : ")
+        return input("Last Name : ").title()
 
     def get_DOB(self) -> str:
         """
@@ -243,7 +243,7 @@ class User:
 
         while True:
             add_experience = input(
-                "Would you like to add your work experience (Y,N):"
+                "Would you like to add your work experience (Y, N): "
             ).lower()
             if add_experience == "n":
                 break
@@ -253,7 +253,7 @@ class User:
         clear_terminal("clear")
 
         while True:
-            add_education = input("Would you like to add your education (Y,N):").lower()
+            add_education = input("Would you like to add your education (Y,N): ").lower()
             if add_education == "n":
                 break
             elif add_education == "y":
