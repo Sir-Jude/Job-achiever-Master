@@ -71,5 +71,5 @@ class Resume:
 
         self.pdf.save()
 
-resume = Resume('candidate.json')
+resume = Resume('json/candidate.json')
 resume.generate()
