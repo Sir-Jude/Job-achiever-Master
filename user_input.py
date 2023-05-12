@@ -4,13 +4,13 @@ from os import system as clear_terminal
 
 # This pattern checks that a date follows one of these format's: DD.MM.YYYY, MM.YYYY and YYYY
 RE_DATE_PATTERN = r"^(?:(?:0?[1-9]|[12][0-9]|3[01])\.(?:0?[1-9]|1[0-2])\.(?:19|20)\d{2})$|^(?:(?:0?[1-9]|1[0-2])\.(?:19|20)\d{2})$|^(?:19|20)\d{2}$"
-# This pattern checks for DOB
-RE_DOB_PATTERN = r"\d{1,2}.\d{1,2}.\d{4}"
+# This pattern checks for birthday
+RE_birthday_PATTERN = r"\d{1,2}.\d{1,2}.\d{4}"
 # This pattern checks for email addresses
 RE_EMAIL_PATTERN = r"^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$"
 # This pattern checks for phone numbers
 # Could get a better one that is more forgiving
-RE_PHONE_PATTERN = r"\+(9[976]\d|8[987530]\d|6[987]\d|5[90]\d|42\d|3[875]\d|2[98654321]\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\d{1,14}$"
+RE_phone_PATTERN = r"\+(9[976]\d|8[987530]\d|6[987]\d|5[90]\d|42\d|3[875]\d|2[98654321]\d|9[8543210]|8[6421]|6[6543210]|5[87654321]|4[987654310]|3[9643210]|2[70]|7|1)\d{1,14}$"
 
 
 class User:
@@ -20,8 +20,8 @@ class User:
     Methods:
     --------
         get_first_name(): gets a users first name
-        get_last_name(): gets a users last name
-        get_DOB(): gets a users DOB
+        get_surname(): gets a users last name
+        get_birthday(): gets a users birthday
         get_email(): gets a users email
         get_phone_number(): gets a users phone number
         get_address(): gets a users address
@@ -48,9 +48,9 @@ class User:
     """
 
     def __init__(self) -> None:
-        self.first_name = None
+        self.name = None
         self.surname = None
-        self.DOB = None
+        self.birthday = None
         self.email = None
         self.phone = None
         self.address = None
@@ -61,23 +61,23 @@ class User:
         self.experience = []
         self.education = []
 
-    def get_first_name(self) -> str:
+    def get_name(self) -> str:
         """Takes a users first name"""
         return input("First Name: ").title()
 
-    def get_last_name(self) -> str:
+    def get_surname(self) -> str:
         """Takes a users Last name"""
         return input("Last Name : ").title()
 
-    def get_DOB(self) -> str:
+    def get_birthday(self) -> str:
         """
         Takes a users Date of Birth and checks
         that its valid against a regex pattern.
         """
         while True:
-            dob_str = input("Date of Birth (DD.MM.YYYY): ")
-            if re.match(RE_DOB_PATTERN, dob_str):
-                return dob_str
+            birthday_str = input("Date of Birth (DD.MM.YYYY): ")
+            if re.match(RE_birthday_PATTERN, birthday_str):
+                return birthday_str
             else:
                 print("Invalid input you must enter DD.MM.YYYY")
 
@@ -99,11 +99,11 @@ class User:
         that its valid against a regex pattern.
         """
         while True:
-            phone_num = input("Phone Number: ")
-            if re.match(RE_PHONE_PATTERN, phone_num):
+            phone_num = input("phone Number: ")
+            if re.match(RE_phone_PATTERN, phone_num):
                 return phone_num
             else:
-                print("Invalid Phone Number please enter a valid Phone Number.")
+                print("Invalid phone Number please enter a valid phone Number.")
 
     def get_address(self) -> str:
         """Takes a users address."""
@@ -220,11 +220,11 @@ class User:
         like they also use .append() as they are appending to a
         list.
         """
-        self.first_name = self.get_first_name()
+        self.name = self.get_name()
         clear_terminal("clear")
-        self.last_name = self.get_last_name()
+        self.surname = self.get_surname()
         clear_terminal("clear")
-        self.DOB = self.get_DOB()
+        self.birthday = self.get_birthday()
         clear_terminal("clear")
         self.email = self.get_email()
         clear_terminal("clear")
@@ -267,11 +267,11 @@ class User:
         """Returns dict formatted user info"""
         info_dict = {
             "First Name": self.first_name,
-            "Last Name": self.last_name,
-            "D.O.B.": self.DOB,
+            "Last Name": self.surname,
+            "birthday": self.birthday,
             "Email": self.email,
-            "Phone": self.phone,
-            "Address": self.address,
+            "phone": self.phone,
+            "address": self.address,
             "Languages": self.language,
             "Hobbies": self.hobbies,
             "Skills": self.skills,

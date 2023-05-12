@@ -1,10 +1,10 @@
 {
-    "name": "Adrian",
-    "surname": "Radu",
-    "birthday": "11.03.1977",
+    "name": "adsfh",
+    "surname": "sfdhg",
+    "birthday": "14.08.1983",
     "sex": "male",
-    "phone": "1234567890",
-    "email": "jude.smiley.python@gmail.com",
+    "phone": "123456",
+    "email": "giulio.arpaia@gmail.com",
     "adress": "Justastr. 11b, 39124 Magdeburg",
     "experience": [
         {
@@ -27,6 +27,20 @@
             "company": "Amazon",
             "date_start": "01.01.1998",
             "date_end": "01.01.2000"
+        },
+        {
+            "title": "DASFGFF",
+            "description": "DASFFHG",
+            "company": "ASFDGFHG",
+            "date_start": "14.08.1983",
+            "date_end": "14.08.1983"
+        },
+        {
+            "title": "dfgfg",
+            "description": "sadf",
+            "school": "vfbgfnjh",
+            "date_start": "14.08.1983",
+            "date_end": "14.08.1983"
         }
     ],
     "education": [
@@ -51,11 +65,17 @@
         },
         {
             "hobby": "reading, travel"
+        },
+        {
+            "hobby": "dfshg"
         }
     ],
     "skills": [
         {
             "skill": "Python, PHP, mySQL"
+        },
+        {
+            "skill": "asdfg"
         }
     ],
     "languages": [
@@ -64,8 +84,12 @@
         },
         {
             "language": "German (B2 - lower intermediate)"
+        },
+        {
+            "hobby": "xycvbb"
         }
     ],
-    "user_language": "english",
-    "short_description": null
+    "user_language": "English",
+    "short_description": null,
+    "address": "aDSFHG"
 }
