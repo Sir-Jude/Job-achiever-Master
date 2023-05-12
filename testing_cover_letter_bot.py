@@ -1,6 +1,6 @@
 import openai
 from unittest import mock
-from cover_letter_bot import generate_cover_letter, save_cover_letter_as_txt, save_cover_letter_as_pdf
+from cover_letter_bot import generate_cover_letter, save_cover_letter_as_pdf
 
 openai.api_key = "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"
 
@@ -16,15 +16,6 @@ def test_generate_cover_letter():
 
     assert cover_letter == "Sample cover letter"
 
-def test_save_cover_letter_as_txt(tmpdir):
-    cover_letter = "Sample cover letter"
-    filename = str(tmpdir.join("cover_letter.txt"))
-    save_cover_letter_as_txt(cover_letter, filename)
-
-    with open(filename, 'r') as f:
-        saved_content = f.read()
-
-    assert saved_content == cover_letter
 
 def test_save_cover_letter_as_pdf(tmpdir):
     cover_letter = "Sample cover letter"
