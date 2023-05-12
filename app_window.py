@@ -14,7 +14,7 @@ def write_content():
     content_frame =tkinter.LabelFrame(frame, text="Yeeees", width=frame.winfo_width())
     content_frame.grid(row= 1, column=0, padx=10, pady=10, sticky="nsew")
     button = tkinter.Button(content_frame, text="Surprise!", command = 1)
-    button.grid(row=0, column=0, sticky="news", padx=10, pady=10)
+    button.grid(row=0, column=0, sticky="nsew", padx=10, pady=10)
 
 # setting the app window
 window = tkinter.Tk()
