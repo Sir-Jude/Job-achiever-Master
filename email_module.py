@@ -22,13 +22,15 @@ class Email:
         self.subject = subject
         self.email_server = email_server
     
-    def password(self, filename):
+    @staticmethod
+    def password(filename):
         # App's password
         # ("with" makes sure we close the file once we recovered the password)
         with open(filename, "r") as file:
             return file.read()
-        
-    def attachments(self, files: list):
+    
+    @staticmethod
+    def attachments(files: list):
         # Build the object rapresenting the attachment(s)
         for document in files.copy():
             with open(document, "rb") as file:
