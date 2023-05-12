@@ -58,19 +58,34 @@ In this code we are going to use a **gmail** account, but the concepts apply to 
 
 ### 5. Create the class **Email**
   - ### 5.1 define the **class attributes**
-      Write an assignment statement for the port.  
-      (**587** is the the standard secure mail submission port)
+    Write an assignment statement for the port.  
+    (**587** is the the standard secure mail submission port)
 
   - ### 5.2 Instatiate the class instance
-      The class Email has the following attributes:  
-      - sender
-      - list of receivers
-      - email subject
-      - name of the server  
-        (defaulted for the gmail)
+    The class Email has the following attributes:  
+    - sender
+    - list of receivers
+    - email subject
+    - name of the server  
+      (defaulted for the gmail)
 
   - ### 5.3 Define **password** method
+    This method uses a "with" statement and the "open" function in "r" (read) mode to access the file where the app password is stored, recover it, return to the main funcion and closing the file at the end of its scope.
+    - open the file containing the password
+    - read the password
+    - return it
+
+  
   - ### 5.3 Define **attachments** method
+    - create a list containing the filename(s) to be attached
+    - loop through a copy of the list 
+    - open the file containing the document.  
+      **NB**: using the "**binary**" ("rb") mode instead of the simple "read" ("r") allows us to open files others than text, such as pdf or images
+    - read the file and use its data to create an instance of the general-purpose class "**MIME application**", which rappresent an attachment in an email message.
+    - use the **.add_header()** method to add the "Content-Disposition" header, which indicates the file should be treated as an attachment, to the attachment object
+    - remove the string name of the document from the original list and substitute it with the attachment object.
+    - return the new list of documents  
+
   - ### 5.3 Define **send** method
     - 5.3.1 Connect to the server  
       - Use a "with" statement to be sure the server will be close once we finish to send all the emails  
@@ -87,41 +102,11 @@ In this code we are going to use a **gmail** account, but the concepts apply to 
         - body of the email, creating an instance of the class **MIMEText** and attaching it throught the .attach() method
         - attachment(s), looping through the list of files to be attached and using the .attach() method
       - Finally, use the smtp **.send_message()** method to send the MIMEMultipart() object, which rapresent the email with all its different components.
-      
-
-
-
-
-
-
-### 5.3 Set to up the server and the port
-- Write an assignment statement for the:
-  - SMTP server  
-    (we are using tho one for gmail, but it is possible to use anyone else)
-  - port  
-    
-
-## 6. Set up the credentials to log into the email account  
-- write an assignment statement for the sender's email
-- use a "with" statement and the "open" function in "r" (read) mode to access the file where the app password is stored
-
-## 7. Set up all the other email details
-- list of receivers
-- subject
-
-## 8. Collect the file(s) to be attacht
-- create a list containing the filename(s) to be attached
-- loop through a copy of the list 
-- open the file containing the document.  
-  **NB**: using the "**binary**" ("rb") mode instead of the simple "read" ("r") allows us to open files others than text, such as pdf or images
-- read the file and use its data to create an instance of the general-purpose class "**MIME application**", which rappresent an attachment in an email message.
-- use the **.add_header()** method to add the "Content-Disposition" header, which indicates the file should be treated as an attachment, to the attachment object
-- remove the string name of the document from the original list and substitute it with the attachment object.
 
 ### References:
 - Python docs:  
-- [**smtplib** module](https://docs.python.org/3/library/smtplib.html#module-smtplib)
-- [**email.mime** module](https://docs.python.org/3/library/email.mime.html?highlight=email#email.mime.multipart.MIMEMultipart)
+  - [**smtplib** module](https://docs.python.org/3/library/smtplib.html#module-smtplib)
+  - [**email.mime** module](https://docs.python.org/3/library/email.mime.html?highlight=email#email.mime.multipart.MIMEMultipart)
 - Port number details [**"Which SMTP port should I use?"**](https://www.mailgun.com/blog/email/which-smtp-port-understanding-ports-25-465-587/)
 ---
 
