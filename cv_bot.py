@@ -10,7 +10,7 @@ class Resume:
     def __init__(self, file):
         with open(file, 'r') as f:
             self.data = json.load(f)
-        self.pdf_file_name = f"{self.data['name']}_{self.data['family_name']}_CV.pdf"
+        self.pdf_file_name = f"{self.data['name']}_{self.data['surname']}_CV.pdf"
         self.pdf = canvas.Canvas(self.pdf_file_name)
 
     def generate(self):
@@ -19,7 +19,7 @@ class Resume:
 
         self.pdf.setFont('Helvetica', 12)
         self.pdf.drawString(50, 750, 'Name: ' + self.data['name'])
-        self.pdf.drawString(50, 735, 'Family Name: ' + self.data['family_name'])
+        self.pdf.drawString(50, 735, 'Family Name: ' + self.data['surname'])
         self.pdf.drawString(50, 720, 'Birthday: ' + self.data['birthday'])
         self.pdf.drawString(50, 705, 'Sex: ' + self.data['sex'])
         self.pdf.drawString(50, 690, 'Phone: ' + self.data['phone'])
@@ -38,9 +38,9 @@ class Resume:
             y_offset -= 75
 
         y_offset -= 15
-        self.pdf.drawString(50, y_offset, 'Studies:')
+        self.pdf.drawString(50, y_offset, 'education:')
         y_offset -= 15
-        for study in self.data['studies']:
+        for study in self.data['education']:
             self.pdf.drawString(70, y_offset, 'Title: ' + study['title'])
             self.pdf.drawString(70, y_offset - 15, 'Description: ' + study['description'])
             self.pdf.drawString(70, y_offset - 30, 'School: ' + study['school'])

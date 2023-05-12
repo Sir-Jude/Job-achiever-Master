@@ -61,8 +61,8 @@ last_name_label = tkinter.Label(content_frame, text="Last Name")
 last_name_label.grid(row=0, column=1, padx=(10,10), pady=10)
 name_entry = tkinter.Entry(content_frame)
 name_entry.grid(row=1, column=0, padx=(10,10), pady=10)
-family_name_entry = tkinter.Entry(content_frame)
-family_name_entry.grid(row=1, column=1, padx=(10,10), pady=10)
+surname_entry = tkinter.Entry(content_frame)
+surname_entry.grid(row=1, column=1, padx=(10,10), pady=10)
 
 
 button = tkinter.Button(content_frame, text="Save", command = 0)

@@ -11,14 +11,14 @@ class Candidate:
     try:  # if the file exists colect all the candidate infos
         """
         name = data["name"]  # just a string
-        family_name = data["family_name"]  # just a string
+        surname = data["surname"]  # just a string
         birthday = data["birthday"]  # date formated string
         sex = data["sex"]  # just a string
         phone = data["phone"]  # just a string
         email = data["email"]  # just a string
         adress = data["adress"]  # just a string
         experience = data["experience"]  # list of objects (update through method)
-        education = data["studies"]  # list of objects (update through method)
+        education = data["education"]  # list of objects (update through method)
         hobbies = data["hobbies"]  # list of strings (update through method)
         skills = data["skills"]  # list of strings (update through method)
         languages = data["languages"]  # list of strings (update through method)
@@ -32,7 +32,7 @@ class Candidate:
         with open("json/candidate.json", "w") as file:
             data = {
                 "name": None,
-                "family_name": None,
+                "surname": None,
                 "birthday": None,
                 "sex": None,
                 "phone": None,
@@ -90,7 +90,7 @@ class Recruiter:
     try:  # if the file exists colect all the candidate infos
         """
         name = data["name"]  # just a string
-        family_name = data["family_name"]  # just a string
+        surname = data["surname"]  # just a string
         sex = data["sex"]  # just a string
         email = data["email"]  # just a string
         position = data["position"]  # just a string
@@ -104,7 +104,7 @@ class Recruiter:
         with open("json/recruiter.json", "w") as file:
             data = {
                 "name": None,
-                "family_name": None,
+                "surname": None,
                 "sex": None,
                 "email": None,
                 "position": None,
@@ -136,8 +136,8 @@ class Adviser_Bot:
         with open("json/letter.json", "w") as file:
             letter = {
                 "candidate_name": None,
-                "candidate_family_name": None,
-                "recruiter_family_name": None,
+                "candidate_surname": None,
+                "recruiter_surname": None,
                 "candidate_email": None,
                 "candidate_phone": None,
                 "candidate_adress": None,
@@ -163,13 +163,13 @@ class Adviser_Bot:
             with open("candidate.json", "r") as file:
                 cls.candidate = json.load(file)
                 # Preformating candidate informations
-                cls.candidate_dates = f"{cls.candidate['name']} {cls.candidate['family_name']} ({cls.candidate['sex']}), born on {cls.candidate['birthday']}."
+                cls.candidate_dates = f"{cls.candidate['name']} {cls.candidate['surname']} ({cls.candidate['sex']}), born on {cls.candidate['birthday']}."
                 cls.candidate_experience = ""
                 for e in cls.candidate["experience"]:
                     cls.candidate_experience += f"\n{e['date_start']} - {e['date_end']} in {e['company']}, job title - {e['title']}, description - {e['description']}"
 
                 cls.candidate_studies = ""
-                for s in cls.candidate["studies"]:
+                for s in cls.candidate["education"]:
                     cls.candidate_studies += f"\n{s['date_start']} - {s['date_end']} in {s['school']}, title - {s['title']}, description - {s['description']}"
 
                 cls.candidate_languages = ""
@@ -192,7 +192,7 @@ class Adviser_Bot:
             with open("recruiter.json", "r") as file:
                 cls.recruiter = json.load(file)
                 # Preformating recrutier informations
-                cls.recruiter_dates = f'{cls.recruiter["name"]} {cls.recruiter["family_name"]} ({cls.recruiter["sex"]}), having "{cls.recruiter["position"]}" position by "{cls.recruiter["company"]}".'
+                cls.recruiter_dates = f'{cls.recruiter["name"]} {cls.recruiter["surname"]} ({cls.recruiter["sex"]}), having "{cls.recruiter["position"]}" position by "{cls.recruiter["company"]}".'
         except FileNotFoundError:  # if the file is missing set the recruiter attribute 'empty'
             cls.recruiter = "empty"
         try:  # if the 'job.json' exists colect all the job infos
