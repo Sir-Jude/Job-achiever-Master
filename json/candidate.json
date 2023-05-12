@@ -1,0 +1,16 @@
+{
+    "name": null,
+    "family_name": null,
+    "birthday": null,
+    "sex": null,
+    "phone": null,
+    "email": null,
+    "adress": null,
+    "experience": [],
+    "studies": [],
+    "hobbies": [],
+    "skills": [],
+    "languages": [],
+    "user_language": "english",
+    "short_description": null
+}
