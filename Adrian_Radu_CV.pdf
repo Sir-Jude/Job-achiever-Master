@@ -32,7 +32,11 @@ endobj
 endobj
 6 0 obj
 <<
+<<<<<<< HEAD
+/Author (anonymous) /CreationDate (D:20230512103427+00'00') /Creator (ReportLab PDF Library - www.reportlab.com) /Keywords () /ModDate (D:20230512103427+00'00') /Producer (ReportLab PDF Library - www.reportlab.com) 
+=======
 /Author (anonymous) /CreationDate (D:20230512104118+00'00') /Creator (ReportLab PDF Library - www.reportlab.com) /Keywords () /ModDate (D:20230512104118+00'00') /Producer (ReportLab PDF Library - www.reportlab.com) 
+>>>>>>> 2c542c4693898a781be4c29ccdd6c4481b099498
   /Subject (unspecified) /Title (untitled) /Trapped /False
 >>
 endobj
@@ -62,7 +66,11 @@ xref
 trailer
 <<
 /ID 
+<<<<<<< HEAD
+[<a63df88c841611949e1f136a9eb07717><a63df88c841611949e1f136a9eb07717>]
+=======
 [<af1260354304a4ccbf197d32ab63a818><af1260354304a4ccbf197d32ab63a818>]
+>>>>>>> 2c542c4693898a781be4c29ccdd6c4481b099498
 % ReportLab generated PDF document -- digest (http://www.reportlab.com)
 
 /Info 6 0 R
