@@ -67,18 +67,13 @@ In this code we are going to use a **gmail** account, but the concepts apply to 
     - list of receivers
     - email subject
     - name of the server  
-      (defaulted for the gmail)
+      (defaulted for the gmail)  
 
   - ### 5.3 Define **password** method
     This method uses a "with" statement and the "open" function in "r" (read) mode to access the file where the app password is stored, recover it, return to the main funcion and closing the file at the end of its scope.
-    - open the file containing the password
-    - read the password
-    - return it
-
   
   - ### 5.3 Define **attachments** method
-    - create a list containing the filename(s) to be attached
-    - loop through a copy of the list 
+    - loop through a copy of the list of documents
     - open the file containing the document.  
       **NB**: using the "**binary**" ("rb") mode instead of the simple "read" ("r") allows us to open files others than text, such as pdf or images
     - read the file and use its data to create an instance of the general-purpose class "**MIME application**", which rappresent an attachment in an email message.
