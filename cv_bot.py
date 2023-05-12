@@ -10,7 +10,8 @@ class Resume:
     def __init__(self, file):
         with open(file, 'r') as f:
             self.data = json.load(f)
-        self.pdf = canvas.Canvas('candidate.pdf')
+        self.pdf_file_name = f"{self.data['name']}_{self.data['family_name']}_CV.pdf"
+        self.pdf = canvas.Canvas(self.pdf_file_name)
 
     def generate(self):
         self.pdf.setFont('Helvetica-Bold', 16)
