@@ -16,7 +16,7 @@ Candidate.data = {
     "email": "jude.smiley.python@gmail.com",
     "adress": "Justastr. 11b, 39124 Magdeburg",
     "experience": [],
-    "studies": [],
+    "education": [],
     "hobbies": [],
     "skills": [],
     "languages": [],
