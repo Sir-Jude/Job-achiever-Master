@@ -1,5 +1,6 @@
 import json
 import re
+from os import system as clear_terminal
 
 # This pattern checks that a date follows one of these format's: DD.MM.YYYY, MM.YYYY and YYYY
 RE_DATE_PATTERN = r"^(?:(?:0?[1-9]|[12][0-9]|3[01])\.(?:0?[1-9]|1[0-2])\.(?:19|20)\d{2})$|^(?:(?:0?[1-9]|1[0-2])\.(?:19|20)\d{2})$|^(?:19|20)\d{2}$"
@@ -23,6 +24,11 @@ class User:
         get_DOB(): gets a users DOB
         get_email(): gets a users email
         get_phone_number(): gets a users phone number
+        get_address(): gets a users address
+        get_languages(): gets a users spoken languages
+        get_hobbies(): gets a users hobbies
+        get_skills(): gets a users skills
+        get_about_user(): gets a brief description of the user
         get_date(): gets a date is used in other methods
         get_experience(): gets a users work experience
             - Company
@@ -47,6 +53,11 @@ class User:
         self.DOB = None
         self.email = None
         self.phone = None
+        self.address = None
+        self.language = {}
+        self.hobbies = None
+        self.skills = None
+        self.about_user = None
         self.experience = []
         self.education = []
 
@@ -93,6 +104,41 @@ class User:
                 return phone_num
             else:
                 print("Invalid Phone Number please enter a valid Phone Number.")
+
+    def get_address(self) -> str:
+        """Takes a users address."""
+        return input("Enter your address: ")
+
+    def get_languages(self) -> dict:
+        """Takes a users spoken languages and there language level."""
+        languages = {}
+        while True:
+            language = input("Please enter one language you speak or type 'No' to exit: ").capitalize()
+            if language == "No":
+                return languages
+            language_level = input(f"What level do you speak {language} at (e.g. Native, B1): ")
+            languages[language] = language_level
+
+
+    def get_hobbies(self) -> str:
+        """Takes a users hobbies."""
+        hobbies = input("Enter your hobbies or type 'No' to move on: ")
+        if hobbies == "No" or "":
+            return None
+        else: 
+            return hobbies
+        
+    def get_skills(self) -> str:
+        """Takes a users skills."""
+        skills = input("Enter your skills or type 'No' to move on: ")
+        if skills.capitalize() == "No":
+            return None
+        else:
+            return skills
+    
+    def get_about_user(self) -> str:
+        """Takes in info a user wants to provide about them self."""
+        return input("Give a brief description about your self: ")
 
     def get_date(self) -> str:
         """
@@ -175,10 +221,25 @@ class User:
         list.
         """
         self.first_name = self.get_first_name()
+        clear_terminal("clear")
         self.last_name = self.get_last_name()
+        clear_terminal("clear")
         self.DOB = self.get_DOB()
+        clear_terminal("clear")
         self.email = self.get_email()
+        clear_terminal("clear")
         self.phone = self.get_phone_number()
+        clear_terminal("clear")
+        self.address = self.get_address()
+        clear_terminal("clear")
+        self.language = self.get_languages()
+        clear_terminal("clear")
+        self.hobbies = self.get_hobbies()
+        clear_terminal("clear")
+        self.skills = self.get_skills()
+        clear_terminal("clear")
+        self.about_user = self.get_about_user()
+        clear_terminal("clear")
 
         while True:
             add_experience = input(
@@ -188,6 +249,8 @@ class User:
                 break
             elif add_experience == "y":
                 self.experience.append(self.get_experience())
+        
+        clear_terminal("clear")
 
         while True:
             add_education = input("Would you like to add your education (Y,N):").lower()
@@ -195,6 +258,9 @@ class User:
                 break
             elif add_education == "y":
                 self.education.append(self.get_education())
+        
+        clear_terminal("clear")
+
 
     def json_info(self):
         info_dict = {
@@ -203,6 +269,11 @@ class User:
             "D.O.B.": self.DOB,
             "Email": self.email,
             "Phone": self.phone,
+            "Address": self.address,
+            "Languages": self.language,
+            "Hobbies": self.hobbies,
+            "Skills": self.skills,
+            "About": self.about_user,
             "Work Experience": self.experience,
             "Education": self.education,
         }

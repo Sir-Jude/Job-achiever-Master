@@ -10,13 +10,14 @@ class Resume:
     def __init__(self, file):
         with open(file, 'r') as f:
             self.data = json.load(f)
-        self.pdf = canvas.Canvas('candidate.pdf')
+        self.pdf_file_name = f"{self.data['name']}_{self.data['family_name']}_CV.pdf"
+        self.pdf = canvas.Canvas(self.pdf_file_name)
 
     def generate(self):
-        self.pdf.setFont('Helvetica', 12)
+        self.pdf.setFont('Helvetica-Bold', 16)
         self.pdf.drawString(240, 800, 'RESUME')
 
-        self.pdf.setFont('Helvetica', 10)
+        self.pdf.setFont('Helvetica', 12)
         self.pdf.drawString(50, 750, 'Name: ' + self.data['name'])
         self.pdf.drawString(50, 735, 'Family Name: ' + self.data['family_name'])
         self.pdf.drawString(50, 720, 'Birthday: ' + self.data['birthday'])
@@ -70,5 +71,5 @@ class Resume:
 
         self.pdf.save()
 
-# resume = Resume('candidate.json')
-# resume.generate()
+resume = Resume('candidate.json')
+resume.generate()
