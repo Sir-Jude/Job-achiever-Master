@@ -68,7 +68,7 @@ def main():
 
     password = email.password("email_pass.txt")  # app password
 
-    body = email.body(Adviser_Bot.generate_letter())  # text of the email
+    body = Adviser_Bot.generate_letter()  # text of the email
 
     attachments = email.attachments(
         [
