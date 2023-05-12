@@ -123,6 +123,12 @@ class Recruiter:
 
 class Adviser_Bot:
     # All the atributes inside this class will be used to feed the bot with contextual infos
+    candidate = "empty"
+    recruiter = "empty"
+    job = "empty"
+    role_description = ""
+    user_input = "empty"
+    user_language = "english"
     try:  # if the file exists colect all the interview mesages
         with open("json/letter.json", "r") as file:
             letter = json.load(file) # the list of interview messages
@@ -150,13 +156,6 @@ class Adviser_Bot:
         with open("json/letter.json", "w") as file:
             interview_history = []
             file.write(json.dumps(interview_history, indent=4))
-
-    candidate = "empty"
-    recruiter = "empty"
-    job = "empty"
-    role_description = ""
-    user_input = "empty"
-    user_language = "english"
 
     @classmethod
     def update_user_input(cls):
@@ -238,7 +237,23 @@ You don't ask questions or say anything other than the content of the cover lett
             bot_message("system", cls.role_description),
             bot_message("user", cls.user_input),
         ]
-        return bot_request(messages)
+        letter_text = bot_request(messages)
+        with open("json/letter.json", "w") as file:
+            letter = {
+                "candidate_name": cls.candidate["name"],
+                "candidate_family_name": cls.candidate["family_name"],
+                "recruiter_family_name": cls.recruiter["family_name"],
+                "candidate_email": cls.candidate["email"],
+                "candidate_phone": cls.candidate["phone"],
+                "candidate_adress": cls.candidate["adress"],
+                "recruiter_email": cls.recruiter["email"],
+                "recruiter_adress": cls.recruiter["company_adress"],
+                "position": cls.job["position"],
+                "company": cls.recruiter["company"],
+                "mail_body": letter_text
+            }
+            file.write(json.dumps(letter, indent=4))
+        return letter_text
 
     @classmethod
     def generate_cv_short_description(cls):
