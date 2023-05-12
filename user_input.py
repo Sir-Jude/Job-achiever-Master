@@ -288,7 +288,7 @@ class User:
     def save_json(self) -> None:
         """Creates a json file continuing the the info that has been collected in a file called user.json in the json folder."""
         json_data = self.json_info()
-        with open("json/user.json", "w") as file:
+        with open(f"json/{self.first_name}.json", "w") as file:
             file.write(json_data)
 
 
@@ -300,7 +300,7 @@ if __name__ == "__main__":
     test.save_json()
 
     # reading the user.json file that was created and printing it out
-    with open("json/user.json", "r") as file:
+    with open(f"json/{test.first_name}.json", "r") as file:
         formatted_json = json.load(file)
     
     print(json.dumps(formatted_json, indent=4))
