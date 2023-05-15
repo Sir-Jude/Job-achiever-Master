@@ -1,6 +1,7 @@
 import os
 import re
 import openai
+from tkinter import messagebox as alert
 
 openai.api_key = input("Insert your API Key: ")
 
@@ -34,8 +35,8 @@ def input_strict(string, list, clear=''):
     The function take a message to prompt and a list of valid options.
     Example: input_strict('The message for user: ', ['1','2','x'], 'clear')"""
     while True:
-        answer = input(string)
-        if answer in list:
+        answer = input(string).lower()
+        if answer in [item.lower() for item in list]:
             return answer
         else:
             if clear == "clear":
@@ -80,6 +81,15 @@ def input_date(string):
         else:
             print("Please insert only a valid date in this format dd.mm.yyyy")
 
+def data_alert(string):
+    """A function to restrict inputs to date format only.
+    The function take a message to prompt.
+    Example: data_alert('dd.mm.yyyy')"""
+    pattern = r"^\d{2}\.\d{2}\.\d{4}$"
+    if re.match(pattern, string):
+        return string
+    else:
+        alert.showwarning(title="Data format error", message="Please insert only a valid date in this format dd.mm.yyyy")
 
 def input_email(string):
     """A function to restrict inputs to e-mails only.

@@ -1,7 +1,5 @@
 # imports
 # (here we imports all the modules)
-# import app_classes
-
 from user_input import User
 import app_functions
 # from cv_bot import Resume
@@ -13,16 +11,23 @@ def main():
     # 1) "Candidate info"
     # (which collects all the inputs for the personal info and the job.
     # Please use the "input_..." functions in app_functions file to restrict and verify user inputs.)
+
+    print("---------------------------------------")
+    Candidate.data["user_language"] = input("Which language do you choose for your documents? ")
     Candidate.data["name"] = input("Name: ")
     Candidate.data["surname"] = input("Surname: ")
     Candidate.data["birthday"] = app_functions.input_date("Birthday (dd.mm.yyyy): ")
-    Candidate.data["sex"] = app_functions.input_strict("Sex (male/female): ", ["male", "female"]).lower()
+    Candidate.data["sex"] = app_functions.input_strict("Sex (male/female): ", ["male", "female"])
     Candidate.data["phone"] = input("Phone: ")
     Candidate.data["email"] = app_functions.input_email("Email: ")
     Candidate.data["address"] = input("Address: ")
+    print("---------------------------------------")
+    print()
+    print("Input some previous working experience.")
+    print("---------------------------------------")
+    Candidate.data["experience"] = [] # clear experience list in dictionary
     loop = True
     while loop:
-        print("Input a previous working experience.")
         new_experience = {
             "title": input("Position: "),
             "description": input("Description: "),
@@ -31,9 +36,15 @@ def main():
             "date_end": app_functions.input_date("Ending date (dd.mm.yyyy): ")     
         }
         Candidate.add_experience(new_experience)
-        answer = app_functions.input_strict("Do you want to add a new experience? (Y/N) ", ["Y", "N"]).upper()
-        if answer == "N":
+        answer = app_functions.input_strict("Do you want to add a new experience? (Y/N) ", ["Y", "N"])
+        print("---------------------------------------")
+        if answer == "n":
             loop = False
+    
+    print()
+    print("Input some previous education.")
+    print("---------------------------------------")
+    Candidate.data["education"] = [] # clear education list in dictionary
     loop = True
     while loop:
         new_education = {
@@ -44,38 +55,57 @@ def main():
             "date_end": app_functions.input_date("Ending date (dd.mm.yyyy): ")     
         }
         Candidate.add_experience(new_education)
-        answer = app_functions.input_strict("Do you want to add a new education? (Y/N) ", ["Y", "N"]).upper()
-        if answer == "N":
+        answer = app_functions.input_strict("Do you want to add a new education? (Y/N) ", ["Y", "N"])
+        print("---------------------------------------")
+        if answer == "n":
             loop = False
+    
+    print()
+    print("Input some hobbies. Ex: I play guitar with true passion.")
+    print("---------------------------------------")
+    Candidate.data["hobbies"] = [] # clear hobbies list in dictionary
     loop = True
     while loop:
         new_hobby = {
             "hobby": input("Hobby: "),
         }
         Candidate.add_hobbies(new_hobby)
-        answer = app_functions.input_strict("Do you want to add a new hobby? (Y/N) ", ["Y", "N"]).upper()
-        if answer == "N":
+        answer = app_functions.input_strict("Do you want to add a new hobby? (Y/N) ", ["Y", "N"])
+        print("---------------------------------------")
+        if answer == "n":
             loop = False
+    
+    
+    print()
+    print("Input some skills. Ex: Python - expert level.")
+    print("---------------------------------------")
+    Candidate.data["skills"] = [] # clear skills list in dictionary
     loop = True
     while loop:
         new_skill = {
             "skill": input("Skill: "),
         }
         Candidate.add_skills(new_skill)
-        answer = app_functions.input_strict("Do you want to add a new skill? (Y/N) ", ["Y", "N"]).upper()
-        if answer == "N":
+        answer = app_functions.input_strict("Do you want to add a new skill? (Y/N) ", ["Y", "N"])
+        print("---------------------------------------")
+        if answer == "n":
             loop = False
+    
+    print()
+    print("Input some languages. Ex: German - native.")
+    print("---------------------------------------")
+    Candidate.data["languages"] = [] # clear languages list in dictionary
     loop = True
     while loop:
         new_language = {
-            "hobby": input("Hobby: "),
+            "language": input("Language: "),
         }
         Candidate.add_languages(new_language)
-        answer = app_functions.input_strict("Do you want to add a new language? (Y/N) ", ["Y", "N"]).upper()
-        if answer == "N":
+        answer = app_functions.input_strict("Do you want to add a new language? (Y/N) ", ["Y", "N"])
+        print("---------------------------------------")
+        if answer == "n":
             loop = False
-    # IMPORTANT: We should put this at the beginning...
-    Candidate.data["user_language"] = input("Which language do you to use for program? ")
+    
     Candidate.save_infos()    
     
     # 2) "Job"

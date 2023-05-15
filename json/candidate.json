@@ -1,11 +1,13 @@
 {
-    "name": "adsfh",
-    "surname": "sfdhg",
-    "birthday": "14.08.1983",
+    "name": "Adrianx",
+    "surname": "Radu",
+    "birthday": "11.03.1977",
     "sex": "male",
-    "phone": "123456",
-    "email": "giulio.arpaia@gmail.com",
-    "adress": "Justastr. 11b, 39124 Magdeburg",
+    "phone": "123412355456",
+    "email": "email@email.com",
+    "address": "Justastr. 11b, 39124 Magdeburg",
+    "user_language": "english",
+    "short_description": "Blabla writen by Chat Bot.\nIt can have multiple lines...\n\n\n",
     "experience": [
         {
             "title": "Webdesigner",
@@ -13,34 +15,6 @@
             "company": "IATOM",
             "date_start": "10.10.2010",
             "date_end": "23.09.2022"
-        },
-        {
-            "title": "Art Director",
-            "description": "Creation and implementing of web ads.",
-            "company": "Stream Line",
-            "date_start": "01.01.2000",
-            "date_end": "10.10.2010"
-        },
-        {
-            "title": "Janitor",
-            "description": "Cleaning of office rooms.",
-            "company": "Amazon",
-            "date_start": "01.01.1998",
-            "date_end": "01.01.2000"
-        },
-        {
-            "title": "DASFGFF",
-            "description": "DASFFHG",
-            "company": "ASFDGFHG",
-            "date_start": "14.08.1983",
-            "date_end": "14.08.1983"
-        },
-        {
-            "title": "dfgfg",
-            "description": "sadf",
-            "school": "vfbgfnjh",
-            "date_start": "14.08.1983",
-            "date_end": "14.08.1983"
         }
     ],
     "education": [
@@ -50,46 +24,27 @@
             "school": "DCI",
             "date_start": "15.12.2022",
             "date_end": "10.01.2024"
-        },
-        {
-            "title": "Graphic designer",
-            "description": "Barcelors degree",
-            "school": "University of Arts - Nicolae Grigorescu - Bucharest",
-            "date_start": "01.09.1995",
-            "date_end": "01.01.2000"
         }
     ],
     "hobbies": [
         {
-            "hobby": "music, games"
-        },
-        {
-            "hobby": "reading, travel"
-        },
-        {
-            "hobby": "dfshg"
+            "hobby": "Guitar with passion"
         }
     ],
     "skills": [
         {
-            "skill": "Python, PHP, mySQL"
+            "skill": "PHP - expert"
         },
         {
-            "skill": "asdfg"
+            "skill": "Python - beginner"
         }
     ],
     "languages": [
         {
-            "language": "English (B1 - lower intermediate)"
+            "language": "German - intermediate B2"
         },
         {
-            "language": "German (B2 - lower intermediate)"
-        },
-        {
-            "hobby": "xycvbb"
+            "language": "English - intermediate B1"
         }
-    ],
-    "user_language": "English",
-    "short_description": null,
-    "address": "aDSFHG"
+    ]
 }

@@ -1,21 +1,21 @@
-import tkinter
+import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox as alert
 from app_classes_v2 import Candidate, Recruiter, Adviser_Bot, Job
+import app_functions
 
-def write_page(frame):
-    content_frame = tkinter.LabelFrame(frame, text="Job details")
-    content_frame.grid(row= 1, column=0, padx=10, pady=10, sticky="nsew")
+def write_page(frame_name):
+    # definig the content frame
+    info_frame = tk.Frame(frame_name)
+    info_frame.pack(fill=tk.BOTH, expand=True, side="left")
+    details_frame = tk.Frame(frame_name)
+    details_frame.pack(fill=tk.BOTH, expand=True, side="right")
 
-    first_name_label = tkinter.Label(content_frame, text="First Name")
-    first_name_label.grid(row=0, column=0, padx=(10,10), pady=10)
-    last_name_label = tkinter.Label(content_frame, text="Last Name")
-    last_name_label.grid(row=0, column=1, padx=(10,10), pady=10)
-    name_entry = tkinter.Entry(content_frame)
-    name_entry.grid(row=1, column=0, padx=(10,10), pady=10)
-    surname_entry = tkinter.Entry(content_frame)
-    surname_entry.grid(row=1, column=1, padx=(10,10), pady=10)
+    label1 = tk.Label(info_frame, text="aaaa 1")
+    label1.pack()
 
+    label2 = tk.Label(details_frame, text="eeee 2")
+    label2.pack()
 
-    button = tkinter.Button(content_frame, text="Save job", command = 0)
-    button.grid(row=1, column=2, sticky="news", padx=10, pady=10)
+    label3 = tk.Label(details_frame, text="uuuu 3")
+    label3.pack()

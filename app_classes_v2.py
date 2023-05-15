@@ -9,42 +9,25 @@ bot_message = app_functions.bot_message
 
 class Candidate:
     try:  # if the file exists colect all the candidate infos
-        """
-        name = data["name"]  # just a string
-        surname = data["surname"]  # just a string
-        birthday = data["birthday"]  # date formated string
-        sex = data["sex"]  # just a string
-        phone = data["phone"]  # just a string
-        email = data["email"]  # just a string
-        adress = data["adress"]  # just a string
-        experience = data["experience"]  # list of objects (update through method)
-        education = data["education"]  # list of objects (update through method)
-        hobbies = data["hobbies"]  # list of strings (update through method)
-        skills = data["skills"]  # list of strings (update through method)
-        languages = data["languages"]  # list of strings (update through method)
-        user_language = data["user_language"]  # just a string
-        short_description = data["short_description"]  # just a string
-        """
         with open("json/candidate.json", "r") as file:
             data = json.load(file)
-            
     except FileNotFoundError:  # if the file is missing than create one
         with open("json/candidate.json", "w") as file:
             data = {
-                "name": None,
-                "surname": None,
-                "birthday": None,
-                "sex": None,
-                "phone": None,
-                "email": None,
-                "adress": None,
+                "name": "",
+                "surname": "",
+                "birthday": "",
+                "sex": "",
+                "phone": "",
+                "email": "",
+                "address": "",
+                "user_language": "english",
+                "short_description": "",
                 "experience": [],
                 "education": [],
                 "hobbies": [],
                 "skills": [],
-                "languages": [],
-                "user_language": "english",
-                "short_description": None,
+                "languages": []
             }
             file.write(json.dumps(data, indent=4))
 
@@ -88,28 +71,18 @@ class Candidate:
 class Recruiter:
     # All the atributes inside this class will be used to describe the role of recrutier bot
     try:  # if the file exists colect all the candidate infos
-        """
-        name = data["name"]  # just a string
-        surname = data["surname"]  # just a string
-        sex = data["sex"]  # just a string
-        email = data["email"]  # just a string
-        position = data["position"]  # just a string
-        company = data["company"]  # just a string
-        company_adress = data["company_adress"]  # just a string
-        atitude = data["atitude"]  # just a string
-        """
         with open("json/recruiter.json", "r") as file:
             data = json.load(file)
     except FileNotFoundError:  # if the file is missing than create one
         with open("json/recruiter.json", "w") as file:
             data = {
-                "name": None,
-                "surname": None,
-                "sex": None,
-                "email": None,
-                "position": None,
-                "company": None,
-                "company_adress": None,
+                "name": "",
+                "surname": "",
+                "sex": "",
+                "email": "",
+                "position": "",
+                "company": "",
+                "company_address": "",
                 "atitude": "normal",
             }
             file.write(json.dumps(data, indent=4))
@@ -131,27 +104,27 @@ class Adviser_Bot:
     user_language = "english"
     try:  # if the file exists colect all the letter infos
         with open("json/letter.json", "r") as file:
-            letter = json.load(file) # the list of interview messages
+            letter = json.load(file)  # the list of interview messages
     except FileNotFoundError:  # if the file is missing than create one
         with open("json/letter.json", "w") as file:
             letter = {
-                "candidate_name": None,
-                "candidate_surname": None,
-                "recruiter_surname": None,
-                "candidate_email": None,
-                "candidate_phone": None,
-                "candidate_adress": None,
-                "recruiter_email": None,
-                "recruiter_adress": None,
-                "position": None,
-                "company": None,
-                "mail_body": None
+                "candidate_name": "",
+                "candidate_surname": "",
+                "recruiter_surname": "",
+                "candidate_email": "",
+                "candidate_phone": "",
+                "candidate_address": "",
+                "recruiter_email": "",
+                "recruiter_address": "",
+                "position": "",
+                "company": "",
+                "mail_body": "",
             }
             file.write(json.dumps(letter, indent=4))
 
     try:  # if the file exists colect all the interview mesages
         with open("json/interview.json", "r") as file:
-            interview_history = json.load(file) # the list of interview messages
+            interview_history = json.load(file)  # the list of interview messages
     except FileNotFoundError:  # if the file is missing than create one
         with open("json/interview.json", "w") as file:
             interview_history = []
@@ -185,7 +158,9 @@ class Adviser_Bot:
                     cls.candidate_skills += f"\n{sk['skill']}"
 
                 cls.user_language = cls.candidate["user_language"]
-        except FileNotFoundError:  # if the file is missing set the candidate attribute 'empty'
+        except (
+            FileNotFoundError
+        ):  # if the file is missing set the candidate attribute 'empty'
             cls.candidate = "empty"
             cls.user_language = "english"
         try:  # if the 'recruiter.json' exists colect all the recruiter infos
@@ -193,14 +168,18 @@ class Adviser_Bot:
                 cls.recruiter = json.load(file)
                 # Preformating recrutier informations
                 cls.recruiter_dates = f'{cls.recruiter["name"]} {cls.recruiter["surname"]} ({cls.recruiter["sex"]}), having "{cls.recruiter["position"]}" position by "{cls.recruiter["company"]}".'
-        except FileNotFoundError:  # if the file is missing set the recruiter attribute 'empty'
+        except (
+            FileNotFoundError
+        ):  # if the file is missing set the recruiter attribute 'empty'
             cls.recruiter = "empty"
         try:  # if the 'job.json' exists colect all the job infos
             with open("json/job.json", "r") as file:
                 cls.job = json.load(file)
                 # Preformating job description
                 cls.job_description = f'The job was found on {cls.job["source"]} having "{cls.job["position"]}" as position.\nJob description:{cls.job["description"]}'
-        except FileNotFoundError:  # if the file is missing set the job attribute 'empty'
+        except (
+            FileNotFoundError
+        ):  # if the file is missing set the job attribute 'empty'
             cls.job = "empty"
         # Concatenate all candidate preformated infos
         if cls.candidate != "empty" and cls.recruiter != "empty" and cls.job != "empty":
@@ -245,12 +224,12 @@ You don't ask questions or say anything other than the content of the cover lett
                 "recruiter_surname": cls.recruiter["surname"],
                 "candidate_email": cls.candidate["email"],
                 "candidate_phone": cls.candidate["phone"],
-                "candidate_adress": cls.candidate["adress"],
+                "candidate_address": cls.candidate["address"],
                 "recruiter_email": cls.recruiter["email"],
-                "recruiter_adress": cls.recruiter["company_adress"],
+                "recruiter_address": cls.recruiter["company_address"],
                 "position": cls.job["position"],
                 "company": cls.recruiter["company"],
-                "mail_body": letter_text
+                "mail_body": letter_text,
             }
             file.write(json.dumps(letter, indent=4))
         return letter_text
@@ -306,11 +285,6 @@ You will be focused to cover all the necesary job questions with a {cls.recruite
 class Job:
     # All the atributes inside this class will be used to describe the job
     try:  # if the file exists colect all the candidate infos
-        """
-        position = data["position"]  # just a string
-        description = data["description"]  # just a string
-        source = data["source"]  # just a string
-        """
         with open("json/job.json", "r") as file:
             data = json.load(file)
     except FileNotFoundError:  # if the file is missing than create one
