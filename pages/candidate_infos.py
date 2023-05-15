@@ -23,20 +23,6 @@ def write_page(frame_name):
         Candidate.data[key] = value
         Candidate.save_infos()
 
-    def update_candidate(key):
-        """Update candidate field and save it in json"""
-        widget = event.widget
-        value = widget.get() # this method take values from Entry tk.objects
-        widget = event.widget
-        key_index = entries.index(widget)
-        key = list(Candidate.data.keys())[key_index]
-        if isinstance(widget, tk.Entry):
-            value = widget.get() # this method take values from Entry tk.objects
-        else:
-            value = widget.get("1.0", tk.END) # this method take values from Text tk.objects
-        Candidate.data[key] = value
-        Candidate.save_infos()
-
     # First section of the form to colect basic candidate infos
     frame_1 = tk.Frame(frame_info)
     frame_1.pack(fill=tk.BOTH, expand=True)
