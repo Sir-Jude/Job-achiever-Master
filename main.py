@@ -1,6 +1,5 @@
 # imports
 # (here we imports all the modules)
-from user_input import User
 import app_functions
 # from cv_bot import Resume
 # from email_module import Email
@@ -106,10 +105,25 @@ def main():
         if answer == "n":
             loop = False
     
-    Candidate.save_infos()    
+    Candidate.save_infos()   
     
+    
+
     # 2) "Job"
-    # Look for jobs on popular website like LInkedin, Stepstones, etc... (usng their API?)
+    # Collect the information about the job description and the name of the Recruiter in HR
+    print("---------------------------------------")
+    Recruiter.data["name"] = input("Name: ")
+    Recruiter.data["surname"] = input("Surname: ")
+    Recruiter.data["sex"] = app_functions.input_strict("Sex (male/female): ", ["male", "female"])
+    Recruiter.data["email"] = app_functions.input_email("Email: ")
+    Recruiter.data["position"] = input("Position: ")
+    Recruiter.data["company"] = input("Company: ")
+    Recruiter.data["company_address"] = input("Address: ")
+    Recruiter.data["attitude"] = input("Attitude: ")
+
+    Job.data["position"] = input("Position: ")
+    Job.data["description"] = input("""Description: """)
+    Job.data["source"] = input("Source: ")
 
     # 3) "CV"
     # Create the CV

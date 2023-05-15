@@ -83,7 +83,7 @@ class Recruiter:
                 "position": "",
                 "company": "",
                 "company_address": "",
-                "atitude": "normal",
+                "attitude": "normal",
             }
             file.write(json.dumps(data, indent=4))
 
@@ -266,7 +266,7 @@ You don't ask questions or say anything other than the comments on the dialogs f
         cls.role_description = f"""You'll interview in {cls.user_language} a candidate for a job.
 {cls.user_input}
 As a recruiter for this job you have to put important questions to the candidate acording to the job description and react to his answers.
-You will be focused to cover all the necesary job questions with a {cls.recruiter['atitude']} atitude."""
+You will be focused to cover all the necesary job questions with a {cls.recruiter['attitude']} attitude."""
 
         messages = [
             bot_message("system", cls.role_description),

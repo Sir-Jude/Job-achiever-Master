@@ -58,7 +58,7 @@ class Resume:
         self.pdf.drawString(50, 705, 'Sex: ' + self.data['sex'])
         self.pdf.drawString(50, 690, 'Phone: ' + self.data['phone'])
         self.pdf.drawString(50, 675, 'Email: ' + self.data['email'])
-        self.pdf.drawString(50, 660, 'Address: ' + self.data['adress'])
+        self.pdf.drawString(50, 660, 'Address: ' + self.data['address'])
 
         #Set up parameters for Experience section
         y_offset = 600
