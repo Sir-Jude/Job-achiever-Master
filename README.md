@@ -22,6 +22,7 @@ a cover letter using all the information. Once the cover letter is generated, th
 via the tkinter module. When you close the tkinter window, the program then automatically saves the Cover letter as pdf, a new tkinter
 window appears where the user can choose the path to save the pdf file.
 
+---
 ## Email module
 
 In this code we are going to use a **gmail** account, but the concepts apply to any other email server provider.
