@@ -23,6 +23,20 @@ def write_page(frame_name):
         Candidate.data[key] = value
         Candidate.save_infos()
 
+    def update_candidate(key):
+        """Update candidate field and save it in json"""
+        widget = event.widget
+        value = widget.get() # this method take values from Entry tk.objects
+        widget = event.widget
+        key_index = entries.index(widget)
+        key = list(Candidate.data.keys())[key_index]
+        if isinstance(widget, tk.Entry):
+            value = widget.get() # this method take values from Entry tk.objects
+        else:
+            value = widget.get("1.0", tk.END) # this method take values from Text tk.objects
+        Candidate.data[key] = value
+        Candidate.save_infos()
+
     # First section of the form to colect basic candidate infos
     frame_1 = tk.Frame(frame_info)
     frame_1.pack(fill=tk.BOTH, expand=True)
@@ -64,34 +78,64 @@ def write_page(frame_name):
     # Generating the sub section Experience
     frame_experience = tk.LabelFrame(frame_info, text="Experience")
     frame_experience.pack(fill=tk.BOTH, expand=True, padx=10, pady=10)
-    
-    # Generating each experience frame
+    #Creating the field names
+    frame_exp_fields = tk.LabelFrame(frame_experience)
+    frame_exp_fields.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
+    item_title = tk.Label(frame_exp_fields, text = "Title")
+    item_title.config(width=16)
+    item_title.pack(side="left")
+    item_description = tk.Label(frame_exp_fields, text = "Description")
+    item_description.config(width=20)
+    item_description.pack(fill="x", expand=True, side="left")
+    item_company = tk.Label(frame_exp_fields, text = "Company")
+    item_company.pack(side="left")
+    item_company.config(width=16)
+    item_start = tk.Label(frame_exp_fields, text = "Start date")
+    item_start.config(width=10)
+    item_start.pack(side="left")
+    item_end = tk.Label(frame_exp_fields, text = "End date")
+    item_end.config(width=10)
+    item_end.pack(side="left")
+    button_add = tk.Button(frame_exp_fields, text=" ", command = 0)
+    button_add.pack(side="left")
+
+    # Generating each experience item
     for exp in Candidate.data["experience"]:
         frame_exp_item = tk.LabelFrame(frame_experience)
         frame_exp_item.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
-        informations = f"{exp['title']}"
-        text_exp_item = tk.Message(frame_exp_item, text = informations)
-        text_exp_item.pack(side="left")
-        for key, value in exp.items():
-            entry = tk.Entry(frame_exp_item)
-            entry.insert(0, value)
-            if key == "date_start" or key == "date_end":
-                entry.config(width=10)
-                entry.pack(side="left")
-            elif key == "description":
-                entry.pack(fill="x", expand=True, side="left")
-            entry.pack(side="left")
-            entries.append(entry)
-        button = tk.Button(frame_exp_item, text="-", command = 0)
-        button.pack(side="left")
-    
+        entry_title = tk.Entry(frame_exp_item)
+        entry_title.insert(0, exp['title'])
+        entry_title.config(width=16)
+        entry_title.pack(side="left")
+        entry_description = tk.Entry(frame_exp_item)
+        entry_description.insert(0, exp['description'])
+        entry_description.config(width=20)
+        entry_description.pack(fill="x", expand=True, side="left")
+        entry_company = tk.Entry(frame_exp_item)
+        entry_company.insert(0, exp['company'])
+        entry_company.config(width=16)
+        entry_company.pack(side="left")
+        entry_start = tk.Entry(frame_exp_item)
+        entry_start.insert(0, exp['date_start'])
+        entry_start.config(width=10)
+        entry_start.pack(side="left")
+        entry_end = tk.Entry(frame_exp_item)
+        entry_end.insert(0, exp['date_end'])
+        entry_end.config(width=10)
+        entry_end.pack(side="left")
+        button_delete = tk.Button(frame_exp_item, text="-", command = 0)
+        button_delete.pack(side="left")
+    #Creating the form for a new experience item
     frame_exp_new = tk.LabelFrame(frame_experience)
     frame_exp_new.pack(fill=tk.BOTH, expand=True, padx=5, pady=5)
     entry_title = tk.Entry(frame_exp_new)
+    entry_title.config(width=16)
     entry_title.pack(side="left")
     entry_description = tk.Entry(frame_exp_new)
+    entry_description.config(width=20)
     entry_description.pack(fill="x", expand=True, side="left")
     entry_company = tk.Entry(frame_exp_new)
+    entry_company.config(width=16)
     entry_company.pack(side="left")
     entry_start = tk.Entry(frame_exp_new)
     entry_start.config(width=10)
@@ -99,5 +143,5 @@ def write_page(frame_name):
     entry_end = tk.Entry(frame_exp_new)
     entry_end.config(width=10)
     entry_end.pack(side="left")
-    button = tk.Button(frame_exp_new, text="+", command = 0)
-    button.pack(side="left")
+    button_add = tk.Button(frame_exp_new, text="+", command = 0)
+    button_add.pack(side="left")
