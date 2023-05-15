@@ -1,8 +1,8 @@
 # imports
 # (here we imports all the modules)
 import app_functions
-# from cv_bot import Resume
-# from email_module import Email
+import cv_bot
+from email_module import Email
 from app_classes_v2 import Candidate, Adviser_Bot, Recruiter, Job
 # import cover_letter_bot
 
@@ -107,7 +107,6 @@ def main():
     
     Candidate.save_infos()   
     
-    
 
     # 2) "Job"
     # Collect the information about the job description and the name of the Recruiter in HR
@@ -120,15 +119,19 @@ def main():
     Recruiter.data["company"] = input("Company: ")
     Recruiter.data["company_address"] = input("Address: ")
     Recruiter.data["attitude"] = input("Attitude: ")
-
+    Recruiter.save_infos()
+    
     Job.data["position"] = input("Position: ")
     Job.data["description"] = input("""Description: """)
     Job.data["source"] = input("Source: ")
+    Job.save_infos()
+
+    # cv_description = Adviser_Bot.generate_cv_short_description()
 
     # 3) "CV"
     # Create the CV
-    # cv = Resume("json/candidate.json")
-    # cv.generate()
+    resume = cv_bot.Resume('json/candidate.json', cv_bot.HexColor("#D4AF37"), cv_bot.HexColor("#404040"), cv_bot.HexColor("#FFFFFF"))
+    resume.generate()
     
     # 4) "Cover letter"
     # Writes the cover letter
@@ -136,23 +139,23 @@ def main():
 
     # 5) "Email"
     # Send the email, attaching cover letter and CV
-    # email = Email(
-    #     f"{Candidate.data['email']}",  # sender
-    #     [f"{Recruiter.data['email']}"],  # list of receivers
-    #     f"Applying for the position of {Job.data['position']}",
-    # )  # object
+    email = Email(
+        f"{Candidate.data['email']}",  # sender
+        [f"{Recruiter.data['email']}"],  # list of receivers
+        f"Applying for the position of {Job.data['position']}",
+    )  # object
 
-    # password = email.password("email_pass.txt")  # app password
+    password = email.password("email_pass.txt")  # app password
 
-    # body = Adviser_Bot.generate_letter()  # text of the email
+    body = Adviser_Bot.generate_letter()  # text of the email
 
-    # attachments = email.attachments(
-    #     [
-    #         f"{Candidate.data['name']}_{Candidate.data['surname']}_CV.pdf"
-    #     ]
-    # )  # cv and cover letter
+    attachments = email.attachments(
+        [
+            f"{Candidate.data['name']}_{Candidate.data['surname']}_CV.pdf"
+        ]
+    )  # cv and cover letter
 
-    # email.send(password, body, attachments)  # Send the email
+    email.send(password, body, attachments)  # Send the email
 
     # 6) "Interview"
     # Prepare for the job interview
