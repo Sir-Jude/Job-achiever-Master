@@ -4,8 +4,8 @@ from os import system as clear_terminal
 
 # This pattern checks that a date follows one of these format's: DD.MM.YYYY, MM.YYYY and YYYY
 RE_DATE_PATTERN = r"^(?:(?:0?[1-9]|[12][0-9]|3[01])\.(?:0?[1-9]|1[0-2])\.(?:19|20)\d{2})$|^(?:(?:0?[1-9]|1[0-2])\.(?:19|20)\d{2})$|^(?:19|20)\d{2}$"
-# This pattern checks for DOB
-RE_DOB_PATTERN = r"\d{1,2}.\d{1,2}.\d{4}"
+# This pattern checks for Date of Birth
+RE_DATE_OF_BIRTH_PATTERN = r"\d{1,2}.\d{1,2}.\d{4}"
 # This pattern checks for email addresses
 RE_EMAIL_PATTERN = r"^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$"
 # This pattern checks for phone numbers
@@ -21,7 +21,7 @@ class User:
     --------
         get_first_name(): gets a users first name
         get_last_name(): gets a users last name
-        get_DOB(): gets a users DOB
+        get_Date_of_Birth(): gets a users Date of Birth
         get_email(): gets a users email
         get_phone_number(): gets a users phone number
         get_address(): gets a users address
@@ -43,14 +43,14 @@ class User:
             - Start date
             - End date
             - Course Description
-        get_info(): calls all the other methods and an populates the class __init__
-        json_info(): returns json formatted info that has been collected 
+        get_info(): calls all the other methods and an populates the class
+        __init__ json_info(): returns json formatted info that has been collected
     """
 
     def __init__(self) -> None:
         self.first_name = None
         self.last_name = None
-        self.DOB = None
+        self.Date_of_Birth = None
         self.email = None
         self.phone = None
         self.address = None
@@ -63,21 +63,21 @@ class User:
 
     def get_first_name(self) -> str:
         """Takes a users first name"""
-        return input("First Name: ")
+        return input("First Name: ").title()
 
     def get_last_name(self) -> str:
         """Takes a users Last name"""
-        return input("Last Name : ")
+        return input("Last Name : ").title()
 
-    def get_DOB(self) -> str:
+    def get_date_of_birth(self) -> str:
         """
         Takes a users Date of Birth and checks
         that its valid against a regex pattern.
         """
         while True:
-            dob_str = input("Date of Birth (DD.MM.YYYY): ")
-            if re.match(RE_DOB_PATTERN, dob_str):
-                return dob_str
+            date_of_birth_str = input("Date of Birth (DD.MM.YYYY): ")
+            if re.match(RE_DATE_OF_BIRTH_PATTERN, date_of_birth_str):
+                return date_of_birth_str
             else:
                 print("Invalid input you must enter DD.MM.YYYY")
 
@@ -107,27 +107,30 @@ class User:
 
     def get_address(self) -> str:
         """Takes a users address."""
-        return input("Enter your address: ")
+        return input("Enter your address: ").title()
 
     def get_languages(self) -> dict:
         """Takes a users spoken languages and there language level."""
         languages = {}
         while True:
-            language = input("Please enter one language you speak or type 'No' to exit: ").capitalize()
+            language = input(
+                "Please enter one language you speak or type 'No' to exit: "
+            ).title()
             if language == "No":
                 return languages
-            language_level = input(f"What level do you speak {language} at (e.g. Native, B1): ")
+            language_level = input(
+                f"What level do you speak {language} at (e.g. Native, B1): "
+            ).title()
             languages[language] = language_level
-
 
     def get_hobbies(self) -> str:
         """Takes a users hobbies."""
         hobbies = input("Enter your hobbies or type 'No' to move on: ")
         if hobbies == "No" or "":
             return None
-        else: 
+        else:
             return hobbies
-        
+
     def get_skills(self) -> str:
         """Takes a users skills."""
         skills = input("Enter your skills or type 'No' to move on: ")
@@ -135,7 +138,7 @@ class User:
             return None
         else:
             return skills
-    
+
     def get_about_user(self) -> str:
         """Takes in info a user wants to provide about them self."""
         return input("Give a brief description about your self: ")
@@ -217,14 +220,13 @@ class User:
 
         add_education and add_experience are both in a loop
         to allow the user to add as much or as little as they
-        like they also use .append() as they are appending to a
-        list.
+        like and is stored as a list of dicts.
         """
         self.first_name = self.get_first_name()
         clear_terminal("clear")
         self.last_name = self.get_last_name()
         clear_terminal("clear")
-        self.DOB = self.get_DOB()
+        self.Date_of_Birth = self.get_date_of_birth()
         clear_terminal("clear")
         self.email = self.get_email()
         clear_terminal("clear")
@@ -249,7 +251,7 @@ class User:
                 break
             elif add_experience == "y":
                 self.experience.append(self.get_experience())
-        
+
         clear_terminal("clear")
 
         while True:
@@ -258,17 +260,15 @@ class User:
                 break
             elif add_education == "y":
                 self.education.append(self.get_education())
-        
+
         clear_terminal("clear")
-
-
 
     def dict_info(self) -> dict:
         """Returns dict formatted user info"""
         info_dict = {
             "First Name": self.first_name,
             "Last Name": self.last_name,
-            "D.O.B.": self.DOB,
+            "Date of Birth": self.Date_of_Birth,
             "Email": self.email,
             "Phone": self.phone,
             "Address": self.address,
@@ -284,9 +284,9 @@ class User:
     def json_info(self) -> str:
         """Returns json formatted user info"""
         return json.dumps(self.dict_info(), indent=4)
-    
+
     def save_json(self) -> None:
-        """Creates a json file continuing the the info that has been collected in a file called user.json in the json folder."""
+        """Creates a json file continuing the the info that has been collected in a file called "first name".json in the json folder."""
         json_data = self.json_info()
         with open(f"json/{self.first_name}.json", "w") as file:
             file.write(json_data)
@@ -302,9 +302,5 @@ if __name__ == "__main__":
     # reading the user.json file that was created and printing it out
     with open(f"json/{test.first_name}.json", "r") as file:
         formatted_json = json.load(file)
-    
+
     print(json.dumps(formatted_json, indent=4))
-
-
-
-
