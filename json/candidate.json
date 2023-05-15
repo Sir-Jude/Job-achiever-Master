@@ -1,5 +1,5 @@
 {
-    "name": "Adrianx",
+    "name": "Adrian",
     "surname": "Radu",
     "birthday": "11.03.1977",
     "sex": "male",
@@ -11,7 +11,7 @@
     "experience": [
         {
             "title": "Webdesigner",
-            "description": "Responsable for mentenance of the company websites.",
+            "description": "Responsable for mentenance of the company websites. More blabla just to see how long texts are formated here.",
             "company": "IATOM",
             "date_start": "10.10.2010",
             "date_end": "23.09.2022"
