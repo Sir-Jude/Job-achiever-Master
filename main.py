@@ -176,7 +176,7 @@ def main():
     # 4) "Cover letter
     # Writes the cover letter
     Adviser_Bot.generate_letter()
-    # cover_letter_bot.generate()
+    cover_letter_bot.generate()
 
     # 5) "Email"
     # Send the email, attaching cover letter and CV
