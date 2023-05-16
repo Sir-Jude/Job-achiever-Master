@@ -4,8 +4,7 @@ from datetime import date
 from reportlab.lib.pagesizes import letter
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-import tkinter as tk
-from tkinter import filedialog
+
 
 
 def load_cover_letter():
