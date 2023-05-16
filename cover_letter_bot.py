@@ -133,7 +133,7 @@ def generate():
 
     print("\nLoaded cover letter:\n")
 
-    directory = choose_directory()
+    directory = 'pdfs'
     filename = f"{name}_{surname}_Cover_Letter.pdf"
 
     # Save cover letter as PDF
@@ -153,4 +153,3 @@ def generate():
     )
 
     print(f"\nCover letter saved as '{os.path.join(directory, filename)}'")
-
