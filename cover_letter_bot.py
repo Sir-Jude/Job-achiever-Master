@@ -99,7 +99,6 @@ def save_cover_letter_as_pdf(
     )
     doc.build(elements)
 
-    print(f"\nCover letter saved as '{os.path.join(directory, filename)}'")
 
 
 def choose_directory():
@@ -135,7 +134,7 @@ def generate():
     print("\nLoaded cover letter:\n")
 
     directory = choose_directory()
-    filename = f"cover_letter_{name}.pdf"
+    filename = f"{name}_{surname}_Cover_Letter.pdf"
 
     # Save cover letter as PDF
     save_cover_letter_as_pdf(
@@ -154,3 +153,4 @@ def generate():
     )
 
     print(f"\nCover letter saved as '{os.path.join(directory, filename)}'")
+
