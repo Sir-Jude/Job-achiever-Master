@@ -1,7 +1,6 @@
 import os
 import re
 import openai
-from datetime import datetime
 
 openai.api_key = input("Insert your API Key: ")
 
@@ -73,14 +72,13 @@ def input_date(string):
     """A function to restrict inputs to date format only.
     The function take a message to prompt.
     Example: input_date('The message for user: ')"""
-    pattern = r"^\d{2}\-\d{2}\-\d{4}$"
+    pattern = r"^\d{2}\.\d{2}\.\d{4}$"
     while True:
         answer = input(string)
         if re.match(pattern, answer):
-            date = datetime.strptime(answer, "%d-%m-%Y").date()
-            return date
+            return answer
         else:
-            print("Please insert only a valid date in this format dd-mm-yyyy")
+            print("Please insert only a valid date in this format dd.mm.yyyy")
 
 def input_email(string):
     """A function to restrict inputs to e-mails only.

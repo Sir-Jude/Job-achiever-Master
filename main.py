@@ -25,7 +25,7 @@ def main():
         )
         Candidate.data["name"] = input("Name: ")
         Candidate.data["surname"] = input("Surname: ")
-        Candidate.data["birthday"] = app_functions.input_date("Birthday (dd-mm-yyyy): ")
+        Candidate.data["birthday"] = app_functions.input_date("Birthday (dd.mm.yyyy): ")
         Candidate.data["sex"] = app_functions.input_strict(
             "Sex (male/female): ", ["male", "female"]
         )
