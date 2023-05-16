@@ -1,50 +1,43 @@
 {
-    "name": "Adrian",
-    "surname": "Radu",
-    "birthday": "11.03.1977",
+    "name": "fgr",
+    "surname": "dsgf",
+    "birthday": "14.08.1983",
     "sex": "male",
-    "phone": "123412355456",
-    "email": "email@email.com",
-    "address": "Justastr. 11b, 39124 Magdeburg",
-    "user_language": "english",
-    "short_description": "Blabla writen by Chat Bot.\nIt can have multiple lines...\n\n\n",
+    "phone": "2345",
+    "email": "giulio.arpaia@gmail.com",
+    "address": "sdsgf",
+    "user_language": "English",
+    "short_description": "",
     "experience": [
         {
-            "title": "Webdesigner",
-            "description": "Responsable for mentenance of the company websites. More blabla just to see how long texts are formated here.",
-            "company": "IATOM",
-            "date_start": "10.10.2010",
-            "date_end": "23.09.2022"
-        }
-    ],
-    "education": [
+            "title": "sadfgfg",
+            "description": "sadfgd",
+            "company": "sadfgf",
+            "date_start": "14.08.1983",
+            "date_end": "14.08.1983"
+        },
         {
-            "title": "Python Backend Programming",
-            "description": "Cours",
-            "school": "DCI",
-            "date_start": "15.12.2022",
-            "date_end": "10.01.2024"
+            "title": "asdfs",
+            "description": "dsgfh",
+            "school": "dsgfhg",
+            "date_start": "14.08.1983",
+            "date_end": "14.08.1983"
         }
     ],
+    "education": [],
     "hobbies": [
         {
-            "hobby": "Guitar with passion"
+            "hobby": "sadfhg"
         }
     ],
     "skills": [
         {
-            "skill": "PHP - expert"
-        },
-        {
-            "skill": "Python - beginner"
+            "skill": "sadfsdfgf"
         }
     ],
     "languages": [
         {
-            "language": "German - intermediate B2"
-        },
-        {
-            "language": "English - intermediate B1"
+            "language": "English"
         }
     ]
 }

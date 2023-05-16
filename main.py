@@ -4,7 +4,7 @@ import app_functions
 import cv_bot
 from email_module import Email
 from app_classes_v2 import Candidate, Adviser_Bot, Recruiter, Job
-# import cover_letter_bot
+import cover_letter_bot
 
 def main():
     # 1) "Candidate info"
@@ -132,11 +132,13 @@ def main():
 
     # 3) "CV"
     # Create the CV
+    print("Please, upload a picture for the CV.")
     resume = cv_bot.Resume('json/candidate.json', cv_bot.HexColor("#D4AF37"), cv_bot.HexColor("#404040"), cv_bot.HexColor("#FFFFFF"))
     resume.generate()
     
-    # 4) "Cover letter"
+    # 4) "Cover letter
     # Writes the cover letter
+    Adviser_Bot.generate_letter()
     # cover_letter_bot.generate()
 
     # 5) "Email"
