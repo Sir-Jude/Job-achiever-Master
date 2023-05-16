@@ -1,4 +1,3 @@
-from app_classes_v2 import Adviser_Bot
 import os
 import json
 from datetime import date
@@ -16,10 +15,10 @@ def load_cover_letter():
             data["candidate_name"],
             data["candidate_surname"],
             data["candidate_email"],
-            data["candidate_adress"],
+            data["candidate_address"],
             data["recruiter_surname"],
             data["recruiter_email"],
-            data["recruiter_adress"],
+            data["recruiter_address"],
             data["position"],
             data["company"],
             data["mail_body"],
@@ -148,8 +147,4 @@ def generate():
     )
 
     print(f"\nCover letter saved as '{os.path.join(directory, filename)}'")
-
-if __name__ == "__main__":
-    Adviser_Bot.generate_letter()
-    generate()
 
