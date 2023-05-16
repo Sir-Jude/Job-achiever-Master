@@ -191,7 +191,7 @@ def main():
     body = Adviser_Bot.generate_letter()  # text of the email
 
     attachments = email.attachments(
-        [f"{Candidate.data['name']}_{Candidate.data['surname']}_CV.pdf"]
+        [f"pdfs/{Candidate.data['name']}_{Candidate.data['surname']}_CV.pdf"]
     )  # cv and cover letter
 
     email.send(password, body, attachments)  # Send the email
