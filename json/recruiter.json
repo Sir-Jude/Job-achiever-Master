@@ -1,10 +1,11 @@
 {
-    "name": "Nicolas",
-    "surname": "Tesla",
+    "name": "Adolf",
+    "surname": "Heiler",
     "sex": "male",
-    "email": "jude.smiley.python@gmai.com",
-    "position": "CEO",
-    "company": "Elli - a brand of the Volkswagen Group",
+    "email": "a.heiler@fueherbunker.com",
+    "position": "fueher",
+    "company": "bla",
     "company_adress": "Berlinerstr. 11b, 39124 Berlin",
-    "attitude": "sarcastic"
+    "attitude": "aggressiv",
+    "company_address": "blubb"
 }
