@@ -1,11 +1,10 @@
 {
-    "name": "James",
-    "surname": "Cameron",
-    "sex": "male",
-    "email": "jude.smiley.python@gmail.com",
-    "position": "Manager of R",
-    "company": "PWC",
-    "company_address": "10785 Berlin, Germany",
-    "atitude": "sarcastic",
-    "attitude": "Interested"
+    "name": "",
+    "surname": "",
+    "sex": "",
+    "email": "",
+    "position": "",
+    "company": "",
+    "company_address": "",
+    "attitude": "normal"
 }
