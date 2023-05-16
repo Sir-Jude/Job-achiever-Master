@@ -55,15 +55,23 @@ def save_cover_letter_as_pdf(
     # Create custom styles for left-aligned text
     left_aligned_style = ParagraphStyle("LeftAlign")
 
+    # Split the sender and recipient addresses into multiple lines
+    sender_address_lines = sender_address.split(", ")
+    recipient_address_lines = recipient_address.split(", ")
+
     # Create multiple paragraphs for sender address
     sender_paragraphs = [
-        Paragraph(sender_address, right_aligned_style)
+        Paragraph(line, right_aligned_style)
+        for line in [f"{name} {surname}"] + sender_address_lines + [email]
     ]
-
+    
     # Create multiple paragraphs for recipient address
     recipient_paragraphs = [
-        Paragraph(recipient_address, left_aligned_style)
+        Paragraph(line, left_aligned_style)
+        for line in [company]
+        + recipient_address_lines
     ]
+
 
     # Create a paragraph with the current date
     date_paragraph = Paragraph(str(current_date), right_aligned_style)
@@ -147,4 +155,3 @@ def generate():
     )
 
     print(f"\nCover letter saved as '{os.path.join(directory, filename)}'")
-
