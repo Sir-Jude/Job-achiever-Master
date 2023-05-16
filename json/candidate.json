@@ -3,18 +3,32 @@
     "surname": "Radu",
     "birthday": "11.03.1977",
     "sex": "male",
-    "phone": "123412355456",
-    "email": "email@email.com",
+    "phone": "1234567890",
+    "email": "jude.smiley.python@gmail.com",
     "address": "Justastr. 11b, 39124 Magdeburg",
     "user_language": "english",
-    "short_description": "Blabla writen by Chat Bot.\nIt can have multiple lines...\n\n\n",
+    "short_description": null,
     "experience": [
         {
             "title": "Webdesigner",
-            "description": "Responsable for mentenance of the company websites. More blabla just to see how long texts are formated here.",
+            "description": "Responsable for mentenance of the company websites.",
             "company": "IATOM",
             "date_start": "10.10.2010",
             "date_end": "23.09.2022"
+        },
+        {
+            "title": "Art Director",
+            "description": "Creation and implementing of web ads.",
+            "company": "Stream Line",
+            "date_start": "01.01.2000",
+            "date_end": "10.10.2010"
+        },
+        {
+            "title": "Janitor",
+            "description": "Cleaning of office rooms.",
+            "company": "Amazon",
+            "date_start": "01.01.1998",
+            "date_end": "01.01.2000"
         }
     ],
     "education": [
@@ -24,27 +38,34 @@
             "school": "DCI",
             "date_start": "15.12.2022",
             "date_end": "10.01.2024"
+        },
+        {
+            "title": "Graphic designer",
+            "description": "Barcelors degree",
+            "school": "University of Arts - Nicolae Grigorescu - Bucharest",
+            "date_start": "01.09.1995",
+            "date_end": "01.01.2000"
         }
     ],
     "hobbies": [
         {
-            "hobby": "Guitar with passion"
+            "hobby": "music, games"
+        },
+        {
+            "hobby": "reading, travel"
         }
     ],
     "skills": [
         {
-            "skill": "PHP - expert"
-        },
-        {
-            "skill": "Python - beginner"
+            "skill": "Python, PHP, mySQL"
         }
     ],
     "languages": [
         {
-            "language": "German - intermediate B2"
+            "language": "English (B1 - lower intermediate)"
         },
         {
-            "language": "English - intermediate B1"
+            "language": "German (B2 - lower intermediate)"
         }
     ]
 }
