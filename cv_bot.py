@@ -6,7 +6,7 @@ from reportlab.lib.units import inch
 from reportlab.lib.utils import ImageReader
 import tkinter as tk
 from tkinter import filedialog
-from app_classes_v2 import Adviser_Bot
+import textwrap
 
 
 class Resume:
@@ -53,33 +53,56 @@ class Resume:
         # Set up parameters for personal information section
         self.pdf.setFillColor(self.night_gray_color)
         self.pdf.setFont('Helvetica', 12)
-        self.pdf.drawString(50, 750, 'Name: ' + self.data['name'])
-        self.pdf.drawString(50, 735, 'Family Name: ' + self.data['surname'])
-        self.pdf.drawString(50, 720, 'Birthday: ' + self.data['birthday'])
-        self.pdf.drawString(50, 705, 'Sex: ' + self.data['sex'])
-        self.pdf.drawString(50, 690, 'Phone: ' + self.data['phone'])
-        self.pdf.drawString(50, 675, 'Email: ' + self.data['email'])
-        self.pdf.drawString(50, 660, 'Address: ' + self.data['address'])
-        
-        # Generate a CV short description
-        y_offset = 635
-        cv_description = Adviser_Bot.generate_cv_short_description()
-        self.pdf.drawString(50, y_offset, 'Description: ' + cv_description)
-
+        self.pdf.drawString(50, 750, 'Name:')
+        self.pdf.drawString(130, 750, self.data['name'])
+        self.pdf.drawString(50, 735, 'Family Name:')
+        self.pdf.drawString(130, 735, self.data['surname'])
+        self.pdf.drawString(50, 720, 'Birthday:')
+        self.pdf.drawString(130, 720, self.data['birthday'])
+        self.pdf.drawString(50, 705, 'Sex:')
+        self.pdf.drawString(130, 705, self.data['sex'])
+        self.pdf.drawString(50, 690, 'Phone:')
+        self.pdf.drawString(130, 690, self.data['phone'])
+        self.pdf.drawString(50, 675, 'Email:')
+        self.pdf.drawString(130, 675, self.data['email'])
+        self.pdf.drawString(50, 660, 'Address:')
+        self.pdf.drawString(130, 660, self.data['address'])
+        self.pdf.drawString(50, 645, 'Language:')
+        self.pdf.drawString(130, 645, self.data['user_language'])
+        self.pdf.drawString(50, 630, 'Motivation:')
+        y_offset = 630
+        motivation = self.data['short_description']
+        wrapped_text = textwrap.fill(motivation, 70)
+        lines = wrapped_text.split('\n')
+        for line in lines:
+            self.pdf.drawString(130, y_offset, line)
+            y_offset -= 15
+                            
         # Set up parameters for Experience section
-        y_offset = 600
+        y_offset -= 30 
         self.pdf.setFillColor(self.rich_gold_color)
         self.pdf.setFont('Helvetica', 14)
-        self.pdf.drawString(50, y_offset, 'Experience:')
-        y_offset -= 17
+        self.pdf.drawString(240, y_offset, 'Experience:')
+        y_offset -= 50
         self.pdf.setFillColor(self.night_gray_color)
         self.pdf.setFont('Helvetica', 12)
         for exp in self.data['experience']:
-            self.pdf.drawString(70, y_offset, 'Title: ' + exp['title'])
-            self.pdf.drawString(70, y_offset - 15, 'Description: ' + exp['description'])
-            self.pdf.drawString(70, y_offset - 30, 'Company: ' + exp['company'])
-            self.pdf.drawString(70, y_offset - 45, 'Start Date: ' + exp['date_start'])
-            self.pdf.drawString(70, y_offset - 60, 'End Date: ' + exp['date_end'])
+            self.pdf.drawString(50, y_offset, 'Title:')
+            self.pdf.drawString(130, y_offset, exp['title'])
+            self.pdf.drawString(50, y_offset - 15, 'Description:')
+            description = exp['description']
+            wrapped_text = textwrap.fill(description, 70)  # Wrap description text to 80 characters per line
+            lines = wrapped_text.split('\n')  # Split the wrapped text into lines
+            for line in lines:
+                self.pdf.drawString(130, y_offset - 15, line)
+                y_offset -= 15  # Decrease the y_offset for each line
+            self.pdf.setFillColor(self.night_gray_color)
+            self.pdf.setFont('Helvetica', 12)
+            #self.pdf.drawString(70, y_offset - 30, 'Company: ' + exp['company'])
+            self.pdf.drawString(50, y_offset - 30, 'Start Date:')
+            self.pdf.drawString(130, y_offset - 30, exp['date_start'])
+            self.pdf.drawString(50, y_offset - 45, 'End Date:')
+            self.pdf.drawString(130, y_offset - 45, exp['date_end'])
             y_offset -= 75
 
         #Set up parameters for Education section
@@ -135,3 +158,4 @@ class Resume:
             y_offset -= 17
 
         self.pdf.save()
+
