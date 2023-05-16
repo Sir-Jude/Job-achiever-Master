@@ -7,7 +7,10 @@ from app_classes_v2 import Candidate, Adviser_Bot, Recruiter, Job
 import cover_letter_bot
 
 def main():
-    if Candidate.data["name"] == "":
+    update = ""
+    if Candidate.data["name"] != "":
+        update = app_functions.input_strict("Do you want to update the info (y/n)? ", ["y", "n"])
+    if update == "y" or Candidate.data["name"] == "":
         # 1) "Candidate info"
         # (which collects all the inputs for the personal info and the job)
         # Please use the "input_..." functions in app_functions file to restrict and verify user inputs.)
