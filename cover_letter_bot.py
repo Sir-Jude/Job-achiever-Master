@@ -4,8 +4,8 @@ from datetime import date
 from reportlab.lib.pagesizes import letter
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
-import tkinter as tk
-from tkinter import filedialog
+
+
 
 def load_cover_letter():
     # Function to load the cover letter from a JSON file
@@ -24,6 +24,7 @@ def load_cover_letter():
             data["mail_body"],
         )
 
+
 def save_cover_letter_as_pdf(
     cover_letter,
     directory,
@@ -38,10 +39,9 @@ def save_cover_letter_as_pdf(
     company,
     recruiter_surname,
 ):
-    
     file_path = os.path.join(directory, filename)
-       
-       # Create a simple document template
+
+    # Create a simple document template
     doc = SimpleDocTemplate(file_path, pagesize=letter)
 
     # Create a style sheet
@@ -64,14 +64,12 @@ def save_cover_letter_as_pdf(
         Paragraph(line, right_aligned_style)
         for line in [f"{name} {surname}"] + sender_address_lines + [email]
     ]
-    
+
     # Create multiple paragraphs for recipient address
     recipient_paragraphs = [
         Paragraph(line, left_aligned_style)
-        for line in [company]
-        + recipient_address_lines
+        for line in [company] + recipient_address_lines
     ]
-
 
     # Create a paragraph with the current date
     date_paragraph = Paragraph(str(current_date), right_aligned_style)
@@ -100,17 +98,9 @@ def save_cover_letter_as_pdf(
     )
     doc.build(elements)
 
-    print(f"\nCover letter saved as '{os.path.join(directory, filename)}'")
 
 
-def choose_directory():
-    # Function to open a dialog for the user to choose a directory
-    root = tk.Tk()
-    root.withdraw()  # Hides the root window
-    directory = filedialog.askdirectory(
-        title="Choose the directory where you want to save the cover letter"
-    )
-    return directory
+
 
 def generate():
     # Load the cover letter
@@ -134,8 +124,8 @@ def generate():
 
     print("\nLoaded cover letter:\n")
 
-    directory = choose_directory()
-    filename = f"cover_letter_{name}.pdf"
+    directory = 'pdfs'
+    filename = f"{name}_{surname}_Cover_Letter.pdf"
 
     # Save cover letter as PDF
     save_cover_letter_as_pdf(
