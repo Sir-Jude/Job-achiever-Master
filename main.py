@@ -171,7 +171,7 @@ def main():
         cv_bot.HexColor("#FFFFFF"),
     )
     resume.generate()
-    sleep(3)
+    sleep(2)
 
     # 4) "Cover letter
     # Writes the cover letter

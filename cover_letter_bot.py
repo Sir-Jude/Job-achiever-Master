@@ -17,7 +17,6 @@ def load_cover_letter():
             data["candidate_email"],
             data["candidate_address"],
             data["recruiter_surname"],
-            data["recruiter_email"],
             data["recruiter_address"],
             data["position"],
             data["company"],
@@ -110,15 +109,14 @@ def generate():
         email,
         adress,
         recruiter_surname,
-        recruiter_email,
-        recruiter_adress,
+        recruiter_address,
         position,
         company,
         cover_letter,
     ) = load_cover_letter()
 
     sender_address = adress
-    recipient_address = recruiter_adress
+    recipient_address = recruiter_address
     current_date = date.today().strftime("%d.%m.%Y")
     subject_line = f"Application for the position as {position}"
 

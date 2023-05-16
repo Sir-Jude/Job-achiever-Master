@@ -250,7 +250,7 @@ You don't ask questions or say anything other than the content of the cover lett
                 "mail_body": letter_text,
             }
             file.write(json.dumps(letter, indent=4))
-        return letter_text
+        return letter_text[:-1]
 
     @classmethod
     def generate_cv_short_description(cls):
