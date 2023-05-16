@@ -1,5 +1,6 @@
 import app_functions
 import json
+import os
 
 bot_request = app_functions.bot_request
 bot_message = app_functions.bot_message
@@ -8,11 +9,21 @@ bot_message = app_functions.bot_message
 
 
 class Candidate:
+    path = "json/candidate.json"
     try:  # if the file exists colect all the candidate infos
-        with open("json/candidate.json", "r") as file:
-            data = json.load(file)
-    except FileNotFoundError:  # if the file is missing than create one
-        with open("json/candidate.json", "w") as file:
+        if os.path.getsize(path) !=0: # test if the file is not empty:
+            with open(path, "r") as file:
+                data = json.load(file)
+                if len(data.keys()) != 14:
+                    error = True
+                else:
+                    error = False
+        else:
+            error = True
+    except FileNotFoundError:
+        error = True
+    if error: # if the file is missing or is corrupted than create a new one
+        with open(path, "w") as file:
             data = {
                 "name": "",
                 "surname": "",
@@ -70,11 +81,21 @@ class Candidate:
 
 class Recruiter:
     # All the atributes inside this class will be used to describe the role of recrutier bot
+    path = "json/recruiter.json"
     try:  # if the file exists colect all the candidate infos
-        with open("json/recruiter.json", "r") as file:
-            data = json.load(file)
-    except FileNotFoundError:  # if the file is missing than create one
-        with open("json/recruiter.json", "w") as file:
+        if os.path.getsize(path) !=0: # test if the file is not empty
+            with open(path, "r") as file:
+                data = json.load(file)
+                if len(data.keys()) != 9:
+                    error = True
+                else:
+                    error = False
+        else:
+            error = True
+    except FileNotFoundError:
+        error = True
+    if error: # if the file is missing or is corrupted than create a new one
+        with open(path, "w") as file:
             data = {
                 "name": "",
                 "surname": "",
@@ -102,11 +123,21 @@ class Adviser_Bot:
     role_description = ""
     user_input = "empty"
     user_language = "english"
+    path = "json/letter.json"
     try:  # if the file exists colect all the letter infos
-        with open("json/letter.json", "r") as file:
-            letter = json.load(file)  # the list of interview messages
-    except FileNotFoundError:  # if the file is missing than create one
-        with open("json/letter.json", "w") as file:
+        if os.path.getsize(path) !=0: # test if the file is not empty
+            with open(path, "r") as file:
+                letter = json.load(file)  # the list of interview messages
+                if len(letter.keys()) != 11: # test the file keys lenght
+                    error = True
+                else:
+                    error = False
+        else:
+            error = True
+    except FileNotFoundError:
+        error = True
+    if error: # if the file is missing or is corrupted than create a new one
+        with open(path, "w") as file:
             letter = {
                 "candidate_name": "",
                 "candidate_surname": "",
@@ -284,11 +315,23 @@ You will be focused to cover all the necesary job questions with a {cls.recruite
 # JOB ELEMENTS
 class Job:
     # All the atributes inside this class will be used to describe the job
+    path = "json/job.json"
     try:  # if the file exists colect all the candidate infos
-        with open("json/job.json", "r") as file:
-            data = json.load(file)
-    except FileNotFoundError:  # if the file is missing than create one
-        with open("json/job.json", "w") as file:
+        if os.path.getsize(path) !=0: # test if the file is not empty
+            with open(path, "r") as file:
+                data = json.load(file)
+                if len(data.keys()) != 3:
+                    error = True
+                else:
+                    error = False
+        else:
+            error = True
+    except FileNotFoundError:
+        error = True
+    else:
+        error = True
+    if error: # if the file is missing or is corrupted than create a new one
+        with open(path, "w") as file:
             data = {"position": None, "description": None, "source": None}
             file.write(json.dumps(data, indent=4))
 
