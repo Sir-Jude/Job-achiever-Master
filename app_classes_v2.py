@@ -10,17 +10,17 @@ bot_message = app_functions.bot_message
 
 class Candidate:
     path = "json/candidate.json"
-    if os.path.getsize(path) !=0: # test if the file is not empty
-        try:  # if the file exists colect all the candidate infos
+    try:  # if the file exists colect all the candidate infos
+        if os.path.getsize(path) !=0: # test if the file is not empty:
             with open(path, "r") as file:
                 data = json.load(file)
                 if len(data.keys()) != 14:
                     error = True
                 else:
                     error = False
-        except FileNotFoundError:
+        else:
             error = True
-    else:
+    except FileNotFoundError:
         error = True
     if error: # if the file is missing or is corrupted than create a new one
         with open(path, "w") as file:
@@ -82,17 +82,17 @@ class Candidate:
 class Recruiter:
     # All the atributes inside this class will be used to describe the role of recrutier bot
     path = "json/recruiter.json"
-    if os.path.getsize(path) !=0: # test if the file is not empty
-        try:  # if the file exists colect all the candidate infos
+    try:  # if the file exists colect all the candidate infos
+        if os.path.getsize(path) !=0: # test if the file is not empty
             with open(path, "r") as file:
                 data = json.load(file)
                 if len(data.keys()) != 9:
                     error = True
                 else:
                     error = False
-        except FileNotFoundError:
+        else:
             error = True
-    else:
+    except FileNotFoundError:
         error = True
     if error: # if the file is missing or is corrupted than create a new one
         with open(path, "w") as file:
@@ -124,17 +124,17 @@ class Adviser_Bot:
     user_input = "empty"
     user_language = "english"
     path = "json/letter.json"
-    if os.path.getsize(path) !=0: # test if the file is not empty
-        try:  # if the file exists colect all the letter infos
+    try:  # if the file exists colect all the letter infos
+        if os.path.getsize(path) !=0: # test if the file is not empty
             with open(path, "r") as file:
                 letter = json.load(file)  # the list of interview messages
                 if len(letter.keys()) != 11: # test the file keys lenght
                     error = True
                 else:
                     error = False
-        except FileNotFoundError:
+        else:
             error = True
-    else:
+    except FileNotFoundError:
         error = True
     if error: # if the file is missing or is corrupted than create a new one
         with open(path, "w") as file:
@@ -316,16 +316,18 @@ You will be focused to cover all the necesary job questions with a {cls.recruite
 class Job:
     # All the atributes inside this class will be used to describe the job
     path = "json/job.json"
-    if os.path.getsize(path) !=0: # test if the file is not empty
-        try:  # if the file exists colect all the candidate infos
+    try:  # if the file exists colect all the candidate infos
+        if os.path.getsize(path) !=0: # test if the file is not empty
             with open(path, "r") as file:
                 data = json.load(file)
                 if len(data.keys()) != 3:
                     error = True
                 else:
                     error = False
-        except FileNotFoundError:
+        else:
             error = True
+    except FileNotFoundError:
+        error = True
     else:
         error = True
     if error: # if the file is missing or is corrupted than create a new one
