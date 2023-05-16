@@ -1,68 +1,50 @@
 {
-<<<<<<< HEAD
-    "name": "",
-    "surname": "",
-    "birthday": "",
-    "sex": "",
-    "phone": "",
-    "email": "",
-    "address": "",
-    "user_language": "english",
-    "short_description": "",
-    "experience": [],
-    "education": [],
-    "hobbies": [],
-    "skills": [],
-    "languages": []
-=======
-    "name": "Adrian",
-    "surname": "Radu",
-    "birthday": "11.03.1977",
+    "name": "Jude",
+    "surname": "Smiley",
+    "birthday": "14.03.1990",
     "sex": "male",
-    "phone": "123412355456",
-    "email": "email@email.com",
-    "address": "Justastr. 11b, 39124 Magdeburg",
-    "user_language": "english",
-    "short_description": "Blabla writen by Chat Bot.\nIt can have multiple lines...\n\n\n",
+    "phone": "123456",
+    "email": "jude.smailey.python@gmail.com",
+    "address": "23456",
+    "user_language": "English",
+    "short_description": "As an AI language model, I don't have experience or motivation to apply for a job. However, I can help you create a strong CV opening statement if you provide me with your profession or desired job position, skills, and work experience.",
     "experience": [
         {
-            "title": "Webdesigner",
-            "description": "Responsable for mentenance of the company websites. More blabla just to see how long texts are formated here.",
-            "company": "IATOM",
-            "date_start": "10.10.2010",
-            "date_end": "23.09.2022"
+            "title": "Payroll Manager",
+            "description": "I was dealing a lot with Excel and payment process, so I was using the computer and several softwares everyday.",
+            "company": "KWS GmbH",
+            "date_start": "19.03.2019",
+            "date_end": "30.04.2023"
         }
     ],
     "education": [
         {
-            "title": "Python Backend Programming",
-            "description": "Cours",
-            "school": "DCI",
-            "date_start": "15.12.2022",
-            "date_end": "10.01.2024"
+            "title": "M.Sc. Finance",
+            "description": "I completed a Master in Fianance and Payroll",
+            "school": "Harward University",
+            "date_start": "01.09.2015",
+            "date_end": "31.06.2019"
         }
     ],
-    "education": [],
     "hobbies": [
         {
-            "hobby": "Guitar with passion"
+            "hobby": "I like playing with computer and coding"
         }
     ],
     "skills": [
         {
-            "skill": "PHP - expert"
-        },
-        {
-            "skill": "Python - beginner"
+            "skill": "reliable, attention to details, punctual, critical thinking, willing to learn, determined."
         }
     ],
     "languages": [
         {
-            "language": "German - intermediate B2"
+            "language": "English"
         },
         {
-            "language": "English - intermediate B1"
+            "language": "Italian - native"
+        },
+        {
+            "language": "Romanian"
         }
     ]
->>>>>>> a30fd984fe00f60dfc484d6def8321da85888fe4
 }

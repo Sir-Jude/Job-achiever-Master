@@ -143,7 +143,7 @@ print(f"{Recruiter.data['name']}: Welcome {Candidate.data['name']}.")
 interview_on = True
 while interview_on:
     user_message = input(f"{Candidate.data['name']}: ")
-    bot_message = Adviser_Bot.simulate_interview(user_message)
+    Adviser_Bot.simulate_interview(user_message)
     os.system("clear")
     # print interview_history
     for m in Adviser_Bot.interview_history[1:]:
