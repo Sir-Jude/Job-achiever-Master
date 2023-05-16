@@ -1,43 +1,50 @@
 {
-    "name": "Kyrylo",
-    "surname": "Pogrebnyak",
-    "birthday": "28.02.1996",
+    "name": "Jude",
+    "surname": "Smiley",
+    "birthday": "14.03.1990",
     "sex": "male",
-    "phone": "+4915156523154",
-    "email": "kpogrebnyak.28@gmail.com",
-    "address": "Weddestr 87",
+    "phone": "123456",
+    "email": "jude.smiley.python@gmail.com",
+    "address": "23456",
     "user_language": "English",
-    "short_description": "Blabla writen by Chat Bot.\nIt can have multiple lines...",
+    "short_description": "As an AI language model, I don't have work experience and strengths in the traditional sense, but I am capable of generating human-like language and assisting with various tasks such as writing, proofreading, and translation.",
     "experience": [
         {
-            "title": "bla bla bla...",
-            "description": "Responsable for mentenance of the company websites.Responsable for mentenance of the company websites.Responsable for mentenance of the company websites.Responsable for mentenance of the company websites.Responsable for mentenance of the company websites.",
-            "company": "ABC Corp",
-            "date_start": "01.01.2000",
-            "date_end": "01.01.2001"
-        },
-        {
-            "title": "no",
-            "description": "no",
-            "school": "no",
-            "date_start": "01.01.2000",
-            "date_end": "01.01.2001"
+            "title": "Payroll Manager",
+            "description": "I was dealing a lot with Excel and payment process, so I was using the computer and several softwares everyday.",
+            "company": "KWS GmbH",
+            "date_start": "19.03.2019",
+            "date_end": "30.04.2023"
         }
     ],
-    "education": [],
+    "education": [
+        {
+            "title": "M.Sc. Finance",
+            "description": "I completed a Master in Fianance and Payroll",
+            "school": "Harward University",
+            "date_start": "01.09.2015",
+            "date_end": "31.06.2019"
+        }
+    ],
     "hobbies": [
         {
-            "hobby": "no"
+            "hobby": "I like playing with computer and coding"
         }
     ],
     "skills": [
         {
-            "skill": "no"
+            "skill": "reliable, attention to details, punctual, critical thinking, willing to learn, determined."
         }
     ],
     "languages": [
         {
-            "language": "n"
+            "language": "English"
+        },
+        {
+            "language": "Italian - native"
+        },
+        {
+            "language": "Romanian"
         }
     ]
 }

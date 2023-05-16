@@ -1,11 +1,11 @@
 {
-    "name": "n",
-    "surname": "n",
+    "name": "James",
+    "surname": "Cameron",
     "sex": "male",
-    "email": "lsekfdh@gmail.com",
-    "position": "s;lc",
-    "company": "slmc",
-    "company_adress": "Berlinerstr. 11b, 39124 Berlin",
-    "attitude": ";ls,v",
-    "company_address": ";ls,v"
+    "email": "jude.smiley.python@gmail.com",
+    "position": "Manager of R",
+    "company": "PWC",
+    "company_address": "10785 Berlin, Germany",
+    "atitude": "sarcastic",
+    "attitude": "Interested"
 }

@@ -1,13 +1,13 @@
 {
-    "candidate_name": null,
-    "candidate_surname": null,
-    "recruiter_surname": null,
-    "candidate_email": null,
-    "candidate_phone": null,
-    "candidate_adress": null,
-    "recruiter_email": null,
-    "recruiter_adress": null,
-    "position": null,
-    "company": null,
-    "mail_body": null
+    "candidate_name": "Jude",
+    "candidate_surname": "Smiley",
+    "recruiter_surname": "Cameron",
+    "candidate_email": "jude.smiley.python@gmail.com",
+    "candidate_phone": "123456",
+    "candidate_address": "23456",
+    "recruiter_email": "jude.smiley.python@gmail.com",
+    "recruiter_address": "10785 Berlin, Germany",
+    "position": "Senior) Python Developer",
+    "company": "PWC",
+    "mail_body": "Dear Mr. Cameron,\n\nI am writing to express my interest in the (Senior) Python Developer position available at PWC, which I found on Stepstone. With my background in finance and payroll, as well as my passion for coding and attention to detail, I am confident that I would be a great fit for this position.\n\nDuring my experience as a Payroll Manager at KWS GmbH, I developed strong analytical and problem-solving skills through my daily use of Excel and software applications. Additionally, my educational background in finance has provided me with a strong foundation in critical thinking and data analysis.\n\nAs a reliable and determined individual, I am always eager to learn and expand my skillset to stay at the forefront of rapidly evolving technologies. Furthermore, my proficiency in English and Italian languages, along with my ability to adapt to different cultures, will allow me to work effectively in the international network that PWC offers.\n\nI am excited about the possibility of contributing to PWC\u2019s digital transformation efforts and working in a cross-functional team to create innovative solutions. Thank you for considering my application.\n\nSincerely,\n\nJude Smiley"
 }
