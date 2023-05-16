@@ -111,19 +111,21 @@ def main():
 
     # 2) "Job"
     # Collect the information about the job description and the name of the Recruiter in HR
+    print()
+    print("Input some informations about the job.")
     print("---------------------------------------")
-    Recruiter.data["name"] = input("Name: ")
-    Recruiter.data["surname"] = input("Surname: ")
+    Recruiter.data["name"] = input("Recriuter name: ")
+    Recruiter.data["surname"] = input("Recriuter surname: ")
     Recruiter.data["sex"] = app_functions.input_strict("Sex (male/female): ", ["male", "female"])
-    Recruiter.data["email"] = app_functions.input_email("Email: ")
-    Recruiter.data["position"] = input("Position: ")
-    Recruiter.data["company"] = input("Company: ")
-    Recruiter.data["company_address"] = input("Address: ")
-    Recruiter.data["attitude"] = input("Attitude: ")
+    Recruiter.data["attitude"] = input("Recriuter attitude (for interview): ")
+    Recruiter.data["email"] = app_functions.input_email("Recriuter email: ")
+    Recruiter.data["position"] = input("Recriuter position: ")
+    Recruiter.data["company"] = input("Company name: ")
+    Recruiter.data["company_address"] = input("Company address: ")
 
-    Job.data["position"] = input("Position: ")
-    Job.data["description"] = input("""Description: """)
-    Job.data["source"] = input("Source: ")
+    Job.data["position"] = input("Job position: ")
+    Job.data["description"] = input("""Job description: """)
+    Job.data["source"] = input("Job anouncement source: ")
 
     # 3) "CV"
     # Create the CV
