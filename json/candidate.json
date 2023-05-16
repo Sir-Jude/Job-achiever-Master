@@ -7,7 +7,11 @@
     "email": "jude.smailey.python@gmail.com",
     "address": "23456",
     "user_language": "English",
+<<<<<<< HEAD
+    "short_description": "As an AI language model, I do not have personal experiences or motivations to apply for a job. However, I can give an example of a strong CV opening statement:\n\n\"Driven and results-oriented professional with over 5 years of experience in project management and proven success in leading cross-functional teams towards achieving business objectives.\"",
+=======
     "short_description": "As an AI language model, I don't have a CV to provide an opening statement. However, you can use the following examples as inspiration to create your CV opening statement:\n\n- A highly motivated and skilled professional with extensive experience in [area of expertise], committed to delivering outstanding results and exceeding expectations.\n- An accomplished [job title] with a proven track record of success in [field/industry], equipped with excellent [skillset]. \n- A dynamic and innovative [job title] with a passion for [interests/relevant topics], dedicated to [goal/objective]. \n- A results-driven [job title] with a strong background in [skills/industry], confident in working on projects independently or as part of a team.\n- A detail-oriented [job title] with excellent communication and organizational skills, experienced in [tasks/responsibilities], and driven by a desire to achieve success.",
+>>>>>>> 0502a35708a897b824e404e41ab25ed6c204845f
     "experience": [
         {
             "title": "Payroll Manager",
