@@ -100,14 +100,6 @@ def save_cover_letter_as_pdf(
 
 
 
-def choose_directory():
-    # Function to open a dialog for the user to choose a directory
-    root = tk.Tk()
-    root.withdraw()  # Hides the root window
-    directory = filedialog.askdirectory(
-        title="Choose the directory where you want to save the cover letter"
-    )
-    return directory
 
 
 def generate():
