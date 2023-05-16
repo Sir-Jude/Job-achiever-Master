@@ -11,7 +11,13 @@ class Candidate:
     try:  # if the file exists colect all the candidate infos
         with open("json/candidate.json", "r") as file:
             data = json.load(file)
-    except FileNotFoundError:  # if the file is missing than create one
+            if len(data.keys()) != 14:
+                error = True
+            else:
+                error = False
+    except FileNotFoundError:
+        error = True
+    if error: # if the file is missing or is corrupted than create a new one
         with open("json/candidate.json", "w") as file:
             data = {
                 "name": "",
@@ -73,7 +79,13 @@ class Recruiter:
     try:  # if the file exists colect all the candidate infos
         with open("json/recruiter.json", "r") as file:
             data = json.load(file)
-    except FileNotFoundError:  # if the file is missing than create one
+            if len(data.keys()) != 9:
+                error = True
+            else:
+                error = False
+    except FileNotFoundError:
+        error = True
+    if error: # if the file is missing or is corrupted than create a new one
         with open("json/recruiter.json", "w") as file:
             data = {
                 "name": "",
@@ -105,7 +117,13 @@ class Adviser_Bot:
     try:  # if the file exists colect all the letter infos
         with open("json/letter.json", "r") as file:
             letter = json.load(file)  # the list of interview messages
-    except FileNotFoundError:  # if the file is missing than create one
+            if len(letter.keys()) != 11:
+                error = True
+            else:
+                error = False
+    except FileNotFoundError:
+        error = True
+    if error: # if the file is missing or is corrupted than create a new one
         with open("json/letter.json", "w") as file:
             letter = {
                 "candidate_name": "",
@@ -287,7 +305,13 @@ class Job:
     try:  # if the file exists colect all the candidate infos
         with open("json/job.json", "r") as file:
             data = json.load(file)
-    except FileNotFoundError:  # if the file is missing than create one
+            if len(data.keys()) != 3:
+                error = True
+            else:
+                error = False
+    except FileNotFoundError:
+        error = True
+    if error: # if the file is missing or is corrupted than create a new one
         with open("json/job.json", "w") as file:
             data = {"position": None, "description": None, "source": None}
             file.write(json.dumps(data, indent=4))
