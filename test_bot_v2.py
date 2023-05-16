@@ -14,14 +14,14 @@ Candidate.data = {
     "sex": "male",
     "phone": "1234567890",
     "email": "jude.smiley.python@gmail.com",
-    "adress": "Justastr. 11b, 39124 Magdeburg",
+    "address": "Justastr. 11b, 39124 Magdeburg",
+    "user_language": "english",
+    "short_description": None,
     "experience": [],
     "education": [],
     "hobbies": [],
     "skills": [],
     "languages": [],
-    "user_language": "english",
-    "short_description": None,
 }
 Candidate.add_experience(
     {
@@ -82,7 +82,7 @@ Recruiter.data = {
     "email": "jude.smiley.python@gmai.com",
     "position": "CEO",
     "company": "Elli - a brand of the Volkswagen Group",
-    "company_adress": "Berlinerstr. 11b, 39124 Berlin",
+    "company_address": "Berlinerstr. 11b, 39124 Berlin",
     "atitude": "sarcastic",
 }
 Recruiter.save_infos()
