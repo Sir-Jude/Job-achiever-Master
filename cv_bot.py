@@ -48,7 +48,7 @@ class Resume:
         file_path = filedialog.askopenfilename()
         if file_path:
             photo = ImageReader(file_path)
-            self.pdf.drawImage(photo, 400, 660, width=1.5*inch, height=1.7*inch)
+            self.pdf.drawImage(photo, 400, 645, width=1.5*inch, height=1.7*inch)
 
         # Set up parameters for personal information section
         self.pdf.setFillColor(self.night_gray_color)
@@ -72,7 +72,7 @@ class Resume:
         self.pdf.drawString(50, 630, 'Motivation:')
         y_offset = 630
         motivation = self.data['short_description']
-        wrapped_text = textwrap.fill(motivation, 70)
+        wrapped_text = textwrap.fill(motivation, 77)
         lines = wrapped_text.split('\n')
         for line in lines:
             self.pdf.drawString(130, y_offset, line)
@@ -91,71 +91,90 @@ class Resume:
             self.pdf.drawString(130, y_offset, exp['title'])
             self.pdf.drawString(50, y_offset - 15, 'Description:')
             description = exp['description']
-            wrapped_text = textwrap.fill(description, 70)  # Wrap description text to 80 characters per line
+            wrapped_text = textwrap.fill(description, 77)  # Wrap description text to 80 characters per line
             lines = wrapped_text.split('\n')  # Split the wrapped text into lines
             for line in lines:
                 self.pdf.drawString(130, y_offset - 15, line)
                 y_offset -= 15  # Decrease the y_offset for each line
             self.pdf.setFillColor(self.night_gray_color)
             self.pdf.setFont('Helvetica', 12)
-            #self.pdf.drawString(70, y_offset - 30, 'Company: ' + exp['company'])
-            self.pdf.drawString(50, y_offset - 30, 'Start Date:')
-            self.pdf.drawString(130, y_offset - 30, exp['date_start'])
-            self.pdf.drawString(50, y_offset - 45, 'End Date:')
-            self.pdf.drawString(130, y_offset - 45, exp['date_end'])
+            self.pdf.drawString(50, y_offset - 30, 'Company:')
+            self.pdf.drawString(130, y_offset - 30, exp['company'])
+            self.pdf.drawString(50, y_offset - 45, 'Start Date:')
+            self.pdf.drawString(130, y_offset - 45, exp['date_start'])
+            self.pdf.drawString(50, y_offset - 60, 'End Date:')
+            self.pdf.drawString(130, y_offset - 60, exp['date_end'])
             y_offset -= 75
 
         #Set up parameters for Education section
-        y_offset -= 17
+        y_offset -= 30
         self.pdf.setFillColor(self.rich_gold_color)
         self.pdf.setFont('Helvetica', 14)
-        self.pdf.drawString(50, y_offset, 'Education:')
-        y_offset -= 17
+        self.pdf.drawString(240, y_offset, 'Education:')
+        y_offset -= 50
         self.pdf.setFillColor(self.night_gray_color)
         self.pdf.setFont('Helvetica', 12)
         for study in self.data['education']:
-            self.pdf.drawString(70, y_offset, 'Title: ' + study['title'])
-            self.pdf.drawString(70, y_offset - 15, 'Description: ' + study['description'])
-            self.pdf.drawString(70, y_offset - 30, 'School: ' + study['school'])
-            self.pdf.drawString(70, y_offset - 45, 'Start Date: ' + study['date_start'])
-            self.pdf.drawString(70, y_offset - 60, 'End Date: ' + study['date_end'])
+            self.pdf.drawString(50, y_offset, 'Title:')
+            self.pdf.drawString(130, y_offset, study['title'])
+            self.pdf.drawString(50, y_offset - 15, 'Description:')
+            description = exp['description']
+            wrapped_text = textwrap.fill(description, 77)  # Wrap description text to 80 characters per line
+            lines = wrapped_text.split('\n')  # Split the wrapped text into lines
+            for line in lines:
+                self.pdf.drawString(130, y_offset - 15, line)
+                y_offset -= 15  # Decrease the y_offset for each line
+            #self.pdf.drawString(130, y_offset - 15, study['description'])
+            self.pdf.drawString(50, y_offset - 30, 'School:')
+            self.pdf.drawString(130, y_offset -30, study['school'])
+            self.pdf.drawString(50, y_offset - 45, 'Start Date:')
+            self.pdf.drawString(130, y_offset - 45, study['date_start'])
+            self.pdf.drawString(50, y_offset - 60, 'End Date:')
+            self.pdf.drawString(130, y_offset - 60, study['date_end'])
             y_offset -= 75
 
         #Set up parameters for Hobbies section
-        y_offset -= 17
+        y_offset -= 30
         self.pdf.setFillColor(self.rich_gold_color)
         self.pdf.setFont('Helvetica', 14)
-        self.pdf.drawString(50, y_offset, 'Hobbies:')
-        y_offset -= 17
+        self.pdf.drawString(240, y_offset, 'Hobbies:')
+        y_offset -= 50
         self.pdf.setFillColor(self.night_gray_color)
         self.pdf.setFont('Helvetica', 12)
         for hobby in self.data['hobbies']:
-            self.pdf.drawString(70, y_offset, hobby['hobby'])
+            self.pdf.drawString(50, y_offset, hobby['hobby'])
             y_offset -= 17
 
         #Set up parameters for Skills section
-        y_offset -= 17
+        y_offset -= 30
+        # Check if there is enough space on the current page
+        if y_offset < 100:
+            self.pdf.showPage()  # Create a new page
+            y_offset = 750  # Reset the y_offset for the new page
         self.pdf.setFillColor(self.rich_gold_color)
         self.pdf.setFont('Helvetica', 14)
-        self.pdf.drawString(50, y_offset, 'Skills:')
-        y_offset -= 17
+        self.pdf.drawString(240, y_offset, 'Skills:')
+        y_offset -= 50
         self.pdf.setFillColor(self.night_gray_color)
         self.pdf.setFont('Helvetica', 12)
         for skill in self.data['skills']:
-            self.pdf.drawString(70, y_offset, skill['skill'])
+            # Check if there is enough space on the current page
+            if y_offset < 60:
+                self.pdf.showPage()  # Create a new page
+                y_offset = 750  # Reset the y_offset for the new page
+            self.pdf.drawString(50, y_offset, skill['skill'])
             y_offset -= 17
 
         #Set up parameters for Languages section
-        y_offset -= 17
+        y_offset -= 30
         self.pdf.setFillColor(self.rich_gold_color)
         self.pdf.setFont('Helvetica', 14)
-        self.pdf.drawString(50, y_offset, 'Languages:')
-        y_offset -= 17
+        self.pdf.drawString(240, y_offset, 'Languages:')
+        y_offset -= 50
         self.pdf.setFillColor(self.night_gray_color)
         self.pdf.setFont('Helvetica', 12)
         for language in self.data['languages']:
-            self.pdf.drawString(70, y_offset, language['language'])
+            self.pdf.drawString(50, y_offset, language['language'])
             y_offset -= 17
 
         self.pdf.save()
-
