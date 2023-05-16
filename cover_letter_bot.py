@@ -125,7 +125,6 @@ def generate():
     subject_line = f"Application for the position as {position}"
 
     print("\nLoaded cover letter:\n")
-    print(cover_letter)
 
     directory = choose_directory()
     filename = f"cover_letter_{name}.pdf"

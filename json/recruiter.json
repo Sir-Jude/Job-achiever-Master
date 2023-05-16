@@ -1,10 +1,11 @@
 {
-    "name": "dsffdg",
-    "surname": "fsgd",
+    "name": "James",
+    "surname": "Cameron",
     "sex": "male",
-    "email": "jude.smiley.python@gmai.com",
-    "position": "CEO",
-    "company": "Elli - a brand of the Volkswagen Group",
-    "company_address": "Berlinerstr. 11b, 39124 Berlin",
-    "atitude": "sarcastic"
+    "email": "jude.smiley.python@gmail.com",
+    "position": "Manager of R",
+    "company": "PWC",
+    "company_address": "10785 Berlin, Germany",
+    "atitude": "sarcastic",
+    "attitude": "Interested"
 }
