@@ -1,4 +1,20 @@
 {
+<<<<<<< HEAD
+    "name": "",
+    "surname": "",
+    "birthday": "",
+    "sex": "",
+    "phone": "",
+    "email": "",
+    "address": "",
+    "user_language": "english",
+    "short_description": "",
+    "experience": [],
+    "education": [],
+    "hobbies": [],
+    "skills": [],
+    "languages": []
+=======
     "name": "Adrian",
     "surname": "Radu",
     "birthday": "11.03.1977",
@@ -48,4 +64,5 @@
             "language": "English - intermediate B1"
         }
     ]
+>>>>>>> a30fd984fe00f60dfc484d6def8321da85888fe4
 }
