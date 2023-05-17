@@ -14,7 +14,7 @@ load_dotenv()
 def main():
     os.system("cls" if os.name == "nt" else "clear")
     print("    ===== JOB ACHIEVER MASTER =====    ")
-    print("    Your career success acelerator.    ")
+    print("    Your career success accelerator    ")
     print("---------------------------------------")
     update = ""
     if Candidate.data["name"] != "":
