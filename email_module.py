@@ -21,10 +21,9 @@ class Email:
         self.email_server = email_server
     
     @staticmethod
-    def password(filename):
+    def password(password):
         # App's password
-        with open(filename, "r") as file:
-            return file.read()
+            return password
     
     @staticmethod
     def attachments(documents: list):

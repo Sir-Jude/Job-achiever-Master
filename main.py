@@ -1,13 +1,14 @@
-# imports
-# (here we imports all the modules)
 import os
 from time import sleep
+from dotenv import load_dotenv
 import app_functions
 import cv_bot
 from email_module import Email
 from app_classes_v2 import Candidate, Adviser_Bot, Recruiter, Job
 import cover_letter_bot
 
+
+load_dotenv()
 
 def main():
     update = ""
@@ -186,7 +187,7 @@ def main():
         f"Applying for the position of {Job.data['position']}",
     )  # object
 
-    password = email.password("email_pass.txt")  # app password
+    password = os.getenv("EMAIL_PASSWORD")
 
     body = Adviser_Bot.generate_letter()  # text of the email
 
