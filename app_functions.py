@@ -1,8 +1,11 @@
 import os
 import re
 import openai
+from dotenv import load_dotenv
 
-openai.api_key = input("Insert your API Key: ")
+load_dotenv()
+
+openai.api_key = os.getenv("API_KEY")
 
 # AI BOT functions
 
