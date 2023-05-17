@@ -10,8 +10,9 @@ import cover_letter_bot
 
 load_dotenv()
 
+
 def main():
-    os.system('cls' if os.name == 'nt' else 'clear')
+    os.system("cls" if os.name == "nt" else "clear")
     print("    ===== JOB ACHIEVER MASTER =====    ")
     print("    Your career success acelerator.    ")
     print("---------------------------------------")
@@ -188,9 +189,9 @@ def main():
     # Send the email, attaching cover letter and CV
     email = Email(
         f"{Candidate.data['email']}",  # sender
-        os.getenv("EMAIL_PASSWORD"), # password
+        os.getenv("EMAIL_PASSWORD"),  # password
         [f"{Recruiter.data['email']}"],  # list of receivers
-        f"Applying for the position of {Job.data['position']}", # subject
+        f"Applying for the position of {Job.data['position']}",  # subject
     )
 
     body = Adviser_Bot.generate_letter()  # text of the email
