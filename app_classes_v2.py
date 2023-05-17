@@ -325,8 +325,6 @@ class Job:
             error = True
     except FileNotFoundError:
         error = True
-    else:
-        error = True
     if error: # if the file is missing or is corrupted than create a new one
         with open(path, "w") as file:
             data = {"position": None, "description": None, "source": None}
