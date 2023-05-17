@@ -6,7 +6,6 @@ from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 
 
-
 def load_cover_letter():
     # Function to load the cover letter from a JSON file
     with open("json/letter.json", "r") as file:
@@ -98,9 +97,6 @@ def save_cover_letter_as_pdf(
     doc.build(elements)
 
 
-
-
-
 def generate():
     # Load the cover letter
     (
@@ -122,7 +118,7 @@ def generate():
 
     print("\nLoaded cover letter:\n")
 
-    directory = 'pdfs'
+    directory = "pdfs"
     filename = f"{name}_{surname}_Cover_Letter.pdf"
 
     # Save cover letter as PDF

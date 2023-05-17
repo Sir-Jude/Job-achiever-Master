@@ -11,7 +11,7 @@ bot_message = app_functions.bot_message
 class Candidate:
     path = "json/candidate.json"
     try:  # if the file exists colect all the candidate infos
-        if os.path.getsize(path) !=0: # test if the file is not empty:
+        if os.path.getsize(path) != 0:  # test if the file is not empty:
             with open(path, "r") as file:
                 data = json.load(file)
                 if len(data.keys()) != 14:
@@ -22,7 +22,7 @@ class Candidate:
             error = True
     except FileNotFoundError:
         error = True
-    if error: # if the file is missing or is corrupted than create a new one
+    if error:  # if the file is missing or is corrupted than create a new one
         with open(path, "w") as file:
             data = {
                 "name": "",
@@ -38,7 +38,7 @@ class Candidate:
                 "education": [],
                 "hobbies": [],
                 "skills": [],
-                "languages": []
+                "languages": [],
             }
             file.write(json.dumps(data, indent=4))
 
@@ -83,7 +83,7 @@ class Recruiter:
     # All the atributes inside this class will be used to describe the role of recrutier bot
     path = "json/recruiter.json"
     try:  # if the file exists colect all the candidate infos
-        if os.path.getsize(path) !=0: # test if the file is not empty
+        if os.path.getsize(path) != 0:  # test if the file is not empty
             with open(path, "r") as file:
                 data = json.load(file)
                 if len(data.keys()) != 8:
@@ -94,7 +94,7 @@ class Recruiter:
             error = True
     except FileNotFoundError:
         error = True
-    if error: # if the file is missing or is corrupted than create a new one
+    if error:  # if the file is missing or is corrupted than create a new one
         with open(path, "w") as file:
             data = {
                 "name": "",
@@ -125,10 +125,10 @@ class Adviser_Bot:
     user_language = "english"
     path = "json/letter.json"
     try:  # if the file exists colect all the letter infos
-        if os.path.getsize(path) !=0: # test if the file is not empty
+        if os.path.getsize(path) != 0:  # test if the file is not empty
             with open(path, "r") as file:
                 letter = json.load(file)  # the list of interview messages
-                if len(letter.keys()) != 11: # test the file keys lenght
+                if len(letter.keys()) != 11:  # test the file keys lenght
                     error = True
                 else:
                     error = False
@@ -136,7 +136,7 @@ class Adviser_Bot:
             error = True
     except FileNotFoundError:
         error = True
-    if error: # if the file is missing or is corrupted than create a new one
+    if error:  # if the file is missing or is corrupted than create a new one
         with open(path, "w") as file:
             letter = {
                 "candidate_name": "",
@@ -157,7 +157,7 @@ class Adviser_Bot:
     with open("json/interview.json", "w") as file:
         interview_history = []
         file.write(json.dumps(interview_history, indent=4))
- 
+
     @classmethod
     def update_user_input(cls):
         try:  # if the 'candidate.json' exists colect all the candidate infos
@@ -314,7 +314,7 @@ class Job:
     # All the atributes inside this class will be used to describe the job
     path = "json/job.json"
     try:  # if the file exists colect all the candidate infos
-        if os.path.getsize(path) !=0: # test if the file is not empty
+        if os.path.getsize(path) != 0:  # test if the file is not empty
             with open(path, "r") as file:
                 data = json.load(file)
                 if len(data.keys()) != 3:
@@ -325,7 +325,7 @@ class Job:
             error = True
     except FileNotFoundError:
         error = True
-    if error: # if the file is missing or is corrupted than create a new one
+    if error:  # if the file is missing or is corrupted than create a new one
         with open(path, "w") as file:
             data = {"position": None, "description": None, "source": None}
             file.write(json.dumps(data, indent=4))

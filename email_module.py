@@ -21,23 +21,25 @@ class Email:
         self.receivers = receivers
         self.subject = subject
         self.email_server = email_server
-    
+
     @property
     def password(self):
         # App's password
         return self._password
-    
+
     @password.setter
     def password(self, string):
         self._password = string
-    
+
     @staticmethod
     def attachments(documents: list):
         # Build the object rapresenting the attachment(s)
         for document in documents.copy():
             with open(document, "rb") as file:
                 attachment = MIMEApplication(file.read())
-                attachment.add_header("Content-Disposition", "attachment", filename=document)
+                attachment.add_header(
+                    "Content-Disposition", "attachment", filename=document
+                )
                 documents.remove(document)
                 documents.append(attachment)
         return documents
@@ -61,10 +63,10 @@ class Email:
                 msg["From"] = self.sender
                 msg["To"] = receiver
                 msg["Subject"] = self.subject
-            
+
             # Add the message body to the container
             msg.attach(MIMEText(body, "plain"))
-            
+
             # Add the attachment(s) to the container
             for attachment in attachments:
                 msg.attach(attachment)
