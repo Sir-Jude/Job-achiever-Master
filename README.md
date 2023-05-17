@@ -113,21 +113,6 @@ In this code we are going to use a **gmail** account, but the concepts apply to 
 - Port number details [**"Which SMTP port should I use?"**](https://www.mailgun.com/blog/email/which-smtp-port-understanding-ports-25-465-587/)
 ---
 
-
-## User Input
-The **user_input.py** file contains a 'User' class. The class gathers user information including: Name, Age, Email, Phone Number, Work Experience and Education.
-
-#### **get_info()**
-This class collects all the user info.
-
-#### **json_info()**
-This class returns a json object containing all the info collected.
-
-#### **dict_info()**
-This class returns a dict containing all the info collected.
-
-
----
  
 
 ## References
