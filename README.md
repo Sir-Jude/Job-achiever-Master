@@ -23,6 +23,13 @@ via the tkinter module. When you close the tkinter window, the program then auto
 window appears where the user can choose the path to save the pdf file.
 
 ---
+
+## Cv_bot
+
+The bot takes all necessary the User info like private info, education, previous xp. and etc. from the 'candidate.json' file which is in the json folder. Then it generates a CV.pdf file using all the information. Also you are able to upload your photo with popup window. The name of the CV generates as '<name>_<surname>_<CV>.pdf' Once the CV is generated, the bot saves it to the pdfs folder. 
+
+---
+
 ## Email module
 
 In this code we are going to use a **gmail** account, but the concepts apply to any other email server provider.
