@@ -233,7 +233,6 @@ def main():
                 person = Candidate.data["name"]
             print(f'{person}: {m["content"]}')
 
-
     # 7) "Interview analyse"
     # Give a feedback about the interview
     os.system("cls" if os.name == "nt" else "clear")
