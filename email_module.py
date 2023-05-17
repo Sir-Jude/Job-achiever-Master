@@ -23,7 +23,7 @@ class Email:
     @staticmethod
     def password(password):
         # App's password
-            return password
+        return password
     
     @staticmethod
     def attachments(documents: list):
