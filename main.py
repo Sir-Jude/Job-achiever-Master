@@ -10,6 +10,10 @@ import cover_letter_bot
 
 
 def main():
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print("    ===== JOB ACHIEVER MASTER =====    ")
+    print("    Your career success acelerator.    ")
+    print("---------------------------------------")
     update = ""
     if Candidate.data["name"] != "":
         update = app_functions.input_strict(
@@ -156,6 +160,7 @@ def main():
         Job.data["source"] = input("Job anouncement source: ")
         Job.save_infos()
 
+    Adviser_Bot.update_user_input()
     cv_description = Adviser_Bot.generate_cv_short_description()
     Candidate.data["short_description"] = cv_description
     Candidate.save_infos()

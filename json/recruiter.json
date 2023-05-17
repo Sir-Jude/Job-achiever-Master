@@ -1,10 +1,10 @@
 {
-    "name": "",
-    "surname": "",
-    "sex": "",
-    "email": "",
-    "position": "",
-    "company": "",
-    "company_address": "",
-    "attitude": "normal"
+    "name": "James",
+    "surname": "Camerun",
+    "sex": "male",
+    "email": "jude.smiley.python@gmail.com",
+    "position": "CEO",
+    "company": "IBM",
+    "company_address": "Blabla str. 15, 31234 Berlin",
+    "attitude": "indifferent"
 }
