@@ -1,11 +1,20 @@
+# Provides functions for working with JSON
 import json
+# Provides predefined page sizes for PDF generation. The letter constant represents the standard letter-size page (8.5 x 11 inches).
 from reportlab.lib.pagesizes import letter
+# Provides a set of classes and functions for creating PDF documents.
 from reportlab.pdfgen import canvas
+# Provides color-related functionality. The HexColor class allows defining colors using hexadecimal notation.
 from reportlab.lib.colors import HexColor
+# Provides measurement units. The inch constant represents one inch as a unit of measurement.
 from reportlab.lib.units import inch
+# Provides utilities for working with images. The ImageReader class enables reading and manipulating image files for drawing on a PDF canvas.
 from reportlab.lib.utils import ImageReader
+# Provides functions and classes for creating graphical user interfaces.
 import tkinter as tk
+# Provides functions for displaying file dialogs. It allows browsing and selecting files from the file system.
 from tkinter import filedialog
+# Provides functions for wrapping and formatting plain text paragraphs.
 import textwrap
 
 
@@ -24,6 +33,7 @@ class Resume:
         self.pdf_file_name = f"pdfs/{self.data['name']}_{self.data['surname']}_CV.pdf"
         self.pdf = canvas.Canvas(self.pdf_file_name)
 
+        # Declare HexColors 
         self.rich_gold_color = rich_gold_color
         self.night_gray_color = night_gray_color
         self.pure_white_color = pure_white_color
@@ -72,10 +82,13 @@ class Resume:
         self.pdf.drawString(50, 630, 'Motivation:')
         y_offset = 630
         motivation = self.data['short_description']
-        wrapped_text = textwrap.fill(motivation, 77)
+        # Wrap description text to 77 characters per line
+        wrapped_text = textwrap.fill(motivation, 77) 
+        # Split the wrapped text into lines
         lines = wrapped_text.split('\n')
         for line in lines:
             self.pdf.drawString(130, y_offset, line)
+            # Decrease the y_offset for each line
             y_offset -= 15
                             
         # Set up parameters for Experience section
@@ -91,11 +104,14 @@ class Resume:
             self.pdf.drawString(130, y_offset, exp['title'])
             self.pdf.drawString(50, y_offset - 15, 'Description:')
             description = exp['description']
-            wrapped_text = textwrap.fill(description, 77)  # Wrap description text to 80 characters per line
-            lines = wrapped_text.split('\n')  # Split the wrapped text into lines
+            # Wrap description text to 77 characters per line
+            wrapped_text = textwrap.fill(description, 77)
+            # Split the wrapped text into lines  
+            lines = wrapped_text.split('\n')  
             for line in lines:
                 self.pdf.drawString(130, y_offset - 15, line)
-                y_offset -= 15  # Decrease the y_offset for each line
+                # Decrease the y_offset for each line
+                y_offset -= 15  
             self.pdf.setFillColor(self.night_gray_color)
             self.pdf.setFont('Helvetica', 12)
             self.pdf.drawString(50, y_offset - 30, 'Company:')
@@ -119,12 +135,14 @@ class Resume:
             self.pdf.drawString(130, y_offset, study['title'])
             self.pdf.drawString(50, y_offset - 15, 'Description:')
             description = exp['description']
-            wrapped_text = textwrap.fill(description, 77)  # Wrap description text to 80 characters per line
-            lines = wrapped_text.split('\n')  # Split the wrapped text into lines
+            # Wrap description text to 77 characters per line
+            wrapped_text = textwrap.fill(description, 77)
+            # Split the wrapped text into lines  
+            lines = wrapped_text.split('\n')  
             for line in lines:
                 self.pdf.drawString(130, y_offset - 15, line)
-                y_offset -= 15  # Decrease the y_offset for each line
-            #self.pdf.drawString(130, y_offset - 15, study['description'])
+                # Decrease the y_offset for each line
+                y_offset -= 15  
             self.pdf.drawString(50, y_offset - 30, 'School:')
             self.pdf.drawString(130, y_offset -30, study['school'])
             self.pdf.drawString(50, y_offset - 45, 'Start Date:')
@@ -149,8 +167,10 @@ class Resume:
         y_offset -= 30
         # Check if there is enough space on the current page
         if y_offset < 100:
-            self.pdf.showPage()  # Create a new page
-            y_offset = 750  # Reset the y_offset for the new page
+            # Create a new page
+            self.pdf.showPage()
+            # Reset the y_offset for the new page  
+            y_offset = 750  
         self.pdf.setFillColor(self.rich_gold_color)
         self.pdf.setFont('Helvetica', 14)
         self.pdf.drawString(240, y_offset, 'Skills:')
@@ -158,15 +178,16 @@ class Resume:
         self.pdf.setFillColor(self.night_gray_color)
         self.pdf.setFont('Helvetica', 12)
         for skill in self.data['skills']:
-            # Check if there is enough space on the current page
-            if y_offset < 60:
-                self.pdf.showPage()  # Create a new page
-                y_offset = 750  # Reset the y_offset for the new page
             self.pdf.drawString(50, y_offset, skill['skill'])
             y_offset -= 17
 
         #Set up parameters for Languages section
         y_offset -= 30
+        if y_offset < 100:
+            # Create a new page
+            self.pdf.showPage()
+            # Reset the y_offset for the new page  
+            y_offset = 750
         self.pdf.setFillColor(self.rich_gold_color)
         self.pdf.setFont('Helvetica', 14)
         self.pdf.drawString(240, y_offset, 'Languages:')
@@ -178,3 +199,5 @@ class Resume:
             y_offset -= 17
 
         self.pdf.save()
+
+
