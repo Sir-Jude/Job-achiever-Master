@@ -86,7 +86,7 @@ class Recruiter:
         if os.path.getsize(path) !=0: # test if the file is not empty
             with open(path, "r") as file:
                 data = json.load(file)
-                if len(data.keys()) != 9:
+                if len(data.keys()) != 8:
                     error = True
                 else:
                     error = False
@@ -153,13 +153,13 @@ class Adviser_Bot:
             }
             file.write(json.dumps(letter, indent=4))
 
-    try:  # if the file exists colect all the interview mesages
+    """try:  # if the file exists colect all the interview mesages
         with open("json/interview.json", "r") as file:
             interview_history = json.load(file)  # the list of interview messages
-    except FileNotFoundError:  # if the file is missing than create one
-        with open("json/interview.json", "w") as file:
-            interview_history = []
-            file.write(json.dumps(interview_history, indent=4))
+    except FileNotFoundError:  # if the file is missing than create one"""
+    with open("json/interview.json", "w") as file:
+        interview_history = []
+        file.write(json.dumps(interview_history, indent=4))
 
     @classmethod
     def update_user_input(cls):

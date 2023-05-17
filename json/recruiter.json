@@ -1,10 +1,10 @@
 {
-    "name": "",
-    "surname": "",
-    "sex": "",
-    "email": "",
-    "position": "",
-    "company": "",
-    "company_address": "",
+    "name": "George",
+    "surname": "Lucas",
+    "sex": "male",
+    "email": "jude.smiley.python@gmail.com",
+    "position": "CEO",
+    "company": "IBM",
+    "company_address": "Basdfsaf str.10 Berlin",
     "attitude": "normal"
 }
