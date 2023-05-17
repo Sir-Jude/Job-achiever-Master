@@ -54,7 +54,7 @@ def main():
             }
             Candidate.add_experience(new_experience)
             answer = app_functions.input_strict(
-                "Do you want to add a new experience? (Y/N) ", ["Y", "N"]
+                "Do you want to add a new experience? (y/n)? ", ["y", "n"]
             )
             print("---------------------------------------")
             if answer == "n":
@@ -75,7 +75,7 @@ def main():
             }
             Candidate.add_education(new_education)
             answer = app_functions.input_strict(
-                "Do you want to add a new education? (Y/N) ", ["Y", "N"]
+                "Do you want to add a new education? (y/n)? ", ["y", "n"]
             )
             print("---------------------------------------")
             if answer == "n":
@@ -92,7 +92,7 @@ def main():
             }
             Candidate.add_hobbies(new_hobby)
             answer = app_functions.input_strict(
-                "Do you want to add a new hobby? (Y/N) ", ["Y", "N"]
+                "Do you want to add a new hobby? (y/n)? ", ["y", "n"]
             )
             print("---------------------------------------")
             if answer == "n":
@@ -109,7 +109,7 @@ def main():
             }
             Candidate.add_skills(new_skill)
             answer = app_functions.input_strict(
-                "Do you want to add a new skill? (Y/N) ", ["Y", "N"]
+                "Do you want to add a new skill? (y/n)? ", ["y", "n"]
             )
             print("---------------------------------------")
             if answer == "n":
@@ -126,7 +126,7 @@ def main():
             }
             Candidate.add_languages(new_language)
             answer = app_functions.input_strict(
-                "Do you want to add a new language? (Y/N) ", ["Y", "N"]
+                "Do you want to add a new language? (y/n)? ", ["y", "n"]
             )
             print("---------------------------------------")
             if answer == "n":
@@ -170,6 +170,9 @@ def main():
 
     # 3) "CV"
     # Create the CV
+    print()
+    print("CV - module")
+    print("---------------------------------------")
     print("Please, upload a picture for the CV.")
     resume = cv_bot.Resume(
         "json/candidate.json",
@@ -182,11 +185,17 @@ def main():
 
     # 4) "Cover letter
     # Writes the cover letter
+    print()
+    print("Cover Letter - module")
+    print("---------------------------------------")
     Adviser_Bot.generate_letter()
     cover_letter_bot.generate()
 
     # 5) "Email"
     # Send the email, attaching cover letter and CV
+    print()
+    print("E-mail sender - module")
+    print("---------------------------------------")
     email = Email(
         f"{Candidate.data['email']}",  # sender
         os.getenv("EMAIL_PASSWORD"),  # password
@@ -204,6 +213,9 @@ def main():
 
     # 6) "Interview"
     # Prepare for the job interview
+    print()
+    print("Interview - module")
+    print("---------------------------------------")
     input("Ready for interview? ")
     os.system("clear")
     print(f"{Recruiter.data['name']}: Welcome {Candidate.data['name']}.")
@@ -224,6 +236,9 @@ def main():
 
     # 7) "Interview analyse"
     # Give a feedback about the interview
+    os.system("cls" if os.name == "nt" else "clear")
+    print("Interview analyse - module")
+    print("---------------------------------------")
     input("Ready for interview analyse? ")
     # An interview analyse
     interview = ""
