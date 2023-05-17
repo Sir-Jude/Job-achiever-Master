@@ -11,19 +11,25 @@ class Email:
     def __init__(
         self,
         sender: str,
+        password: str,
         receivers: list,
         subject: str,
         email_server: str = "smtp.gmail.com",
     ):
         self.sender = sender
+        self._password = password
         self.receivers = receivers
         self.subject = subject
         self.email_server = email_server
     
-    @staticmethod
-    def password(password):
+    @property
+    def password(self):
         # App's password
-        return password
+        return self._password
+    
+    @password.setter
+    def password(self, string):
+        self._password = string
     
     @staticmethod
     def attachments(documents: list):
@@ -67,4 +73,3 @@ class Email:
             smtp.send_message(msg)
             print(f"Email sent to: {receiver}.")
             print()
-            

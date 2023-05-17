@@ -188,11 +188,10 @@ def main():
     # Send the email, attaching cover letter and CV
     email = Email(
         f"{Candidate.data['email']}",  # sender
+        os.getenv("EMAIL_PASSWORD"), # password
         [f"{Recruiter.data['email']}"],  # list of receivers
-        f"Applying for the position of {Job.data['position']}",
-    )  # object
-
-    password = os.getenv("EMAIL_PASSWORD")
+        f"Applying for the position of {Job.data['position']}", # subject
+    )
 
     body = Adviser_Bot.generate_letter()  # text of the email
 
@@ -200,7 +199,7 @@ def main():
         [f"pdfs/{Candidate.data['name']}_{Candidate.data['surname']}_CV.pdf"]
     )  # cv and cover letter
 
-    email.send(password, body, attachments)  # Send the email
+    email.send(email.password, body, attachments)  # Send the email
 
     # 6) "Interview"
     # Prepare for the job interview
