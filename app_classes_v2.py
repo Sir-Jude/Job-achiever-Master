@@ -157,7 +157,7 @@ class Adviser_Bot:
     with open("json/interview.json", "w") as file:
         interview_history = []
         file.write(json.dumps(interview_history, indent=4))
-
+ 
     @classmethod
     def update_user_input(cls):
         try:  # if the 'candidate.json' exists colect all the candidate infos
