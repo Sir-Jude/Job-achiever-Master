@@ -9,26 +9,10 @@
     },
     {
         "role": "user",
-        "content": "Nice to meet you."
+        "content": "Hi"
     },
     {
         "role": "assistant",
-        "content": "Nice to meet you too. Can you tell me a little bit about your experience as a Payroll Manager at KWS GmbH? How did you use computer software and technology on a day-to-day basis in this role?"
-    },
-    {
-        "role": "user",
-        "content": "Veeeery much. A lot of apps."
-    },
-    {
-        "role": "assistant",
-        "content": "Okay, can you give me some more specific examples of the software and technology you used on a daily basis? And how did you use them to help you manage payroll processes more efficiently?"
-    },
-    {
-        "role": "user",
-        "content": "EXIT"
-    },
-    {
-        "role": "assistant",
-        "content": "I'm sorry, I didn't understand what you meant by \"EXIT.\" Is everything okay? Is there something I can help you with?"
+        "content": "Can you tell us a bit more about your experience with programming languages, especially Python? The job requires a Junior Software Developer with proficiency in Python. \n"
     }
 ]

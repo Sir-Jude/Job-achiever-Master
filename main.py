@@ -219,9 +219,10 @@ def main():
     input("Ready for interview? ")
     os.system("clear")
     print(f"{Recruiter.data['name']}: Welcome {Candidate.data['name']}.")
-    interview_on = True
-    while interview_on:
+    while True:
         user_message = input(f"{Candidate.data['name']}: ")
+        if user_message == "EXIT":
+            break
         Adviser_Bot.simulate_interview(user_message)
         os.system("clear")
         # print interview_history
@@ -231,8 +232,7 @@ def main():
             else:
                 person = Candidate.data["name"]
             print(f'{person}: {m["content"]}')
-            if m["content"] == "EXIT":
-                interview_on = False
+
 
     # 7) "Interview analyse"
     # Give a feedback about the interview
