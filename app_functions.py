@@ -15,7 +15,7 @@ def bot_request(messages):
     [
         {"role": "system", "content": "setting the context"},
         {"role": "user", "content": "user input"},
-        {"role": "assistent", "content": "bot reply to keep the context history"},
+        {"role": "assistant", "content": "bot reply to keep the context history"},
         {"role": "user", "content": "last user input..."}
     ]"""
     response = openai.ChatCompletion.create(model="gpt-3.5-turbo", messages=messages)
