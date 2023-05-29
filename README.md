@@ -1,19 +1,15 @@
-# AI PROJECT
-- For the next 2 weeks, in the afternoon you will be
-working on this project in your group.
-- use ai (openai for example, with the code I provided as inspiration)
-create something unique
-- each day I will give you an additional task to include into your program (based on that days lecture)
-- YOUR OPENAI KEY: 
+# Job Achiever Master
 
-## little reminder
-- collaborate on the work using github & board
-- create a presentation for next week!
+## How to create Word doc in Python
+### 1. [How to install Microsoft fonts in Linux office suites](https://www.pcworld.com/article/431001/how-to-install-microsoft-fonts-in-linux-office-suites.html)
+### 2. Install python-docs with **pip install python-docx**  
+    IMPORTANT: while python-docx is focused on working with Microsoft Word documents and uses the Office Open XML (OOXML) format, specifically the .docx file format, there is a similar library called *unotools* designed to work with LibreOffice/OpenOffice documents which uses the Open Document Format (ODF).
+### 3. [python-docx documentation](https://python-docx.readthedocs.io/en/latest/)  
 
-## AI PROJECT - ADDITIONAL TASK
-- include some sort of stubbing in one of your unittests
-- OPTIONAL: include some sort of mocking  
----
+
+
+
+
 
 ## Cover letter bot
 
